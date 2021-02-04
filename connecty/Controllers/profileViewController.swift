@@ -1,13 +1,12 @@
 //
-//  SearchViewController.swift
+//  profileViewController.swift
 //  connecty
 //
-//  Created by 공대생 on 2021/02/04.
+//  Created by 공대생 on 2021/02/05.
 //
-
 import UIKit
 
-class SearchViewController: UIViewController{
+class profileViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +17,6 @@ class SearchViewController: UIViewController{
     func configure(){
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "Search"
+        navigationItem.title = "My Feed"
     }
 }

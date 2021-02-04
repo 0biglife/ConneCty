@@ -37,6 +37,8 @@ class RootViewController: UIViewController {
         let tabBarVC = MainTabBarController()
         tabBarVC.modalPresentationStyle = .fullScreen
         self.present(tabBarVC, animated: true, completion: nil)
+        //신동규 강의 : https://www.youtube.com/watch?v=Znx6o_QKP1s&list=PLG9rdv7aU2N4-nuDqAUtfDlKs4iRJaiu7&index=8
+        //navigationController?.pushViewController(/*다음 진행할 뷰 이름*/, animated: true)
     }
     
     @objc func signupTap(){

@@ -17,6 +17,9 @@
 		325FCD0A25CBADE30068DE6C /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */; };
 		325FCD0F25CBC0640068DE6C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD0E25CBC0640068DE6C /* HomeViewController.swift */; };
 		325FCD5725CC08260068DE6C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD5625CC08260068DE6C /* SearchViewController.swift */; };
+		325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6825CCBD950068DE6C /* matchViewController.swift */; };
+		325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */; };
+		325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,9 @@
 		325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		325FCD0E25CBC0640068DE6C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		325FCD5625CC08260068DE6C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		325FCD6825CCBD950068DE6C /* matchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchViewController.swift; sourceTree = "<group>"; };
+		325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
+		325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,6 +121,9 @@
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
 				325FCD5625CC08260068DE6C /* SearchViewController.swift */,
+				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
+				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
+				325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -245,6 +254,9 @@
 				325FCD5725CC08260068DE6C /* SearchViewController.swift in Sources */,
 				32480C8225C6D54400D03EED /* RootViewController.swift in Sources */,
 				32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */,
+				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
+				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
+				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,
 				32480C8025C6D54400D03EED /* SceneDelegate.swift in Sources */,
 				325FCD0F25CBC0640068DE6C /* HomeViewController.swift in Sources */,
 				325FCD0A25CBADE30068DE6C /* MainTabBarViewController.swift in Sources */,

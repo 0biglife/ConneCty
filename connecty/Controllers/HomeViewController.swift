@@ -9,6 +9,13 @@ import UIKit
 
 class HomeViewController: UIViewController{
     
+    lazy var scrollView:UIScrollView = {
+        let v = UIScrollView()
+        v.backgroundColor = .systemBackground
+        v.contentSize = CGSize(width: view.frame.width, height: 2000)
+        return v
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,7 +23,6 @@ class HomeViewController: UIViewController{
     }
     
     func configure(){
-        
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
