@@ -1,0 +1,6 @@
+framework module Pods_connecty {
+  umbrella header "Pods-connecty-umbrella.h"
+
+  export *
+  module * { export * }
+}
