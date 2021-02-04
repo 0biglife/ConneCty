@@ -21,12 +21,15 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         let searchVC = UINavigationController(rootViewController: SearchViewController())
         
-        homeVC.tabBarItem.image = UIImage(systemName: "Home")
-        homeVC.tabBarItem.selectedImage = UIImage(systemName: "Home")
-        searchVC.tabBarItem.image = UIImage(systemName: "Search")
-        searchVC.tabBarItem.selectedImage = UIImage(systemName: "Search")
-        
+        homeVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .history , tag: 1)
+        searchVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .search , tag: 2)
+        //homeVC.tabBarItem = UITabBarItem.init(title: "Home", image: UIIMage(named: "~"), tag : 3)
         viewControllers = [homeVC,searchVC]
+        
+        guard let items = tabBar.items else {return}
+        for item in items{
+            item.imageInsets = UIEdgeInsets(top: 10,left: 0,bottom: -10,right: 0)
+        }
     }
 }
 

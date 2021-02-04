@@ -9,15 +9,16 @@ class RootViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.backgroundColor = .orange
         button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 24
         return button
     }()
     
     lazy var signupButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
         button.setTitle("Sign Up", for: .normal)
-        button.titleLabel?.font = .systemFont(ofSize: 30)
-        button.backgroundColor = .white
+        button.backgroundColor = .orange
         button.setTitleColor(.black, for: .normal)
+        button.layer.cornerRadius = 24
         return button
     }()
     
@@ -48,9 +49,16 @@ class RootViewController: UIViewController {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
         loginButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 100).isActive = true
-        loginButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        loginButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 240).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        view.addSubview(signupButton)
+        signupButton.translatesAutoresizingMaskIntoConstraints = false
+        signupButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        signupButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
+        signupButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
+        signupButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
 }
