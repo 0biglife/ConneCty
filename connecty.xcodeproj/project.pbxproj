@@ -20,6 +20,11 @@
 		325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6825CCBD950068DE6C /* matchViewController.swift */; };
 		325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */; };
 		325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */; };
+		325FCD7325CCC20B0068DE6C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7225CCC20B0068DE6C /* TableViewController.swift */; };
+		325FCD7725CCC2AE0068DE6C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7625CCC2AE0068DE6C /* PostCell.swift */; };
+		325FCD7B25CCC9430068DE6C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7A25CCC9430068DE6C /* CollectionViewController.swift */; };
+		325FCD7E25CCC9D90068DE6C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */; };
+		325FCD8225CCCD350068DE6C /* CollectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +44,11 @@
 		325FCD6825CCBD950068DE6C /* matchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchViewController.swift; sourceTree = "<group>"; };
 		325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
 		325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
+		325FCD7225CCC20B0068DE6C /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		325FCD7625CCC2AE0068DE6C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		325FCD7A25CCC9430068DE6C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderCell.swift; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,11 +125,32 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		325FCD7125CCC1F40068DE6C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				325FCD8425CCCD480068DE6C /* View */,
+				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
+				325FCD7225CCC20B0068DE6C /* TableViewController.swift */,
+				325FCD7A25CCC9430068DE6C /* CollectionViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		325FCD8425CCCD480068DE6C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				325FCD7625CCC2AE0068DE6C /* PostCell.swift */,
+				325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */,
+				325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3297D98C25CB7C03001F73BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
-				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
+				325FCD7125CCC1F40068DE6C /* Home */,
 				325FCD5625CC08260068DE6C /* SearchViewController.swift */,
 				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
@@ -252,14 +283,19 @@
 				325FCD0625CB916E0068DE6C /* Extensions.swift in Sources */,
 				32480C8825C6D54400D03EED /* connecty.xcdatamodeld in Sources */,
 				325FCD5725CC08260068DE6C /* SearchViewController.swift in Sources */,
+				325FCD7725CCC2AE0068DE6C /* PostCell.swift in Sources */,
+				325FCD7B25CCC9430068DE6C /* CollectionViewController.swift in Sources */,
 				32480C8225C6D54400D03EED /* RootViewController.swift in Sources */,
 				32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
 				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
+				325FCD7325CCC20B0068DE6C /* TableViewController.swift in Sources */,
+				325FCD8225CCCD350068DE6C /* CollectionHeaderCell.swift in Sources */,
 				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,
 				32480C8025C6D54400D03EED /* SceneDelegate.swift in Sources */,
 				325FCD0F25CBC0640068DE6C /* HomeViewController.swift in Sources */,
 				325FCD0A25CBADE30068DE6C /* MainTabBarViewController.swift in Sources */,
+				325FCD7E25CCC9D90068DE6C /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
