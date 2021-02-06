@@ -7,7 +7,7 @@
 import UIKit
 import SnapKit
 
-class FirebaseController: UIViewController {
+class ApiServerController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()

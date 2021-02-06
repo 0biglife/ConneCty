@@ -11,9 +11,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = FirebaseController()
+        //window?.rootViewController = LoginViewController()
         //window?.rootViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        //window?.rootViewController = MainTabBarController()
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
     }
 

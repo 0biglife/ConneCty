@@ -4,7 +4,6 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
-    let remoteConfig = RemoteConfig.remoteConfig()
     var color : String!
     
     lazy var loginButton: UIButton = {
@@ -12,7 +11,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Log In", for: .normal)
         button.backgroundColor = .orange
         button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 24
+        button.layer.cornerRadius = 20
         return button
     }()
     
@@ -21,7 +20,7 @@ class LoginViewController: UIViewController {
         button.setTitle("Sign Up", for: .normal)
         button.backgroundColor = .orange
         button.setTitleColor(.black, for: .normal)
-        button.layer.cornerRadius = 24
+        button.layer.cornerRadius = 20
         return button
     }()
     
@@ -32,17 +31,17 @@ class LoginViewController: UIViewController {
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
         
-        signupButton.addTarget(self, action: #selector(presentSignup), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    @objc func presentSignup(){
-        let signupVC = SignUpViewController()
-        self.navigationController?.pushViewController(signupVC, animated: true)
-    }
+//    @objc func presentSignup(){
+//        let signupVC = SignUpViewController()
+//        self.navigationController?.pushViewController(signupVC, animated: true)
+//    }
 
     @objc func loginTap(){
         let tabBarVC = MainTabBarController()
@@ -59,19 +58,19 @@ class LoginViewController: UIViewController {
     func configureViewComponent(){
         self.view.backgroundColor = .systemBackground
         
-        view.addSubview(loginButton)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        loginButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 240).isActive = true
-        loginButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
         view.addSubview(signupButton)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
         signupButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        signupButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
+        signupButton.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 240).isActive = true
         signupButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
         signupButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        loginButton.topAnchor.constraint(equalTo: signupButton.bottomAnchor, constant: 20).isActive = true
+        loginButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         
     }
 }

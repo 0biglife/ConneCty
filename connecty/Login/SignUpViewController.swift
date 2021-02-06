@@ -9,7 +9,6 @@ import SnapKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate{
     
-    let remoteConfig = RemoteConfig.remoteConfig()
     var color : String?
     
     lazy var emailTF: UITextField = {
@@ -71,15 +70,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
 //        cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
     }
     
-    @objc func signupEvent(){
-        }
-    }
-    @objc func cancelEvent(){
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    @objc func signupEvent(){
+    }
 }
-
+//    @objc func cancelEvent(){
+//        self.dismiss(animated: true, completion: nil)
+//    }
