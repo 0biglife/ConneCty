@@ -26,5 +26,12 @@ class HomeViewController: UIViewController{
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .plain, target: self, action: #selector(goToMessage))
+    }
+    
+    @objc fileprivate func goToMessage(){
+        let messageVC = MessageViewController()
+        self.navigationController?.pushViewController(messageVC, animated: true)
     }
 }

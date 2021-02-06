@@ -13,7 +13,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.barTintColor = .white
+        tabBar.barTintColor = .systemBackground
         delegate = self
         configure()
         
@@ -31,17 +31,19 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let practiceVC = UINavigationController(rootViewController: practiceViewController())
         let profileVC = UINavigationController(rootViewController: profileViewController())
         
-        homeVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .history , tag: 1)
-        searchVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .search , tag: 2)
-        matchVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .more , tag: 3)
-        practiceVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .favorites , tag: 4)
-        profileVC.tabBarItem = UITabBarItem.init(tabBarSystemItem: .featured , tag: 5)
+        homeVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "homekit"), tag: 1)
+        searchVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "magnifyingglass.circle"), tag: 2)
+        matchVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person.2"), tag: 3)
+        practiceVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "mic"), tag: 4)
+        profileVC.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "person"), tag: 5)
         //homeVC.tabBarItem = UITabBarItem.init(title: "Home", image: UIIMage(named: "~"), tag : 3)
+        
+        
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
         guard let items = tabBar.items else {return}
         for item in items{
-            item.imageInsets = UIEdgeInsets(top: 10,left: 0,bottom: -10,right: 0)
+            item.imageInsets = UIEdgeInsets(top: 9,left: 0,bottom: -10,right: 0)
         }
     }
 }
