@@ -6,8 +6,6 @@
 //
 import UIKit
 import SnapKit
-import Firebase
-import FirebaseAuth
 
 class SignUpViewController: UIViewController, UITextFieldDelegate{
     
@@ -68,25 +66,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let statusBar = UIView()
-//        self.view.addSubview(statusBar)
-//        statusBar.snp.makeConstraints{(m) in
-//            m.right.top.left.equalTo(self.view)
-//            m.height.equalTo(20)
-//        }
-//        color = remoteConfig["splash_background"].stringValue
-//        statusBar.backgroundColor = UIColor(hex: color!)
-//        signup.backgroundColor = UIColor(hex: color!)
-//        cancel.backgroundColor = UIColor(hex: color!)
-        signupButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
-        cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
+        
+//        signupButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
+//        cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
     }
     
     @objc func signupEvent(){
-        Auth.auth().createUser(withEmail: emailTF.text!, password: passwordTF.text!){ (user, err) in
-            guard let uid = user?.user.uid else { return }
-//            Database.database().reference().child("users").child(uid).setValue(["name": self.name.text!])
-            
         }
     }
     @objc func cancelEvent(){

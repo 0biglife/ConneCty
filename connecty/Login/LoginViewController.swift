@@ -1,6 +1,5 @@
 import UIKit
 import SnapKit
-import Firebase
 //import Then
 
 class LoginViewController: UIViewController {
@@ -32,20 +31,6 @@ class LoginViewController: UIViewController {
         configureViewComponent()
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
-        
-        
-        let statusBar = UIView()
-        self.view.addSubview(statusBar)
-        statusBar.snp.makeConstraints{(m) in
-            m.right.top.left.equalTo(self.view)
-            m.height.equalTo(20)
-        }
-        color = remoteConfig["splash_background"].stringValue
-        
-        loginButton.backgroundColor = UIColor(hex : color)
-        signupButton.backgroundColor = UIColor(hex : color)
-        
-        statusBar.backgroundColor = UIColor(hex: color)
         
         signupButton.addTarget(self, action: #selector(presentSignup), for: .touchUpInside)
     }

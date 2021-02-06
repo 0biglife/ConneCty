@@ -25,7 +25,6 @@
 		325FCD7B25CCC9430068DE6C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7A25CCC9430068DE6C /* CollectionViewController.swift */; };
 		325FCD7E25CCC9D90068DE6C /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */; };
 		325FCD8225CCCD350068DE6C /* CollectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */; };
-		325FCD9625CCD9DD0068DE6C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 325FCD9525CCD9DD0068DE6C /* GoogleService-Info.plist */; };
 		325FCDD025CCDF3E0068DE6C /* FirebaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDCF25CCDF3E0068DE6C /* FirebaseController.swift */; };
 		325FCDD625CCE05C0068DE6C /* RemoteConfigDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 325FCDD525CCE05C0068DE6C /* RemoteConfigDefaults.plist */; };
 		325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDF925CE7B400068DE6C /* MessageViewController.swift */; };
@@ -55,7 +54,6 @@
 		325FCD7A25CCC9430068DE6C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
 		325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionHeaderCell.swift; sourceTree = "<group>"; };
-		325FCD9525CCD9DD0068DE6C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		325FCDCF25CCDF3E0068DE6C /* FirebaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseController.swift; sourceTree = "<group>"; };
 		325FCDD525CCE05C0068DE6C /* RemoteConfigDefaults.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RemoteConfigDefaults.plist; sourceTree = "<group>"; };
 		325FCDF925CE7B400068DE6C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 		32480C7C25C6D54400D03EED /* connecty */ = {
 			isa = PBXGroup;
 			children = (
-				325FCD9525CCD9DD0068DE6C /* GoogleService-Info.plist */,
 				32480C8E25C6D54500D03EED /* Info.plist */,
 				32480C7D25C6D54400D03EED /* AppDelegate.swift */,
 				32480C7F25C6D54400D03EED /* SceneDelegate.swift */,
@@ -253,7 +250,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				32480C8D25C6D54500D03EED /* LaunchScreen.storyboard in Resources */,
-				325FCD9625CCD9DD0068DE6C /* GoogleService-Info.plist in Resources */,
 				325FCDD625CCE05C0068DE6C /* RemoteConfigDefaults.plist in Resources */,
 				32480C8A25C6D54500D03EED /* Assets.xcassets in Resources */,
 			);
