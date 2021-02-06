@@ -5,7 +5,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
     
-    //var remoteConfig : RemoteConfig
+    let remoteConfig = RemoteConfig.remoteConfig()
+    var color : String!
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
@@ -28,19 +29,36 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        remoteConfig = RemoteConfig.remoteConfig()
-//        let settings = RemoteConfigSettings()
-//        settings.minimumFetchInterval = 0
-//        remoteConfig.configSettings = settings
-        
         configureViewComponent()
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
         
-        loginButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
-        signupButton.addTarget(self, action: #selector(signupTap), for: .touchUpInside)
+        
+        let statusBar = UIView()
+        self.view.addSubview(statusBar)
+        statusBar.snp.makeConstraints{(m) in
+            m.right.top.left.equalTo(self.view)
+            m.height.equalTo(20)
+        }
+        color = remoteConfig["splash_background"].stringValue
+        
+        loginButton.backgroundColor = UIColor(hex : color)
+        signupButton.backgroundColor = UIColor(hex : color)
+        
+        statusBar.backgroundColor = UIColor(hex: color)
+        
+        signupButton.addTarget(self, action: #selector(presentSignup), for: .touchUpInside)
     }
     
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @objc func presentSignup(){
+        let signupVC = SignUpViewController()
+        self.navigationController?.pushViewController(signupVC, animated: true)
+    }
+
     @objc func loginTap(){
         let tabBarVC = MainTabBarController()
         tabBarVC.modalPresentationStyle = .fullScreen

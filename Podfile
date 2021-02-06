@@ -10,6 +10,8 @@ target 'connecty' do
   pod 'Firebase/Auth'
   pod 'SnapKit', '~> 5.0.0'
   pod 'Then'
+  pod 'Firebase/Core'
+  pod "TextFieldEffects"
 
   # Pods for connecty
 

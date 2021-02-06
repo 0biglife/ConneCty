@@ -49,9 +49,9 @@ class FirebaseController: UIViewController {
             }))
             self.present(alert, animated: true, completion: nil)
         }else{ // log in 화면 출력
-            let loginVC = self.storyboard?.instantiateViewController(identifier: "LoginViewController") as! LoginViewController //캐스팅
-            
-            self.present(loginVC, animated: false, completion: nil)
+            let loginVC = LoginViewController()
+            let navController = UINavigationController(rootViewController: loginVC)
+            self.present(navController, animated: true, completion: nil)
         }
         self.view.backgroundColor = UIColor(hex: color!)
     }

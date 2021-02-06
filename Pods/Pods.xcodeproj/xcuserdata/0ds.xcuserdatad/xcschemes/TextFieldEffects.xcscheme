@@ -14,9 +14,9 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8F68D031908A0059566798048C48F776"
-               BuildableName = "FirebaseABTesting.framework"
-               BlueprintName = "FirebaseABTesting"
+               BlueprintIdentifier = "D09BAB8A20917611A8AD17E2E0EE8271"
+               BuildableName = "TextFieldEffects.framework"
+               BlueprintName = "TextFieldEffects"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
