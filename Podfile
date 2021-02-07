@@ -8,6 +8,7 @@ target 'connecty' do
   pod 'SnapKit', '~> 5.0.0'
   pod 'Then'
   pod "TextFieldEffects"
+  pod 'Alamofire', '~> 5.2'
 
   # Pods for connecty
 
