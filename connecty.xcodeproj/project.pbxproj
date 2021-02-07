@@ -29,6 +29,7 @@
 		325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDF925CE7B400068DE6C /* MessageViewController.swift */; };
 		325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */; };
 		325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCE0025CE89050068DE6C /* SignUpViewController.swift */; };
+		325FCE3B25CFC4590068DE6C /* test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCE3A25CFC4590068DE6C /* test.swift */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +58,7 @@
 		325FCDF925CE7B400068DE6C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSetingViewController.swift; sourceTree = "<group>"; };
 		325FCE0025CE89050068DE6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		325FCE3A25CFC4590068DE6C /* test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test.swift; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				325FCD7625CCC2AE0068DE6C /* PostCell.swift */,
+				325FCE3A25CFC4590068DE6C /* test.swift */,
 				325FCD7D25CCC9D90068DE6C /* CollectionCell.swift */,
 				325FCD8125CCCD350068DE6C /* CollectionHeaderCell.swift */,
 			);
@@ -313,6 +316,7 @@
 				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
 				325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */,
 				325FCD7325CCC20B0068DE6C /* TableViewController.swift in Sources */,
+				325FCE3B25CFC4590068DE6C /* test.swift in Sources */,
 				325FCD8225CCCD350068DE6C /* CollectionHeaderCell.swift in Sources */,
 				325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */,
 				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,

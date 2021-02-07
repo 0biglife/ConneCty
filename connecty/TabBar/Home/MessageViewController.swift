@@ -14,5 +14,4 @@ class MessageViewController : UIViewController{
         self.title = "Messgae"
         self.view.backgroundColor = .systemBackground
     }
-    
 }
