@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
         
-        loginButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
+        signupButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,7 +71,6 @@ class LoginViewController: UIViewController {
         loginButton.topAnchor.constraint(equalTo: signupButton.bottomAnchor, constant: 20).isActive = true
         loginButton.widthAnchor.constraint(equalToConstant: 325).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
     }
 }
 /*
