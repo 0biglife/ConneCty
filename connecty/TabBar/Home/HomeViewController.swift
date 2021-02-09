@@ -7,42 +7,51 @@
 
 import UIKit
 
-class HomeViewController: UIViewController{
+//protocol HomePostCellDelegate {
+//    func didTapComment(post: Post)
+//    func didTapUser(user: User)
+//    func didTapOptions(post: Post)
+//    func didLike(for cell: HomePostCell)
+//}
+
+class HomeViewController: UIViewController {
     
-//    lazy var scrollView:UIScrollView = {
-//        let v = UIScrollView()
-//        v.backgroundColor = .systemBackground
-//        v.contentSize = CGSize(width: view.frame.width, height: 2000)
-//        return v
-//    }()
-    
-    //let items = ["1","2","3","4","5"]
+    private var collectionView: UICollectionView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configureNavigationBar()
+        configureCollectionView()
     }
     
-    //CollectionView Setting Starts.
-    
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return items.count
-//    }
-//
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellID", for: indexPath) as! CollectionCell
-//        cell.item = items[indexPath.row]
-//        return cell
-//    }
-    
-    func configure(){
+    func configureNavigationBar(){
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
-        
-//        collectionView?.backgroundColor = .systemBackground
-//        collectionView.register(CollectionCell.self, forCellWithReuseIdentifier: "cellID")
-        
+        UINavigationBar.appearance().isTranslucent = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .plain, target: self, action: #selector(goToMessage))
+    }
+    
+    func configureCollectionView(){
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        guard let collectionView = collectionView else {return}
+        
+        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
+        
+        collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: HomePostCell.identifier)
+        
+        collectionView.register(HomePostCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomePostCellHeader.identifier)
+        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
+        view.addSubview(collectionView)
+        collectionView.frame = view.bounds
     }
     
     @objc fileprivate func goToMessage(){
@@ -51,16 +60,40 @@ class HomeViewController: UIViewController{
     }
 }
 
-//extension HomeViewController: UICollectionViewDelegateFlowLayout{
-//    //cell 하나당 사이즈
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: view.frame.width, height: view.frame.width)
-//    }
-//    //간격조절
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return 1
-//    }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return 1
-//    }
-//}
+extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 10
+    }
+    // MARK : CollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostCell.identifier, for: indexPath)
+        return cell
+    }
+    
+    // MARK : Header
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomePostCellHeader.identifier, for: indexPath) as! HomePostCellHeader
+        header.configure()
+        return header
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 60)
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 270)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+    }
+}

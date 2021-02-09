@@ -52,5 +52,83 @@
             landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "connecty/TabBar/Home/View/HomePostCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "postImageView"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 60d3babd8e43ea63"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "connecty.HomePostCell.item.getter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "139">
+               </Location>
+               <Location
+                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 35dd269b137e0a8b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "connecty.HomePostCell.item.setter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "185">
+               </Location>
+               <Location
+                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - dd17fa63223c1783"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "connecty.HomePostCell.item.modify : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "22">
+               </Location>
+               <Location
+                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 93056a61c73af1a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "connecty.HomePostCell.item.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "10">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

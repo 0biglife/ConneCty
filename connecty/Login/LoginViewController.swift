@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
         configureViewComponent()
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
-        
         signupButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
     }
     
@@ -57,6 +56,15 @@ class LoginViewController: UIViewController {
     
     func configureViewComponent(){
         self.view.backgroundColor = .systemBackground
+        
+        let imageV = UIImageView(frame: CGRect(x: 50, y: 100, width: 100, height: 100))
+        imageV.image = UIImage(named: "test.png", in: Bundle(for: type(of: self)), compatibleWith: nil)
+        imageV.center = view.center
+        imageV.layer.cornerRadius = 50
+        imageV.clipsToBounds = true
+        imageV.layer.borderWidth = 5
+        imageV.layer.borderColor = UIColor.white.cgColor
+        view.addSubview(imageV)
         
         view.addSubview(signupButton)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
