@@ -41,7 +41,8 @@ class HomePostCellHeader :UICollectionReusableView{
     }()
     
     @objc func userNameTap(){
-        delegate?.didTapUser()
+        //delegate?.didTapUser()
+        
     }
     
     override init(frame: CGRect) {

@@ -37,10 +37,10 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-//    @objc func presentSignup(){
-//        let signupVC = SignUpViewController()
-//        self.navigationController?.pushViewController(signupVC, animated: true)
-//    }
+    @objc func presentSignup(){
+        let signupVC = SignUpViewController()
+        self.navigationController?.pushViewController(signupVC, animated: true)
+    }
 
     @objc func loginTap(){
         let tabBarVC = MainTabBarController()
