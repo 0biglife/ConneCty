@@ -62,10 +62,10 @@
             filePath = "connecty/TabBar/Home/View/HomePostCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "14"
-            endingLineNumber = "14"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "userNameTap()"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 60d3babd8e43ea63"

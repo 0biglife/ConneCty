@@ -35,17 +35,15 @@ class HomeViewController: UIViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 6
         layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else {return}
         
-        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
+//        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
         
         collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: HomePostCell.identifier)
-        
-        collectionView.register(HomePostCellHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomePostCellHeader.identifier)
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -62,12 +60,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{
     
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
-    }
+//    func numberOfSections(in collectionView: UICollectionView) -> Int {
+//        return 10
+//    }
     // MARK : CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -75,14 +73,8 @@ extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegat
         return cell
     }
     
-    // MARK : Header
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomePostCellHeader.identifier, for: indexPath) as! HomePostCellHeader
-        header.configure()
-        return header
-    }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 60)
+        return CGSize(width: view.frame.size.width, height: 110)
     }
 }
 

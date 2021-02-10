@@ -16,10 +16,10 @@ class HomePostCellHeader :UICollectionReusableView{
     
     var delegate: HomePostCellHeaderDelegate?
     
-    let postHeader: UIView = {
-        let vi = UIView()
-        return vi
-    }()
+//    let postHeader: UIView = {
+//        let vi = UIView()
+//        return vi
+//    }()
     let profileImage: UIImageView = {
         let img = UIImageView(frame: CGRect())
         img.image = UIImage(named: "1p.png")
@@ -53,8 +53,8 @@ class HomePostCellHeader :UICollectionReusableView{
         fatalError("init(coder:) has not been implemented")
     }
     func configure(){
-        backgroundColor = .white
-        addSubview(postHeader)
+        backgroundColor = .orange
+//        addSubview(postHeader)
         
         addSubview(profileImage)
         profileImage.translatesAutoresizingMaskIntoConstraints = false
@@ -71,7 +71,7 @@ class HomePostCellHeader :UICollectionReusableView{
     }
     override func layoutSubviews() {
         super.layoutSubviews()
-        postHeader.frame = bounds
+//        postHeader.frame = bounds
     }
 }
 
