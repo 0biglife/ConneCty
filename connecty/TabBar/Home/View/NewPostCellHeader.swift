@@ -36,7 +36,7 @@ class NewPostCellHeader: UICollectionViewCell{
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
     func configure(){
-        backgroundColor = .systemBackground
+        backgroundColor = .systemRed
         addSubview(postView)
     }
     
