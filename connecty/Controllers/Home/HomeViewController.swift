@@ -18,6 +18,7 @@ class HomeViewController: UICollectionViewController {
     
     // MARK: - Lifecycle
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -47,10 +48,10 @@ class HomeViewController: UICollectionViewController {
         
         collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
         
-        collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: HomePostCell.identifier)
-        
         collectionView.dataSource = self
         collectionView.delegate = self
+        collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
+        collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
         
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
@@ -65,14 +66,27 @@ class HomeViewController: UICollectionViewController {
 // MARK: - UICollectionView DataSource
 
 extension HomeViewController{
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
+    // MARK: - PostCell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostCell.identifier, for: indexPath) as! HomePostCell
-        return cell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
+        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
+        if (indexPath.row % 2) == 0 {
+            return cell2
+        }else{
+            return cell
+        }
     }
+    
+    // MARK: - TrackCell
+//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
+//        return cell
+//    }
     
     // MARK : Cell Header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -96,6 +110,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         return 0
     }
 }
+
 //이전 코드
 /*
 extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{

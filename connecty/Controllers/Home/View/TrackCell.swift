@@ -1,22 +1,16 @@
-//
-//  CollectionCell.swift
-//  connecty
-//
-//  Created by 공대생 on 2021/02/05.
-//
 
 import UIKit
 
-class HomePostCell: UICollectionViewCell{
+class TrackCell: UICollectionViewCell{
     
-    static let identifier = "HomePostCellID"
+    static let identifier = "TrackCellID"
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "test")
         return iv
     }()
     
@@ -34,7 +28,7 @@ class HomePostCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "test")
         return iv
     }()
     
@@ -69,7 +63,7 @@ class HomePostCell: UICollectionViewCell{
     
     private let captionLabel: UILabel = {
         let label = UILabel()
-        label.text = "Some test caption for now  .. . .  ."
+        label.text = "test-captionx for now  .. . .  ."
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 12)
         return label
