@@ -14,9 +14,9 @@ import UIKit
 //    func didLike(for cell: HomePostCell)
 //}
 
-class HomeViewController: UIViewController {
+class HomeViewController: UICollectionViewController {
     
-    private var collectionView: UICollectionView?
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,11 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .plain, target: self, action: #selector(goToMessage))
     }
     
+    // MARK: - Helpers
+    
     func configureCollectionView(){
+        
+        collectionView.backgroundColor = .systemBackground
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -41,7 +45,7 @@ class HomeViewController: UIViewController {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         guard let collectionView = collectionView else {return}
         
-//        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
+        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
         
         collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: HomePostCell.identifier)
         
@@ -58,6 +62,42 @@ class HomeViewController: UIViewController {
     }
 }
 
+// MARK: - UICollectionView DataSource
+
+extension HomeViewController{
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostCell.identifier, for: indexPath) as! HomePostCell
+        return cell
+    }
+    
+    // MARK : Cell Header
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.size.width, height: 110)
+    }
+}
+
+// MARK: - Size of each Cell
+
+extension HomeViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let width = view.frame.width
+        var height = width + 8 + 40 + 8
+        height += 50
+        height += 65
+        
+        return CGSize(width: view.frame.width, height: height)
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+}
+//이전 코드
+/*
 extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{
     
 //    func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -73,6 +113,7 @@ extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegat
         return cell
     }
     
+    // MARK : Cell Header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.size.width, height: 110)
     }
@@ -85,7 +126,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+//    }
 }
+ 
+ */

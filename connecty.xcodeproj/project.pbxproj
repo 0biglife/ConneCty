@@ -105,7 +105,7 @@
 				32480C7F25C6D54400D03EED /* SceneDelegate.swift */,
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
 				325FCDAA25CCDCEE0068DE6C /* Login */,
-				3297D98C25CB7C03001F73BC /* TabBar */,
+				3297D98C25CB7C03001F73BC /* Controllers */,
 				325FCD0425CB91590068DE6C /* Extensions */,
 				32480C9625C6D56500D03EED /* resource */,
 			);
@@ -160,7 +160,7 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
-		3297D98C25CB7C03001F73BC /* TabBar */ = {
+		3297D98C25CB7C03001F73BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
@@ -170,7 +170,7 @@
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
 				325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */,
 			);
-			path = TabBar;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		F05A424287BA628AD6C22AEB /* Frameworks */ = {

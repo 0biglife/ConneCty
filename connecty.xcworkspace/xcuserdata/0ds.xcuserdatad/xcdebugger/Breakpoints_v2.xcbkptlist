@@ -62,72 +62,26 @@
             filePath = "connecty/TabBar/Home/View/HomePostCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "userNameTap()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 60d3babd8e43ea63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "connecty.HomePostCell.item.getter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "connecty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "139">
-               </Location>
-               <Location
-                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 35dd269b137e0a8b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "connecty.HomePostCell.item.setter : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "connecty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "185">
-               </Location>
-               <Location
-                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - dd17fa63223c1783"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "connecty.HomePostCell.item.modify : Swift.Optional&lt;Swift.String&gt;"
-                  moduleName = "connecty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "22">
-               </Location>
-               <Location
-                  uuid = "F1E9E701-B473-45B0-85A5-49983DFBA77D - 93056a61c73af1a4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "connecty.HomePostCell.item.modify : Swift.Optional&lt;Swift.String&gt; with unmangled suffix &quot;.resume.0&quot;"
-                  moduleName = "connecty"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/TabBar/Home/View/HomePostCell.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "10">
-               </Location>
-            </Locations>
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "postImageView"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DC0F575-45F3-4D31-9008-93EF32762F59"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "connecty/TabBar/Home/View/HomePostCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "postImageView"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
