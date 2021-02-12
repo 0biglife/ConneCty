@@ -11,55 +11,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     var color : String?
     
-    lazy var emailTF: UITextField = {
-        let tf = UITextField()
-        tf.font = UIFont.systemFont(ofSize: 15)
-        tf.textColor = .black
-        tf.backgroundColor = .lightGray
-        tf.borderStyle = UITextField.BorderStyle.roundedRect
-        tf.autocorrectionType = UITextAutocorrectionType.no
+    lazy var emailTF: CustomTextField = {
+        let tf = CustomTextField(placeholder: "E-mail")
         tf.keyboardType = .emailAddress
-        tf.returnKeyType = UIReturnKeyType.done
-        tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        tf.keyboardAppearance = .dark
-        tf.setHeight(50)
-        tf.attributedPlaceholder = NSAttributedString(string: "E-mail", attributes: [.foregroundColor:UIColor(white:1, alpha:0.7)])
-        tf.delegate = self
         return tf
     }()
     
-    lazy var nameTF: UITextField = {
-        let tf = UITextField()
-        tf.font = UIFont.systemFont(ofSize: 15)
-        tf.textColor = .black
-        tf.backgroundColor = .lightGray
-        tf.borderStyle = UITextField.BorderStyle.roundedRect
-        tf.autocorrectionType = UITextAutocorrectionType.no
-        tf.keyboardType = .emailAddress
-        tf.returnKeyType = UIReturnKeyType.done
-        tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        tf.keyboardAppearance = .dark
-        tf.setHeight(50)
-        tf.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [.foregroundColor:UIColor(white:1, alpha:0.7)])
-        tf.delegate = self
-        return tf
-    }()
-    
-    lazy var passwordTF: UITextField = {
-        let tf = UITextField()
-        tf.font = UIFont.systemFont(ofSize: 15)
-        tf.textColor = .black
-        tf.backgroundColor = .lightGray
-        tf.borderStyle = UITextField.BorderStyle.roundedRect
-        tf.autocorrectionType = UITextAutocorrectionType.no
-        tf.keyboardType = .emailAddress
-        tf.returnKeyType = UIReturnKeyType.done
-        tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        tf.keyboardAppearance = .dark
-        tf.setHeight(50)
-        tf.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor:UIColor(white:1, alpha:0.7)])
+    lazy var nameTF: CustomTextField = {
+        let tf = CustomTextField(placeholder: "User Name")
         tf.isSecureTextEntry = true
-        tf.delegate = self
+        return tf
+    }()
+    
+    lazy var passwordTF: CustomTextField = {
+        let tf = CustomTextField(placeholder: "Password")
+        tf.isSecureTextEntry = true
         return tf
     }()
     
@@ -77,11 +43,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     // 클릭하면 글자 자체가 버튼역할을 해서 넘어가도록 하는 것.
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
-        let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.7), .font: UIFont.systemFont(ofSize: 12)]
-        let attributedTitle = NSMutableAttributedString(string: "Forgot your password?  ", attributes: atts)
-        let boldAtts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white : 1, alpha: 0.7), .font: UIFont.boldSystemFont(ofSize: 12)]
-        attributedTitle.append(NSAttributedString(string: "Can help Signing in", attributes: boldAtts))
-        button.setAttributedTitle(attributedTitle, for: .normal)
+        button.attributedTitle(firstPart: "Forgot you password", secondPart: "Get help Signing in.")
         return button
     }()
     override func viewDidLoad() {

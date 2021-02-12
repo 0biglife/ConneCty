@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		320A5CBD25D6526400748296 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A5CBC25D6526400748296 /* TrackCell.swift */; };
+		320A5CC125D66F4D00748296 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320A5CC025D66F4D00748296 /* CustomTextField.swift */; };
 		32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32480C7D25C6D54400D03EED /* AppDelegate.swift */; };
 		32480C8025C6D54400D03EED /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32480C7F25C6D54400D03EED /* SceneDelegate.swift */; };
 		32480C8225C6D54400D03EED /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32480C8125C6D54400D03EED /* LoginViewController.swift */; };
@@ -33,6 +34,7 @@
 
 /* Begin PBXFileReference section */
 		320A5CBC25D6526400748296 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		320A5CC025D66F4D00748296 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		32480C7A25C6D54400D03EED /* connecty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = connecty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32480C7D25C6D54400D03EED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32480C7F25C6D54400D03EED /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 		325FCD0425CB91590068DE6C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				320A5CC025D66F4D00748296 /* CustomTextField.swift */,
 				325FCD0525CB916E0068DE6C /* Extensions.swift */,
 			);
 			path = Extensions;
@@ -301,6 +304,7 @@
 				32480C8825C6D54400D03EED /* connecty.xcdatamodeld in Sources */,
 				325FCD5725CC08260068DE6C /* SearchViewController.swift in Sources */,
 				32480C8225C6D54400D03EED /* LoginViewController.swift in Sources */,
+				320A5CC125D66F4D00748296 /* CustomTextField.swift in Sources */,
 				325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */,
 				32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
