@@ -63,15 +63,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         return tf
     }()
     
-    lazy var loginButton:UIButton = {
+    private let loginButton:UIButton = {
         let button = UIButton()
-        button.setTitle("Sign Up", for: .normal)
-        button.backgroundColor = .orange
+        button.setTitle("Next", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.backgroundColor = .systemOrange
         button.layer.cornerRadius = 5
         button.setHeight(50)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         return button
     }()
     
+    // 클릭하면 글자 자체가 버튼역할을 해서 넘어가도록 하는 것.
+    private let forgotPasswordButton: UIButton = {
+        let button = UIButton(type: .system)
+        let atts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white: 1, alpha: 0.7), .font: UIFont.systemFont(ofSize: 12)]
+        let attributedTitle = NSMutableAttributedString(string: "Forgot your password?  ", attributes: atts)
+        let boldAtts: [NSAttributedString.Key: Any] = [.foregroundColor: UIColor(white : 1, alpha: 0.7), .font: UIFont.boldSystemFont(ofSize: 12)]
+        attributedTitle.append(NSAttributedString(string: "Can help Signing in", attributes: boldAtts))
+        button.setAttributedTitle(attributedTitle, for: .normal)
+        return button
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,18 +98,22 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     func configure(){
         
-        let stack = UIStackView(arrangedSubviews: [emailTF, passwordTF])
+        let stack = UIStackView(arrangedSubviews: [emailTF, passwordTF,forgotPasswordButton,loginButton])
         stack.axis = .vertical
         stack.spacing = 20
         
         view.addSubview(stack)
         stack.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 500, paddingLeft: 32, paddingRight: 32)
         
-        view.addSubview(loginButton)
-        loginButton.anchor(top: stack.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingLeft: 32, paddingRight: 32)
-        
+//        view.addSubview(loginButton)
+//        loginButton.anchor(top: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: -80 ,paddingLeft: 32, paddingRight: 32)
+//        loginButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
     }
     
     @objc func signupEvent(){
+        let tabBarVC = MainTabBarController()
+        tabBarVC.modalPresentationStyle = .fullScreen
+        self.present(tabBarVC, animated: true, completion: nil)
+        
     }
 }
