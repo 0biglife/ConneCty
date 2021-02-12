@@ -99,12 +99,13 @@ extension UIView {
 }
 
 // MARK: - Keyboard Extensions
+
 extension UIViewController{
     
     //탭할 시 키보드 사라짐
     func hideKeyboardWhenTappedAround(){
         let tap = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
-        tap.cancelsTouchesInView = false
+        tap.cancelsTouchesInView = true
         view.addGestureRecognizer(tap)
     }
     

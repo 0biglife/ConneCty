@@ -4,7 +4,14 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var color : String!
+    
+    private let iconImage: UIImageView = {
+        let iv = UIImageView(image: #imageLiteral(resourceName: "splash logo"))
+        return iv
+    }()
     
     lazy var loginButton: UIButton = {
         let button = UIButton(type: UIButton.ButtonType.system)
@@ -24,20 +31,19 @@ class LoginViewController: UIViewController {
         return button
     }()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureViewComponent()
         self.moveViewWithKeyboard()
         self.hideKeyboardWhenTappedAround()
-        signupButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}
     
-    @objc func presentSignup(){
+    @objc func signupTap(){
         let signupVC = SignUpViewController()
         self.navigationController?.pushViewController(signupVC, animated: true)
     }
@@ -50,12 +56,24 @@ class LoginViewController: UIViewController {
         //navigationController?.pushViewController(/*다음 진행할 뷰 이름*/, animated: true)
     }
     
-    @objc func signupTap(){
-        
-    }
-    
     func configureViewComponent(){
         self.view.backgroundColor = .systemBackground
+        
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.barStyle = .black
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemBackground.cgColor]
+        gradient.locations = [0,1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
+        
+        signupButton.addTarget(self, action: #selector(signupTap), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(loginTap), for: .touchUpInside)
+        
+        view.addSubview(iconImage)
+        iconImage.centerX(inView: view)
+        iconImage.centerY(inView: view)
+        iconImage.setDimensions(height: 65, width: 278)
         
         view.addSubview(signupButton)
         signupButton.translatesAutoresizingMaskIntoConstraints = false
