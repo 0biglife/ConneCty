@@ -62,7 +62,7 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemBackground.cgColor]
+        gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemPink.cgColor]
         gradient.locations = [0,1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame

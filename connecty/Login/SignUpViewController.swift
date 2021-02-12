@@ -37,6 +37,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button
     }()
     
@@ -46,6 +47,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         button.attributedTitle(firstPart: "Forgot you password", secondPart: "Get help Signing in.")
         return button
     }()
+    
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,7 +62,21 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     }
     override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}
     
+    // MARK: - Actions
+    
+    @objc func handleShowSignUp(){
+        let vc = RegistrationController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Helpers
+    
     func configure(){
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemRed.cgColor]
+        gradient.locations = [0,1]
+        view.layer.addSublayer(gradient)
+        gradient.frame = view.frame
         
         let stack = UIStackView(arrangedSubviews: [emailTF, passwordTF,forgotPasswordButton,loginButton])
         stack.axis = .vertical
