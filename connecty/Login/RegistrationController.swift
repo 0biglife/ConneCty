@@ -42,11 +42,18 @@ class RegistrationController: UIViewController{
         let button = UIButton()
         button.setTitle("Sign Up" , for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.backgroundColor = .systemOrange
+        button.backgroundColor = .systemGray
         button.layer.cornerRadius = 5
         button.setHeight(50)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        //button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        return button
+    }()
+    
+    private let alreadyHaveAccount: UIButton = {
+        let button = UIButton(type: .system)
+        button.attributedTitle(firstPart: "Already have account?", secondPart: "Sign Up")
+        button.addTarget(self, action: #selector(handleShowLogin), for: .touchUpInside)
         return button
     }()
     
@@ -55,6 +62,19 @@ class RegistrationController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        moveViewWithKeyboard()
+        hideKeyboardWhenTappedAround()
+    }
+    
+    // MARK: Actions
+    
+    @objc func handleShowSignUp(){
+        let vc = MainTabBarController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func handleShowLogin(){
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: Helpers
@@ -71,11 +91,15 @@ class RegistrationController: UIViewController{
         plusPhotoButton.setDimensions(height: 140, width: 140)
         plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         
-        let stack = UIStackView(arrangedSubviews: [emailTF,passwordTF,passwordAgainTF,nameTF,userNameTF])
+        let stack = UIStackView(arrangedSubviews: [emailTF,passwordTF,passwordAgainTF,nameTF,userNameTF,signUpButton])
         stack.axis = .vertical
-        stack.spacing = 20
+        stack.spacing = 15
         
         view.addSubview(stack)
         stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
+        
+        view.addSubview(alreadyHaveAccount)
+        alreadyHaveAccount.centerX(inView: view)
+        alreadyHaveAccount.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
     }
 }

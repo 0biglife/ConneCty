@@ -37,8 +37,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         configureViewComponent()
-        self.moveViewWithKeyboard()
-        self.hideKeyboardWhenTappedAround()
+        moveViewWithKeyboard()
+        hideKeyboardWhenTappedAround()
     }
     
     override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}

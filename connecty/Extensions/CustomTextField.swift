@@ -23,7 +23,6 @@ class CustomTextField: UITextField{
         backgroundColor = .lightGray
         setHeight(50)
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor:UIColor(white:1, alpha:0.7)])
-        isSecureTextEntry = true
     }
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
