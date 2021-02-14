@@ -9,6 +9,8 @@ import SnapKit
 
 class SignUpViewController: UIViewController, UITextFieldDelegate{
     
+    //private let viewModel = LoginViewModel()
+    
     var color : String?
     
     lazy var emailTF: CustomTextField = {
@@ -45,6 +47,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     private let forgotPasswordButton: UIButton = {
         let button = UIButton(type: .system)
         button.attributedTitle(firstPart: "Forgot you password", secondPart: "Get help Signing in.")
+        button.addTarget(self, action: #selector(handlebutton), for: .touchUpInside)
         return button
     }()
     
@@ -63,6 +66,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     override func didReceiveMemoryWarning() {super.didReceiveMemoryWarning()}
     
     // MARK: - Actions
+    
+    @objc func handlebutton(){
+        navigationController?.popViewController(animated: true)
+    }
     
     @objc func handleShowSignUp(){
         let vc = RegistrationController()
