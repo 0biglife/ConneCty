@@ -92,7 +92,7 @@ class LoginViewController: UIViewController {
     }
 
     @objc func handleSignUp(){
-        let signupVC = SignUpViewController()
+        let signupVC = RegistrationController()
         self.navigationController?.pushViewController(signupVC, animated: true)
     }
     
@@ -102,9 +102,7 @@ class LoginViewController: UIViewController {
         }else{
             viewModel.password = sender.text
         }
-        loginButton.backgroundColor = viewModel.buttonBackgroundColor
-        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
-        loginButton.isEnabled = viewModel.formValid
+        updateForm()
     }
     
     func configureViewComponent(){
@@ -150,6 +148,16 @@ class LoginViewController: UIViewController {
         emailTF.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTF.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         
+    }
+}
+
+// MARK: - FormViewModel
+
+extension LoginViewController: FormViewModel{
+    func updateForm() {
+        loginButton.backgroundColor = viewModel.buttonBackgroundColor
+        loginButton.setTitleColor(viewModel.buttonTitleColor, for: .normal)
+        loginButton.isEnabled = viewModel.formIsValid
     }
 }
 
