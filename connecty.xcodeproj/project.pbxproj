@@ -30,7 +30,10 @@
 		325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDF925CE7B400068DE6C /* MessageViewController.swift */; };
 		325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */; };
 		325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCE0025CE89050068DE6C /* SignUpViewController.swift */; };
+		32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BB625DA45350005FF66 /* ProfileCell.swift */; };
+		32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BBA25DA453D0005FF66 /* ProfileHeader.swift */; };
 		32A5398425D2629C009DB44E /* NewPostCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A5398325D2629C009DB44E /* NewPostCellHeader.swift */; };
+		32D88F1225D90F7900959948 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32D88F1125D90F7900959948 /* GoogleService-Info.plist */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,7 +63,10 @@
 		325FCDF925CE7B400068DE6C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSetingViewController.swift; sourceTree = "<group>"; };
 		325FCE0025CE89050068DE6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		32819BB625DA45350005FF66 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		32819BBA25DA453D0005FF66 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		32A5398325D2629C009DB44E /* NewPostCellHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostCellHeader.swift; sourceTree = "<group>"; };
+		32D88F1125D90F7900959948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,7 @@
 			children = (
 				320A5CD025D7935400748296 /* Model */,
 				32480C8E25C6D54500D03EED /* Info.plist */,
+				32D88F1125D90F7900959948 /* GoogleService-Info.plist */,
 				32480C7D25C6D54400D03EED /* AppDelegate.swift */,
 				32480C7F25C6D54400D03EED /* SceneDelegate.swift */,
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
@@ -154,12 +161,12 @@
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
 				325FCDF925CE7B400068DE6C /* MessageViewController.swift */,
 				325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */,
-				325FCD8425CCCD480068DE6C /* View */,
+				325FCD8425CCCD480068DE6C /* HomeCellView */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		325FCD8425CCCD480068DE6C /* View */ = {
+		325FCD8425CCCD480068DE6C /* HomeCellView */ = {
 			isa = PBXGroup;
 			children = (
 				32A5398325D2629C009DB44E /* NewPostCellHeader.swift */,
@@ -167,7 +174,7 @@
 				320A5CBC25D6526400748296 /* TrackCell.swift */,
 				325FCD8125CCCD350068DE6C /* HomePostCellHeader.swift */,
 			);
-			path = View;
+			path = HomeCellView;
 			sourceTree = "<group>";
 		};
 		325FCDAA25CCDCEE0068DE6C /* Login */ = {
@@ -180,6 +187,24 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		32819BB425DA451A0005FF66 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */,
+				32819BB525DA45270005FF66 /* View */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		32819BB525DA45270005FF66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				32819BB625DA45350005FF66 /* ProfileCell.swift */,
+				32819BBA25DA453D0005FF66 /* ProfileHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3297D98C25CB7C03001F73BC /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,7 +213,7 @@
 				325FCD5625CC08260068DE6C /* SearchViewController.swift */,
 				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
-				325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */,
+				32819BB425DA451A0005FF66 /* Profile */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -262,6 +287,7 @@
 			files = (
 				32480C8D25C6D54500D03EED /* LaunchScreen.storyboard in Resources */,
 				32480C8A25C6D54500D03EED /* Assets.xcassets in Resources */,
+				32D88F1225D90F7900959948 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,9 +348,11 @@
 				320A5CC125D66F4D00748296 /* CustomTextField.swift in Sources */,
 				325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */,
 				32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */,
+				32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */,
 				320A5CC625D6987900748296 /* RegistrationController.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
 				325FCDD025CCDF3E0068DE6C /* ApiServerController.swift in Sources */,
+				32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */,
 				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
 				325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */,
 				325FCD8225CCCD350068DE6C /* HomePostCellHeader.swift in Sources */,

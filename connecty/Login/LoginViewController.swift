@@ -9,7 +9,7 @@ class LoginViewController: UIViewController {
     private var viewModel = LoginViewModel()
     
     private let iconImage: UIImageView = {
-        let iv = UIImageView(image: #imageLiteral(resourceName: "splash logo"))
+        let iv = UIImageView(image: #imageLiteral(resourceName: "1p"))
         return iv
     }()
     

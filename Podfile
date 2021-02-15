@@ -10,6 +10,16 @@ target 'connecty' do
   pod "TextFieldEffects"
   pod 'Alamofire', '~> 5.2'
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
+  pod 'Firebase/Messaging'
+  pod 'Firebase/Auth'
+  pod 'ActiveLabel'
+  pod 'SDWebImage','~>4.4.2'
+  pod 'JGProgressHUD','~>2.0.3'
+  pod 'YPImagePicker'
+
   # Pods for connecty
 
 end

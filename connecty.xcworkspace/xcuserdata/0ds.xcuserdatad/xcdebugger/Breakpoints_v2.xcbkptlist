@@ -84,5 +84,53 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C4E0FCF-DE10-41BB-AAFB-755B2F49CBD7"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "connecty/Extensions/Extensions.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "UIView"
+            landmarkType = "21">
+            <Locations>
+               <Location
+                  uuid = "2C4E0FCF-DE10-41BB-AAFB-755B2F49CBD7 - 9fa7b4463b9a8eb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of (extension in connecty):__C.UIView.center(inView: __C.UIView, yConstant: Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; ()"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/Extensions/Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "11">
+               </Location>
+               <Location
+                  uuid = "2C4E0FCF-DE10-41BB-AAFB-755B2F49CBD7 - aaebb7b115ed882a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in connecty):__C.UIView.center(inView: __C.UIView, yConstant: Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; ()"
+                  moduleName = "connecty"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/0ds/Desktop/ConneCty/connecty/connecty/Extensions/Extensions.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "132">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
