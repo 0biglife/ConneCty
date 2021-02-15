@@ -40,6 +40,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
         tabBar.tintColor = .white //icon select 시 컬러 지정
+        
+        
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController)->UINavigationController{
