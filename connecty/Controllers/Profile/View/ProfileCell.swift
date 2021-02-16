@@ -13,7 +13,7 @@ class ProfileCell: UICollectionViewListCell{
     
     private var postImageView : UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "postTest")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
