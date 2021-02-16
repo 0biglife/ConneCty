@@ -41,14 +41,14 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "icons8-topic-24"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
         button.tintColor = .black
         return button
     }()
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "icons8-share-16"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
         button.tintColor = .black
         return button
     }()
