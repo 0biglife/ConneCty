@@ -86,9 +86,8 @@ class ProfileHeader: UICollectionReusableView{
     let trackGridButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Track", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
-        button.tintColor = UIColor(white: 1, alpha: 0.2)
         button.addTarget(self, action: #selector(handleTrackButton), for: .touchUpInside)
         return button
     }()
@@ -96,10 +95,9 @@ class ProfileHeader: UICollectionReusableView{
     let infoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Myinfo", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
-        button.tintColor = UIColor(white: 1, alpha: 0.2)
-        button.addTarget(self, action: #selector(handleTrackButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleInfoButton), for: .touchUpInside)
         return button
     }()
     
@@ -108,8 +106,7 @@ class ProfileHeader: UICollectionReusableView{
         button.setTitle("Posts", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.white, for: .normal)
-        button.tintColor = UIColor(white: 1, alpha: 0)
-        button.addTarget(self, action: #selector(handleTrackButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handlePostButton), for: .touchUpInside)
         return button
     }()
     
@@ -182,6 +179,14 @@ class ProfileHeader: UICollectionReusableView{
     }
     
     @objc func handleTrackButton(){
+        
+    }
+    
+    @objc func handleInfoButton(){
+        
+    }
+    
+    @objc func handlePostButton(){
         
     }
     
