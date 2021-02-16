@@ -29,13 +29,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 6
-        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "home2-1"), selectedImage: #imageLiteral(resourceName: "co_ic_navigation_home_sel"), rootViewController: HomeViewController(collectionViewLayout : layout))
-        let searchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_navigation_search_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_navigation_search_sel"), rootViewController: SearchViewController())
-        let matchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_navigation_match_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_navigation_match_sel"), rootViewController: matchViewController())
-        let practiceVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_navigation_practicing_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_navigation_practicing_sel"), rootViewController: practiceViewController())
+        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_home_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_home_sel"), rootViewController: HomeViewController(collectionViewLayout : layout))
+        let searchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_search_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_search_sel"), rootViewController: SearchViewController())
+        let matchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_match_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_match_sel"), rootViewController: matchViewController())
+        let practiceVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_practicing_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_practicing_sel"), rootViewController: practiceViewController())
         
         let profileLayout = UICollectionViewFlowLayout()
-        let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_navigation_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_navigation_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
+        let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
         
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
@@ -52,4 +52,3 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         return nav
     }
 }
-

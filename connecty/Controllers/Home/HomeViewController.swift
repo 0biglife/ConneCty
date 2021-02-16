@@ -29,7 +29,7 @@ class HomeViewController: UICollectionViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
         UINavigationBar.appearance().isTranslucent = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "message"), style: .plain, target: self, action: #selector(goToMessage))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain, target: self, action: #selector(goToMessage))
     }
     
     // MARK: - Helpers
@@ -58,7 +58,7 @@ class HomeViewController: UICollectionViewController {
     }
     
     @objc fileprivate func goToMessage(){
-        let messageVC = MessageViewController()
+        let messageVC = homeSettingViewController()
         self.navigationController?.pushViewController(messageVC, animated: true)
     }
 }
