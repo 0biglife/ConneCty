@@ -36,7 +36,11 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         
         let profileLayout = UICollectionViewFlowLayout()
         let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
-        
+//        #imageLiteral(resourceName: "co_ic_tabBar_search_nor")
+//        #imageLiteral(resourceName: "co_ic_feed_like_nor")
+//        #imageLiteral(resourceName: "co_ic_tabBar_home_nor")
+//        #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar")
+//        #imageLiteral(resourceName: "co_ic_tabBar_home_nor")
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
         tabBar.tintColor = .white //icon select 시 컬러 지정

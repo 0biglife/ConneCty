@@ -1,6 +1,15 @@
 {
   "images" : [
     {
+      "idiom" : "universal"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
       "filename" : "co_light_ic_navigation_home_nor.pdf",
       "idiom" : "universal"
     },

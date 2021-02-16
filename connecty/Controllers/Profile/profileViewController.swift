@@ -28,7 +28,11 @@ class profileViewController: UICollectionViewController{
     
     func configure(){
         navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "My Feed"
+        
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "User Name", size: 16)]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UINavigationBar.appearance()                             ]
+
+        UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
         
         view.backgroundColor = .systemBackground
         
@@ -46,10 +50,8 @@ extension profileViewController{
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
-        
         return cell
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerIdentifier, for: indexPath) as! ProfileHeader
@@ -78,6 +80,6 @@ extension profileViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: width, height: width)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 338)
+        return CGSize(width: view.frame.width, height: 291)
     }
 }

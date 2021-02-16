@@ -11,10 +11,20 @@ class ProfileHeader: UICollectionReusableView{
     
     // MARK: Properties
     
+    private let topBGImage: UIImageView = {
+        let iv = UIImageView()
+        iv.image = #imageLiteral(resourceName: "test")
+        iv.
+        return iv
+    }()
+    
+    
+    
     private var profileImageView : UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "1p")
         iv.contentMode = .scaleAspectFill
+        
         iv.clipsToBounds = true
         return iv
     }()
@@ -22,21 +32,34 @@ class ProfileHeader: UICollectionReusableView{
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.text = "Artist_Name"
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 13)
         return label
     }()
     
-    private lazy var editProfileFollowButton:UIButton = {
+    private lazy var firstButton :UIButton = {
+        let button = UIButton()
+        button.setTitle("insight", for: .normal)
+        button.layer.cornerRadius = 3
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 0.5
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleFirstButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var secondButton:UIButton = {
         let button = UIButton()
         button.setTitle("Edit Profile", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(handleEditProfileFollow), for: .touchUpInside)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(handleSecondButton), for: .touchUpInside)
         return button
     }()
+    
     
     private lazy var postsLabel: UILabel = {
         let label = UILabel()
@@ -87,21 +110,21 @@ class ProfileHeader: UICollectionReusableView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = .white
+        backgroundColor = #colorLiteral(red: 0.1510718763, green: 0.15110448, blue: 0.151067555, alpha: 1)
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 78, paddingLeft: 20)
-        profileImageView.layer.borderWidth = 2
-        profileImageView.layer.borderColor = UIColor.systemGray.cgColor
+        profileImageView.layer.borderWidth = 5
+        profileImageView.layer.borderColor = UIColor.white.cgColor
         profileImageView.setDimensions(height: 100, width: 100)
         profileImageView.layer.cornerRadius = 100/2
         
-        addSubview(nameLabel)
-        nameLabel.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 27)
-        nameLabel.centerX(inView: profileImageView)
+        addSubview(firstButton)
+        firstButton.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,paddingTop: 20, paddingLeft: 24, width: 150, height: 24)
         
-        addSubview(editProfileFollowButton)
-        editProfileFollowButton.anchor(top: nameLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 16, paddingLeft: 24, paddingRight: 24)
+        addSubview(secondButton)
+        secondButton.anchor(left: firstButton.rightAnchor, right: rightAnchor, paddingLeft: 24, paddingRight: 24, width: 150, height: 24)
+        secondButton.centerY(inView: firstButton)
         
         let stack = UIStackView(arrangedSubviews:  [postsLabel,followersLabel,followingLabel])
         stack.distribution = .fillEqually
@@ -134,7 +157,11 @@ class ProfileHeader: UICollectionReusableView{
     
     // MARK: Actions
     
-    @objc func handleEditProfileFollow(){
+    @objc func handleFirstButton(){
+        
+    }
+    
+    @objc func handleSecondButton(){
         
     }
     

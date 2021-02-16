@@ -10,10 +10,6 @@ target 'connecty' do
   pod "TextFieldEffects"
   pod 'Alamofire', '~> 5.2'
 
-  pod 'SDWebImage','~>4.4.2'
-  pod 'JGProgressHUD','~>2.0.3'
-  pod 'YPImagePicker'
-
   # Pods for connecty
 
 end
