@@ -10,7 +10,7 @@ class TrackCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "test")
+        iv.image = #imageLiteral(resourceName: "giriboi2")
         return iv
     }()
     
@@ -23,12 +23,12 @@ class TrackCell: UICollectionViewCell{
         return button
     }()
     
-    private let postImageView: UIImageView = {
+    private let trackImage: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "test")
+        iv.image = #imageLiteral(resourceName: "recTest")
         return iv
     }()
     
@@ -98,9 +98,9 @@ class TrackCell: UICollectionViewCell{
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
-        addSubview(postImageView)
-        postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
-        postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        addSubview(trackImage)
+        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
+        trackImage.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
         
         configureActionButtons()
         
@@ -127,7 +127,7 @@ class TrackCell: UICollectionViewCell{
         stackView.distribution = .fillEqually
         
         addSubview(stackView)
-        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
+        stackView.anchor(top: trackImage.bottomAnchor, width: 120, height: 50)
     }
 }
 

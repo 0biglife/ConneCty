@@ -26,7 +26,7 @@ class PostCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "giriboi")
         return iv
     }()
     
@@ -44,7 +44,7 @@ class PostCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "postTest")
         return iv
     }()
     

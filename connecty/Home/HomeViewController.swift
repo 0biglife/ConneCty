@@ -106,11 +106,15 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = view.frame.width
-        var height = width + 8 + 40 + 8
-        height += 50
-        height += 65
         
-        return CGSize(width: view.frame.width, height: height)
+        if (indexPath.row % 2) == 0 {
+            var height = width + 8 + 40 + 8
+            height += 50
+            height += 60
+            return CGSize(width: width, height: height)
+        }else{
+            return CGSize(width: width, height: 15 + 40 + 10 + 200)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
