@@ -19,7 +19,7 @@ class PostCell: UICollectionViewCell{
 //        didSet{
 //            configure()
 //        }
-//    }ㅌ
+//    }
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D09BAB8A20917611A8AD17E2E0EE8271"
-               BuildableName = "TextFieldEffects.framework"
-               BlueprintName = "TextFieldEffects"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "32480C7925C6D54400D03EED"
+               BuildableName = "connecty.app"
+               BlueprintName = "connecty"
+               ReferencedContainer = "container:connecty.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -40,6 +40,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "32480C7925C6D54400D03EED"
+            BuildableName = "connecty.app"
+            BlueprintName = "connecty"
+            ReferencedContainer = "container:connecty.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +57,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "32480C7925C6D54400D03EED"
+            BuildableName = "connecty.app"
+            BlueprintName = "connecty"
+            ReferencedContainer = "container:connecty.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -18,7 +18,6 @@ class HomeViewController: UICollectionViewController {
     
     // MARK: - Lifecycle
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -41,18 +40,18 @@ class HomeViewController: UICollectionViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 6
-        layout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        layout.minimumLineSpacing = 4
+        layout.sectionInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        guard let collectionView = collectionView else {return}
         
-        collectionView.register(NewPostCellHeader.self, forCellWithReuseIdentifier: NewPostCellHeader.identifier)
+        guard let collectionView = collectionView else {return}
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
         collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
+        collectionView.register(HomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier)
         
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
@@ -67,12 +66,23 @@ class HomeViewController: UICollectionViewController {
 // MARK: - UICollectionView DataSource
 
 extension HomeViewController{
-
+    
+    // MARK: - Header
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier, for: indexPath) as! HomeHeader
+        header.configure()
+        return header
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: view.frame.width, height: 110)
+    }
+    
+    // MARK: - PostCell
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 4
     }
     
-    // MARK: - PostCell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
         let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
@@ -83,16 +93,11 @@ extension HomeViewController{
         }
     }
     
-    // MARK: - TrackCell
+//     MARK: - TrackCell
 //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
 //        return cell
 //    }
-    
-    // MARK : Cell Header
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 110)
-    }
 }
 
 // MARK: - Size of each Cell
@@ -116,9 +121,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
 /*
 extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{
     
-//    func numberOfSections(in collectionView: UICollectionView) -> Int {
-//        return 10
-//    }
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 10
+    }
     // MARK : CollectionViewCell
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -142,9 +147,9 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-//            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-//    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
+    }
 }
  
  */
