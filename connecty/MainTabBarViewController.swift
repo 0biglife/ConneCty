@@ -24,7 +24,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     // MARK: - Helpers
     
     func configure(){
-        tabBar.barTintColor = .systemBackground
+        tabBar.barTintColor = #colorLiteral(red: 0.2133309245, green: 0.2037247121, blue: 0.1950865686, alpha: 1)
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -52,7 +52,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
-        nav.navigationBar.tintColor = .black
+        nav.tabBarItem.selectedImage?.withTintColor(UIColor.orange)
+        nav.navigationBar.tintColor = #colorLiteral(red: 0.2133309245, green: 0.2037247121, blue: 0.1950865686, alpha: 1)
         return nav
     }
 }

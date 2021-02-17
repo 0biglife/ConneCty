@@ -130,8 +130,8 @@ class ProfileHeader: UICollectionReusableView{
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 78, paddingLeft: 20)
         profileImageView.layer.borderWidth = 5
         profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.setDimensions(height: 100, width: 100)
-        profileImageView.layer.cornerRadius = 100/2
+        profileImageView.setDimensions(height: 105, width: 105)
+        profileImageView.layer.cornerRadius = 105/2
         
         addSubview(firstButton)
         firstButton.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,paddingTop: 20, paddingLeft: 24, width: 145, height: 26)

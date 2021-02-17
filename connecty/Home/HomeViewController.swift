@@ -30,6 +30,7 @@ class HomeViewController: UICollectionViewController {
         navigationItem.title = "Home"
         UINavigationBar.appearance().isTranslucent = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain, target: self, action: #selector(goToMessage))
+        navigationItem.rightBarButtonItem?.tintColor = .white
     }
     
     // MARK: - Helpers

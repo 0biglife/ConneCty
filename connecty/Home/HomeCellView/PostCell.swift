@@ -7,9 +7,19 @@
 
 import UIKit
 
+//protocol PostCellDelegate: class {
+//    func cell(_ cell: PostCell, wantsToShowCommentsFor post: Post)
+//}
+
 class PostCell: UICollectionViewCell{
     
     static let identifier = "HomePostCellID"
+    
+//    var viewModel: PostViewModel{
+//        didSet{
+//            configure()
+//        }
+//    }ㅌ
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -49,6 +59,7 @@ class PostCell: UICollectionViewCell{
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         return button
     }()
     
@@ -124,6 +135,10 @@ class PostCell: UICollectionViewCell{
     
     @objc func didTapUserName(){
         print("tapped complete")
+    }
+    
+    @objc func didTapComment(){
+        
     }
     
     // MARK: - Helpers ( Helper Function )

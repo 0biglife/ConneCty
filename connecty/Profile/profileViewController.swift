@@ -28,17 +28,20 @@ class profileViewController: UICollectionViewController{
     
     func configure(){
         navigationController?.navigationBar.prefersLargeTitles = false
-        
-        let attributes = [NSAttributedString.Key.font: UIFont(name: "User Name", size: 16)]
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UINavigationBar.appearance()                             ]
-
-        UINavigationBar.appearance().titleTextAttributes = attributes as [NSAttributedString.Key : Any]
+        self.navigationItem.title = "userName"
         
         view.backgroundColor = .systemBackground
         
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain, target: self, action: #selector(handleSetting))
+        navigationItem.rightBarButtonItem?.tintColor = .white
+    }
+    
+    @objc func handleSetting(){
+        let vc = profileSettingViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
