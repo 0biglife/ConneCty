@@ -149,10 +149,10 @@ class PostCell: UICollectionViewCell{
         configureActionButtons()
         
         addSubview(likesLabel)
-        likesLabel.anchor(top:likeButton.bottomAnchor, left: leftAnchor,paddingTop: -4, paddingLeft: 8)
+        likesLabel.anchor(top:likeButton.bottomAnchor, left: leftAnchor,paddingTop: -4, paddingLeft: 10)
         
         addSubview(captionLabel)
-        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 6, paddingLeft: 10)
         
         addSubview(postTimeLabel)
         postTimeLabel.anchor(left: leftAnchor, bottom: bottomAnchor, paddingLeft: 8, paddingBottom: 4)
@@ -180,7 +180,7 @@ class PostCell: UICollectionViewCell{
         
         
         addSubview(stackView)
-        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 40)
+        stackView.anchor(top: postImageView.bottomAnchor, width: 114, height: 40)
     }
 }
 

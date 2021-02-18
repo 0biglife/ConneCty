@@ -16,12 +16,54 @@ import UIKit
 
 class HomeViewController: UICollectionViewController {
     
+    
+    private var stackView = UIStackView()
+    
+    private let followingUser: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("팔로잉", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.tintColor = .red
+        return button
+    }()
+    
+    private let popularUser: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("팔로잉", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.tintColor = .red
+        return button
+    }()
+    
+    private let bulletinBoard: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("팔로잉", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
+        button.tintColor = .red
+        return button
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureTopStackView()
         configureNavigationBar()
         configureCollectionView()
+    }
+    
+    func configureTopStackView(){
+        stackView = UIStackView(arrangedSubviews: [followingUser, popularUser, bulletinBoard])
+        stackView.backgroundColor = .orange
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        
+        view.addSubview(stackView)
+        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        stackView.setHeight(32)
     }
     
     func configureNavigationBar(){
@@ -44,6 +86,7 @@ class HomeViewController: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.contentInset.top = 32
         
         guard let collectionView = collectionView else {return}
         
@@ -75,7 +118,7 @@ extension HomeViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 110)
+        return CGSize(width: view.frame.width, height: 96)
     }
     
     // MARK: - PostCell
@@ -92,12 +135,6 @@ extension HomeViewController{
             return trackCell
         }
     }
-    
-//     MARK: - TrackCell
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
-//        return cell
-//    }
 }
 
 // MARK: - Size of each Cell
@@ -113,7 +150,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
             height += 60
             return CGSize(width: width, height: 270 + 56 + 110)
         }else{
-            return CGSize(width: width, height: 56 + 155)
+            return CGSize(width: width, height: 56 + 130)
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

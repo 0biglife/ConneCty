@@ -39,6 +39,19 @@
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		327CD75925DE3C0D00600C48 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		320A5CBC25D6526400748296 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		320A5CC025D66F4D00748296 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
@@ -236,12 +249,15 @@
 				32480C7725C6D54400D03EED /* Frameworks */,
 				32480C7825C6D54400D03EED /* Resources */,
 				12C024591864FC93E17D375A /* [CP] Embed Pods Frameworks */,
+				327CD75925DE3C0D00600C48 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = connecty;
+			packageProductDependencies = (
+			);
 			productName = connecty;
 			productReference = 32480C7A25C6D54400D03EED /* connecty.app */;
 			productType = "com.apple.product-type.application";
@@ -269,6 +285,8 @@
 				Base,
 			);
 			mainGroup = 32480C7125C6D54400D03EED;
+			packageReferences = (
+			);
 			productRefGroup = 32480C7B25C6D54400D03EED /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

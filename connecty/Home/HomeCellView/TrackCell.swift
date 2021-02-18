@@ -5,6 +5,8 @@ class TrackCell: UICollectionViewCell{
     
     static let identifier = "TrackCellID"
     
+    var playCount = 0
+    
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
@@ -54,8 +56,24 @@ class TrackCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "recTest")
+        iv.image = #imageLiteral(resourceName: "musicTestImage")
         return iv
+    }()
+    
+    private lazy var playButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.setImage(UIImage(systemName: "play"), for: .normal)
+        button.addTarget(self, action: #selector(handlePlay), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var songTitle: UILabel = {
+        let label = UILabel()
+        label.text = "ON MY WAY(Prod.COLDE$T)"
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        return label
     }()
     
     private lazy var likeButton: UIButton = {
@@ -120,9 +138,17 @@ class TrackCell: UICollectionViewCell{
 //        trackCellView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 10)
         
         addSubview(trackImage)
-        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 1,paddingBottom: 1)
-        trackImage.setDimensions(height: 120, width: 155)
+        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 8,paddingBottom: 8)
         trackImage.widthAnchor.constraint(equalTo: trackImage.heightAnchor, multiplier: 1.0).isActive = true
+        
+        addSubview(playButton)
+        playButton.anchor(top: trackImage.topAnchor, left: trackImage.leftAnchor)
+        playButton.centerX(inView: trackImage)
+        playButton.centerY(inView: trackImage)
+        
+        addSubview(songTitle)
+        songTitle.anchor(top: topAnchor, left: trackImage.rightAnchor,right: rightAnchor, paddingTop: 90, paddingLeft: 10)
+        
         
         configureActionButtons()
         
@@ -140,16 +166,18 @@ class TrackCell: UICollectionViewCell{
         
     }
     
+    @objc func handlePlay(){
+    }
+    
     // MARK: - Helpers ( Helper Function )
     func configureActionButtons(){
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 15
+        stackView.spacing = 30
         
         addSubview(stackView)
-        stackView.centerY(inView: trackImage)
-        stackView.anchor(left: trackImage.rightAnchor,paddingLeft: 10,height: 50)
+        stackView.anchor(top: songTitle.bottomAnchor, left: trackImage.rightAnchor,paddingTop:0, paddingLeft: 10,height: 50)
     }
 }
 

@@ -32,6 +32,13 @@ class profileViewController: UICollectionViewController{
         
         view.backgroundColor = .systemBackground
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        guard let collectionView = collectionView else {return}
+        
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         
