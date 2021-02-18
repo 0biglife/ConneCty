@@ -24,6 +24,8 @@ class PostCell: UICollectionViewCell{
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
+        iv.layer.borderWidth = 3
+        iv.layer.borderColor = UIColor.lightGray.cgColor
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.image = #imageLiteral(resourceName: "giriboi")
@@ -36,6 +38,23 @@ class PostCell: UICollectionViewCell{
         button.setTitle("nameLabel", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var matchingLabel: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.lightGray, for: .normal)
+        button.setTitle("매칭 요청하기", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var matchingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cell_match_light_nor"), for: .normal)
+        button.tintColor = .gray
+        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
@@ -57,7 +76,7 @@ class PostCell: UICollectionViewCell{
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
         button.tintColor = .black
         button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         return button
@@ -65,7 +84,7 @@ class PostCell: UICollectionViewCell{
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_share_nor"), for: .normal)
         button.tintColor = .black
         return button
     }()
@@ -108,16 +127,24 @@ class PostCell: UICollectionViewCell{
         backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 12)
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40/2
         
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
+        addSubview(matchingButton)
+        matchingButton.anchor(right: rightAnchor,paddingRight: 12)
+        matchingButton.centerY(inView: profileImageView)
+        
+        addSubview(matchingLabel)
+        matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
+        matchingLabel.centerY(inView: profileImageView)
+        
         addSubview(postImageView)
         postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
-        postImageView.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        postImageView.setHeight(270)
         
         configureActionButtons()
         
@@ -128,7 +155,7 @@ class PostCell: UICollectionViewCell{
         captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
         
         addSubview(postTimeLabel)
-        postTimeLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+        postTimeLabel.anchor(left: leftAnchor, bottom: bottomAnchor, paddingLeft: 8, paddingBottom: 4)
     }
     
     // MARK: - Actions
@@ -141,14 +168,19 @@ class PostCell: UICollectionViewCell{
         
     }
     
+    @objc func handleMatchIcon(){
+        
+    }
+    
     // MARK: - Helpers ( Helper Function )
     func configureActionButtons(){
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         
+        
         addSubview(stackView)
-        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 50)
+        stackView.anchor(top: postImageView.bottomAnchor, width: 120, height: 40)
     }
 }
 

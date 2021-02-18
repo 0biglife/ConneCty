@@ -84,12 +84,12 @@ extension HomeViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
-        let cell2 = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
+        let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
+        let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
         if (indexPath.row % 2) == 0 {
-            return cell2
+            return postCell
         }else{
-            return cell
+            return trackCell
         }
     }
     
@@ -108,12 +108,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         let width = view.frame.width
         
         if (indexPath.row % 2) == 0 {
-            var height = width + 8 + 40 + 8
+            var height = 270 + 8 + 40 + 8
             height += 50
             height += 60
-            return CGSize(width: width, height: height)
+            return CGSize(width: width, height: 270 + 56 + 110)
         }else{
-            return CGSize(width: width, height: 15 + 40 + 10 + 200)
+            return CGSize(width: width, height: 56 + 155)
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

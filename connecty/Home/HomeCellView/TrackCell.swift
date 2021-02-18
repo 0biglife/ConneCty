@@ -8,6 +8,8 @@ class TrackCell: UICollectionViewCell{
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
+        iv.layer.borderWidth = 3
+        iv.layer.borderColor = UIColor.lightGray.cgColor
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.image = #imageLiteral(resourceName: "giriboi2")
@@ -21,6 +23,30 @@ class TrackCell: UICollectionViewCell{
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var matchingLabel: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitleColor(.lightGray, for: .normal)
+        button.setTitle("매칭 요청하기", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var matchingButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cell_match_light_nor"), for: .normal)
+        button.tintColor = .gray
+        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+        return button
+    }()
+    
+    
+    private let trackCellView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
     }()
     
     private let trackImage: UIImageView = {
@@ -41,32 +67,16 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
         button.tintColor = .black
         return button
     }()
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_share_nor"), for: .normal)
         button.tintColor = .black
         return button
-    }()
-    
-    private let likesLabel: UILabel = {
-        let label = UILabel()
-        label.text = "1 like"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 13)
-        return label
-    }()
-    
-    private let captionLabel: UILabel = {
-        let label = UILabel()
-        label.text = "test-captionx for now  .. . .  ."
-        label.textColor = .black
-        label.font = UIFont.systemFont(ofSize: 12)
-        return label
     }()
     
     private let postTimeLabel: UILabel = {
@@ -91,27 +101,33 @@ class TrackCell: UICollectionViewCell{
         backgroundColor = .white
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 12, paddingLeft: 12)
+        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
         profileImageView.setDimensions(height: 40, width: 40)
         profileImageView.layer.cornerRadius = 40/2
         
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
         
+        addSubview(matchingButton)
+        matchingButton.anchor(right: rightAnchor,paddingRight: 12)
+        matchingButton.centerY(inView: profileImageView)
+        
+        addSubview(matchingLabel)
+        matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
+        matchingLabel.centerY(inView: profileImageView)
+        
+//        addSubview(trackCellView)
+//        trackCellView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 10)
+        
         addSubview(trackImage)
-        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
-        trackImage.heightAnchor.constraint(equalTo: widthAnchor, multiplier: 1).isActive = true
+        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 1,paddingBottom: 1)
+        trackImage.setDimensions(height: 120, width: 155)
+        trackImage.widthAnchor.constraint(equalTo: trackImage.heightAnchor, multiplier: 1.0).isActive = true
         
         configureActionButtons()
         
-        addSubview(likesLabel)
-        likesLabel.anchor(top:likeButton.bottomAnchor, left: leftAnchor,paddingTop: -4, paddingLeft: 8)
-        
-        addSubview(captionLabel)
-        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
-        
-        addSubview(postTimeLabel)
-        postTimeLabel.anchor(top: captionLabel.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+//        addSubview(postTimeLabel)
+//        postTimeLabel.anchor(top: trackImage.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
     }
     
     // MARK: - Actions
@@ -120,14 +136,20 @@ class TrackCell: UICollectionViewCell{
         print("tapped complete")
     }
     
+    @objc func handleMatchIcon(){
+        
+    }
+    
     // MARK: - Helpers ( Helper Function )
     func configureActionButtons(){
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 15
         
         addSubview(stackView)
-        stackView.anchor(top: trackImage.bottomAnchor, width: 120, height: 50)
+        stackView.centerY(inView: trackImage)
+        stackView.anchor(left: trackImage.rightAnchor,paddingLeft: 10,height: 50)
     }
 }
 
