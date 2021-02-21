@@ -16,7 +16,6 @@ import UIKit
 
 class HomeViewController: UICollectionViewController {
     
-    
     private var stackView = UIStackView()
     
     private let followingUser: UIButton = {
@@ -57,7 +56,7 @@ class HomeViewController: UICollectionViewController {
     
     func configureTopStackView(){
         stackView = UIStackView(arrangedSubviews: [followingUser, popularUser, bulletinBoard])
-        stackView.backgroundColor = .orange
+        stackView.backgroundColor = .systemBackground
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         
@@ -69,9 +68,9 @@ class HomeViewController: UICollectionViewController {
     func configureNavigationBar(){
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
-        UINavigationBar.appearance().isTranslucent = true
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain, target: self, action: #selector(goToMessage))
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        UINavigationBar.appearance().isTranslucent = false
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain , target: self, action: #selector(goToMessage))
     }
     
     // MARK: - Helpers
@@ -86,7 +85,7 @@ class HomeViewController: UICollectionViewController {
         layout.sectionInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.contentInset.top = 32
+        collectionView.contentInset.top = 47
         
         guard let collectionView = collectionView else {return}
         
@@ -94,7 +93,7 @@ class HomeViewController: UICollectionViewController {
         collectionView.delegate = self
         collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
         collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
-        collectionView.register(HomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier)
+//        collectionView.register(HomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier)
         
         view.addSubview(collectionView)
         collectionView.frame = view.bounds
@@ -109,7 +108,7 @@ class HomeViewController: UICollectionViewController {
 // MARK: - UICollectionView DataSource
 
 extension HomeViewController{
-    
+    /*
     // MARK: - Header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier, for: indexPath) as! HomeHeader
@@ -118,8 +117,8 @@ extension HomeViewController{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 96)
-    }
+        return CGSize(width: view.frame.width, height: 83)
+    }*/
     
     // MARK: - PostCell
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -148,7 +147,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
             var height = 270 + 8 + 40 + 8
             height += 50
             height += 60
-            return CGSize(width: width, height: 270 + 56 + 110)
+            return CGSize(width: width, height: 56 + 270 + 110)
         }else{
             return CGSize(width: width, height: 56 + 130)
         }

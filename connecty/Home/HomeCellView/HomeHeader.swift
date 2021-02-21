@@ -32,7 +32,9 @@ class HomeHeader :UICollectionReusableView{
     }()
     
     private let trackAddButton: UIButton = {
-        let button = UIButton(type: .system)
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 125, height: 36))
+        button.backgroundColor = .systemBackground
+        
         button.setTitle("Track", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.setTitleColor(.black, for: .normal)
@@ -68,7 +70,7 @@ class HomeHeader :UICollectionReusableView{
     }
     
     func configure(){
-        backgroundColor = .white
+        backgroundColor = .systemBackground
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
@@ -84,18 +86,13 @@ class HomeHeader :UICollectionReusableView{
         let secondDivider = UIView()
         secondDivider.backgroundColor = .lightGray
         
-        let buttonStack = UIStackView(arrangedSubviews: [trackAddButton,cameraAddButton,galleryAddButton])
-        buttonStack.distribution = .fillEqually
-        
-        addSubview(buttonStack)
         addSubview(topDivider)
         addSubview(firstDivider)
         addSubview(secondDivider)
         
-        buttonStack.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 30)
-        topDivider.anchor(top: buttonStack.topAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
-        firstDivider.anchor(top: topDivider.bottomAnchor,left: leftAnchor ,bottom: bottomAnchor, paddingLeft: self.frame.width / 3 )
-        secondDivider.anchor(top: topDivider.bottomAnchor,bottom: bottomAnchor, right: rightAnchor, paddingRight: self.frame.width / 3 )
+        topDivider.anchor(top: topAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
+        firstDivider.anchor(top: topDivider.bottomAnchor,left: leftAnchor ,bottom: bottomAnchor, paddingTop: 4,paddingLeft: self.frame.width / 3 ,paddingBottom: 4, width: 0.5, height: 20)
+        secondDivider.anchor(top: topDivider.bottomAnchor,bottom: bottomAnchor, right: rightAnchor,paddingTop: 4,paddingBottom: 4, paddingRight: self.frame.width / 3 ,width: 0.5, height: 20)
     }
     
     @objc func handleTrack(){

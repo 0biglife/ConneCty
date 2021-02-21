@@ -24,7 +24,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     // MARK: - Helpers
     
     func configure(){
-        tabBar.barTintColor = #colorLiteral(red: 0.2133309245, green: 0.2037247121, blue: 0.1950865686, alpha: 1)
+        tabBar.barTintColor = .systemBackground
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -43,7 +43,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
 //        #imageLiteral(resourceName: "co_ic_tabBar_home_nor")
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
-        tabBar.tintColor = .white //icon select 시 컬러 지정
+        tabBar.tintColor = .orange //icon select 시 컬러 지정
         
         
     }
@@ -52,8 +52,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
-        nav.tabBarItem.selectedImage?.withTintColor(UIColor.orange)
-        nav.navigationBar.tintColor = #colorLiteral(red: 0.2133309245, green: 0.2037247121, blue: 0.1950865686, alpha: 1)
+        nav.navigationBar.tintColor = UIColor(named: "oppositeColor")
         return nav
     }
 }
