@@ -96,14 +96,6 @@ class TrackCell: UICollectionViewCell{
         return button
     }()
     
-    private let postTimeLabel: UILabel = {
-        let label = UILabel()
-        label.text = "2 days ago"
-        label.font = UIFont.systemFont(ofSize: 12)
-        label.textColor = .lightGray
-        return label
-    }()
-    
     private var stackView = UIStackView()
     
     private lazy var trackUserName: UILabel = {
@@ -116,7 +108,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var trackTitle: UILabel = {
         let label = UILabel()
-        label.text = "02.Life is Pizza(Feat. Chicken&..."
+        label.text = "02.Life is Pizza(Feat.Chick..."
         label.tintColor = UIColor(named: "black_white")
         label.font = UIFont.boldSystemFont(ofSize: 14)
         return label
@@ -124,7 +116,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var trackInfoPlayIcon: UIButton = {
         var button = UIButton()
-        button.setImage(UIImage(systemName: "play"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "trackCell_playIcon"), for: .normal)
         button.tintColor = .lightGray
         return button
     }()
@@ -139,7 +131,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var trackInfoLikeIcon: UIButton = {
         var button = UIButton()
-        button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "trackCell_LikeIcon"), for: .normal)
         button.tintColor = .lightGray
         return button
     }()
@@ -149,6 +141,14 @@ class TrackCell: UICollectionViewCell{
         label.text = "356"
         label.tintColor = UIColor(named: "gray_white")
         label.font = UIFont.systemFont(ofSize: 13)
+        return label
+    }()
+    
+    private let postTimeLabel: UILabel = {
+        let label = UILabel()
+        label.text = "2 days ago"
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .lightGray
         return label
     }()
     
@@ -185,7 +185,7 @@ class TrackCell: UICollectionViewCell{
         topLine.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
         
         addSubview(trackImage)
-        trackImage.anchor(top: topLine.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 8,paddingBottom: 8, height: 120)
+        trackImage.anchor(top: topLine.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8, height: 120)
         trackImage.heightAnchor.constraint(equalTo: trackImage.widthAnchor, multiplier: 1.0).isActive = true
         
         addSubview(playButton)
@@ -217,8 +217,9 @@ class TrackCell: UICollectionViewCell{
         bottomLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         addSubview(bottomLine)
         bottomLine.anchor(top: trackImage.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
-//        addSubview(postTimeLabel)
-//        postTimeLabel.anchor(top: trackImage.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
+        
+        addSubview(postTimeLabel)
+        postTimeLabel.anchor(top: bottomLine.bottomAnchor, left: leftAnchor, paddingTop: 4, paddingLeft: 8)
     }
     
     // MARK: - Actions

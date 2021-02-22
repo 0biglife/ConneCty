@@ -60,10 +60,10 @@ class HomeViewController: UICollectionViewController {
         navigationItem.title = "Home"
         UINavigationBar.appearance().isTranslucent = false
         
-        let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToAlarm))
+        let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToUpload))
         let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
         
-        navigationItem.rightBarButtonItems = [uplaodButton,alarmButton]
+        navigationItem.rightBarButtonItems = [alarmButton,uplaodButton]
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_message") ,style: .plain , target: self, action: #selector(goToAlarm))
     }
     
@@ -99,8 +99,11 @@ class HomeViewController: UICollectionViewController {
     }
     
     @objc func goToUpload(){
-        let messageVC = homeSettingViewController()
-        self.navigationController?.pushViewController(messageVC, animated: true)
+        let vc = UploadViewController()
+        vc.modalPresentationStyle = .formSheet
+        vc.modalTransitionStyle = .crossDissolve
+        
+        present(vc, animated: true, completion: nil)
     }
     
     @objc func goToMessage(){
@@ -154,7 +157,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
             height += 60
             return CGSize(width: width, height: 56 + 270 + 110)
         }else{
-            return CGSize(width: width, height: 56 + 12 + 12 + 120) // 8 40 8 , 12,
+            return CGSize(width: width, height: 56 + 12 + 100 + 12 + 10 + 12 + 10) 
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
