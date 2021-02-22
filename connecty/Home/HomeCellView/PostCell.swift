@@ -52,8 +52,8 @@ class PostCell: UICollectionViewCell{
     
     private lazy var matchingButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "cell_match_light_nor"), for: .normal)
-        button.tintColor = .gray
+        button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
+        button.tintColor = UIColor(named: "gray_white")
         button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
@@ -69,23 +69,23 @@ class PostCell: UICollectionViewCell{
     
     private lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
-        button.tintColor = .black
+        button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
+        button.tintColor = UIColor(named: "gray_white")
         return button
     }()
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIColor(named: "gray_white")
         button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         return button
     }()
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "cell_share_nor"), for: .normal)
-        button.tintColor = .black
+        button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
+        button.tintColor = UIColor(named: "gray_white")
         return button
     }()
     

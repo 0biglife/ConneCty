@@ -29,18 +29,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 6
-        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_home_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_home_sel"), rootViewController: HomeViewController(collectionViewLayout : layout))
-        let searchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_search_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_search_sel"), rootViewController: SearchViewController())
-        let matchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_match_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_match_sel"), rootViewController: matchViewController())
-        let practiceVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_practicing_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_practicing_sel"), rootViewController: practiceViewController())
+        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_home_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_home_sel"), rootViewController: HomeViewController(collectionViewLayout : layout))
+        let searchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_search_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_search_sel"), rootViewController: SearchViewController())
+        let matchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "cell_match_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_match_sel"), rootViewController: matchViewController())
+        let practiceVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_practice_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_practice_sel"), rootViewController: practiceViewController())
         
         let profileLayout = UICollectionViewFlowLayout()
-        let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_ic_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
-//        #imageLiteral(resourceName: "co_ic_tabBar_search_nor")
-//        #imageLiteral(resourceName: "co_ic_feed_like_nor")
-//        #imageLiteral(resourceName: "co_ic_tabBar_home_nor")
-//        #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar")
-//        #imageLiteral(resourceName: "co_ic_tabBar_home_nor")
+        let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
+        
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
         
         tabBar.tintColor = .orange //icon select 시 컬러 지정

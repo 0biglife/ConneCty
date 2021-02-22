@@ -16,20 +16,9 @@ import UIKit
 
 class HomeViewController: UICollectionViewController {
     
-    private var stackView = UIStackView()
-    
-    private let followingUser: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("팔로잉", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.tintColor = .red
-        return button
-    }()
-    
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("팔로잉", for: .normal)
+        button.setTitle("인기 아티스트", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.tintColor = .red
@@ -38,11 +27,17 @@ class HomeViewController: UICollectionViewController {
     
     private let bulletinBoard: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("팔로잉", for: .normal)
+        button.setTitle("게시판", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
         button.tintColor = .red
         return button
+    }()
+    
+    private let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
     }()
     
     // MARK: - Lifecycle
@@ -55,14 +50,9 @@ class HomeViewController: UICollectionViewController {
     }
     
     func configureTopStackView(){
-        stackView = UIStackView(arrangedSubviews: [followingUser, popularUser, bulletinBoard])
-        stackView.backgroundColor = .systemBackground
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        
-        view.addSubview(stackView)
-        stackView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
-        stackView.setHeight(32)
+        view.addSubview(topView)
+        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
+        topView.setHeight(50)
     }
     
     func configureNavigationBar(){
@@ -70,7 +60,11 @@ class HomeViewController: UICollectionViewController {
         navigationItem.title = "Home"
         UINavigationBar.appearance().isTranslucent = false
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain , target: self, action: #selector(goToMessage))
+        let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToAlarm))
+        let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
+        
+        navigationItem.rightBarButtonItems = [uplaodButton,alarmButton]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_message") ,style: .plain , target: self, action: #selector(goToAlarm))
     }
     
     // MARK: - Helpers
@@ -84,8 +78,8 @@ class HomeViewController: UICollectionViewController {
         layout.minimumLineSpacing = 4
         layout.sectionInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.contentInset.top = 47
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.height ), collectionViewLayout: layout)
+//        collectionView.contentInset.top = 47
         
         guard let collectionView = collectionView else {return}
         
@@ -99,10 +93,21 @@ class HomeViewController: UICollectionViewController {
         collectionView.frame = view.bounds
     }
     
-    @objc fileprivate func goToMessage(){
+    @objc func goToAlarm(){
         let messageVC = homeSettingViewController()
         self.navigationController?.pushViewController(messageVC, animated: true)
     }
+    
+    @objc func goToUpload(){
+        let messageVC = homeSettingViewController()
+        self.navigationController?.pushViewController(messageVC, animated: true)
+    }
+    
+    @objc func goToMessage(){
+        let messageVC = homeSettingViewController()
+        self.navigationController?.pushViewController(messageVC, animated: true)
+    }
+    
 }
 
 // MARK: - UICollectionView DataSource
@@ -156,40 +161,3 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         return 0
     }
 }
-
-//이전 코드
-/*
-extension HomeViewController:UICollectionViewDataSource, UICollectionViewDelegate{
-    
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 10
-    }
-    // MARK : CollectionViewCell
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomePostCell.identifier, for: indexPath)
-        return cell
-    }
-    
-    // MARK : Cell Header
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.size.width, height: 110)
-    }
-}
-
-extension HomeViewController: UICollectionViewDelegateFlowLayout{
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 270)
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
-    }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 4, right: 0)
-    }
-}
- 
- */

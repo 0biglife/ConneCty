@@ -11,7 +11,7 @@ class homeSettingViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Messgae"
+        self.title = "Message"
         self.view.backgroundColor = .systemBackground
     }
 }

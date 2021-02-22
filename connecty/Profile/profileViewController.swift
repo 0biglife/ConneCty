@@ -42,8 +42,8 @@ class profileViewController: UICollectionViewController{
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "co_ic_navigation_Hamburger_Bar") , style: .plain, target: self, action: #selector(handleSetting))
-        navigationItem.rightBarButtonItem?.tintColor = .white
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "setting") , style: .plain, target: self, action: #selector(handleSetting))
+        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "oppositeColor")
     }
     
     @objc func handleSetting(){
@@ -56,7 +56,7 @@ class profileViewController: UICollectionViewController{
 
 extension profileViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 9
+        return 20
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
@@ -90,6 +90,6 @@ extension profileViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: width, height: width)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 291)
+        return CGSize(width: collectionView.frame.size.width, height: 291)
     }
 }

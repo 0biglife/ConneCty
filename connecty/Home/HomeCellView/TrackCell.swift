@@ -38,7 +38,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var matchingButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "cell_match_light_nor"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
         button.tintColor = .gray
         button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
@@ -78,7 +78,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "co_ic_feed_like_sel"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
         button.tintColor = .black
         return button
     }()
@@ -92,7 +92,7 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage(#imageLiteral(resourceName: "cell_share_nor"), for: .normal)
+        button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
         button.tintColor = .black
         return button
     }()
