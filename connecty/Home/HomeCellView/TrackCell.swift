@@ -1,17 +1,24 @@
 
 import UIKit
 
+extension NSMutableAttributedString{
+    func appendImage(_ image: UIImage){
+        let imageAttchment: NSTextAttachment = NSTextAttachment()
+        imageAttchment.image = image
+        let strImage: NSAttributedString = NSAttributedString(attachment: imageAttchment)
+        self.append(strImage)
+    }
+}
+
 class TrackCell: UICollectionViewCell{
     
     static let identifier = "TrackCellID"
-    
-    var playCount = 0
     
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.layer.borderWidth = 3
-        iv.layer.borderColor = UIColor.lightGray.cgColor
+        iv.layer.borderColor = UIColor(named: "gray_white")?.cgColor
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.image = #imageLiteral(resourceName: "giriboi2")
@@ -20,9 +27,9 @@ class TrackCell: UICollectionViewCell{
     
     private lazy var userNameButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.setTitle("nameLabel", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
     }()
@@ -39,7 +46,7 @@ class TrackCell: UICollectionViewCell{
     private lazy var matchingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
-        button.tintColor = .gray
+        button.tintColor = UIColor(named: "gray_white")
         button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
@@ -56,44 +63,36 @@ class TrackCell: UICollectionViewCell{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
-        iv.image = #imageLiteral(resourceName: "musicTestImage")
+        iv.image = #imageLiteral(resourceName: "testTrackImage")
         return iv
     }()
     
     private lazy var playButton: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .white
+        button.tintColor = UIColor.white.withAlphaComponent(0.7)
         button.setImage(UIImage(systemName: "play"), for: .normal)
         button.addTarget(self, action: #selector(handlePlay), for: .touchUpInside)
         return button
     }()
     
-    private lazy var songTitle: UILabel = {
-        let label = UILabel()
-        label.text = "ON MY WAY(Prod.COLDE$T)"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 14)
-        return label
-    }()
-    
     private lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIColor(named: "gray_white")
         return button
     }()
     
     private lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIColor(named: "gray_white")
         return button
     }()
     
     private lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
-        button.tintColor = .black
+        button.tintColor = UIColor(named: "gray_white")
         return button
     }()
     
@@ -107,6 +106,52 @@ class TrackCell: UICollectionViewCell{
     
     private var stackView = UIStackView()
     
+    private lazy var trackUserName: UILabel = {
+        let label = UILabel()
+        label.text = "Pizza boy, #Chicken, #Beer"
+        label.tintColor = UIColor(named: "black_white")
+        label.font = UIFont.systemFont(ofSize: 13)
+        return label
+    }()
+    
+    private lazy var trackTitle: UILabel = {
+        let label = UILabel()
+        label.text = "02.Life is Pizza(Feat. Chicken&..."
+        label.tintColor = UIColor(named: "black_white")
+        label.font = UIFont.boldSystemFont(ofSize: 14)
+        return label
+    }()
+    
+    private lazy var trackInfoPlayIcon: UIButton = {
+        var button = UIButton()
+        button.setImage(UIImage(systemName: "play"), for: .normal)
+        button.tintColor = .lightGray
+        return button
+    }()
+    
+    private lazy var trackInfoPlayCount: UILabel = {
+        let label = UILabel()
+        label.text = "1513"
+        label.tintColor = UIColor(named: "gray_white")
+        label.font = UIFont.systemFont(ofSize: 13)
+        return label
+    }()
+    
+    private lazy var trackInfoLikeIcon: UIButton = {
+        var button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
+        button.tintColor = .lightGray
+        return button
+    }()
+    
+    private lazy var trackInfoLikeCount: UILabel = {
+        let label = UILabel()
+        label.text = "356"
+        label.tintColor = UIColor(named: "gray_white")
+        label.font = UIFont.systemFont(ofSize: 13)
+        return label
+    }()
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -116,7 +161,7 @@ class TrackCell: UICollectionViewCell{
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
     func configure(){
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "white_black")
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
@@ -124,7 +169,7 @@ class TrackCell: UICollectionViewCell{
         profileImageView.layer.cornerRadius = 40/2
         
         addSubview(userNameButton)
-        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
+        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 12)
         
         addSubview(matchingButton)
         matchingButton.anchor(right: rightAnchor,paddingRight: 12)
@@ -134,24 +179,44 @@ class TrackCell: UICollectionViewCell{
         matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
         matchingLabel.centerY(inView: profileImageView)
         
-//        addSubview(trackCellView)
-//        trackCellView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, paddingTop: 10)
+        let topLine = UIView()
+        topLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        addSubview(topLine)
+        topLine.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
         
         addSubview(trackImage)
-        trackImage.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 8,paddingBottom: 8)
-        trackImage.widthAnchor.constraint(equalTo: trackImage.heightAnchor, multiplier: 1.0).isActive = true
+        trackImage.anchor(top: topLine.bottomAnchor, left: leftAnchor,bottom: bottomAnchor, paddingTop: 8, paddingLeft: 8,paddingBottom: 8, height: 120)
+        trackImage.heightAnchor.constraint(equalTo: trackImage.widthAnchor, multiplier: 1.0).isActive = true
         
         addSubview(playButton)
         playButton.anchor(top: trackImage.topAnchor, left: trackImage.leftAnchor)
         playButton.centerX(inView: trackImage)
         playButton.centerY(inView: trackImage)
         
-        addSubview(songTitle)
-        songTitle.anchor(top: topAnchor, left: trackImage.rightAnchor,right: rightAnchor, paddingTop: 90, paddingLeft: 10)
+        addSubview(trackUserName)
+        trackUserName.anchor(top: topLine.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 18, paddingLeft: 21)
         
+        addSubview(trackTitle)
+        trackTitle.anchor(top: trackUserName.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 14, paddingLeft: 21)
+        
+        addSubview(trackInfoPlayIcon)
+        addSubview(trackInfoPlayCount)
+        addSubview(trackInfoLikeIcon)
+        addSubview(trackInfoLikeCount)
+        trackInfoPlayIcon.anchor(top: trackTitle.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 14, paddingLeft: 21)
+        trackInfoPlayCount.centerY(inView: trackInfoPlayIcon)
+        trackInfoLikeCount.centerY(inView: trackInfoPlayIcon)
+        trackInfoLikeIcon.centerY(inView: trackInfoPlayIcon)
+        trackInfoPlayCount.anchor(left: trackInfoPlayIcon.rightAnchor, paddingLeft: 6)
+        trackInfoLikeIcon.anchor(left: trackInfoPlayCount.rightAnchor, paddingLeft: 17)
+        trackInfoLikeCount.anchor(left: trackInfoLikeIcon.rightAnchor, paddingLeft: 6)
         
         configureActionButtons()
         
+        let bottomLine = UIView()
+        bottomLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        addSubview(bottomLine)
+        bottomLine.anchor(top: trackImage.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
 //        addSubview(postTimeLabel)
 //        postTimeLabel.anchor(top: trackImage.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
     }
@@ -174,10 +239,10 @@ class TrackCell: UICollectionViewCell{
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .equalSpacing
-        stackView.spacing = 30
+        stackView.spacing = 20
         
         addSubview(stackView)
-        stackView.anchor(top: songTitle.bottomAnchor, left: trackImage.rightAnchor,paddingTop:0, paddingLeft: 10,height: 50)
+        stackView.anchor(top: trackInfoPlayIcon.bottomAnchor, left: trackImage.rightAnchor,paddingTop:12, paddingLeft: 21)
     }
 }
 

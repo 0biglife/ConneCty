@@ -51,8 +51,8 @@ class HomeViewController: UICollectionViewController {
     
     func configureTopStackView(){
         view.addSubview(topView)
-        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor)
-        topView.setHeight(50)
+        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: collectionView.topAnchor, right: view.rightAnchor)
+        topView.setHeight(100)
     }
     
     func configureNavigationBar(){
@@ -71,12 +71,12 @@ class HomeViewController: UICollectionViewController {
     
     func configureCollectionView(){
         
-        collectionView.backgroundColor = .systemBackground
+//        collectionView.backgroundColor = .
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.minimumLineSpacing = 4
-        layout.sectionInset = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        layout.minimumLineSpacing = 0
+        layout.sectionInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.height ), collectionViewLayout: layout)
 //        collectionView.contentInset.top = 47
@@ -90,7 +90,7 @@ class HomeViewController: UICollectionViewController {
 //        collectionView.register(HomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier)
         
         view.addSubview(collectionView)
-        collectionView.frame = view.bounds
+//        collectionView.frame = view.bounds
     }
     
     @objc func goToAlarm(){
@@ -154,7 +154,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
             height += 60
             return CGSize(width: width, height: 56 + 270 + 110)
         }else{
-            return CGSize(width: width, height: 56 + 130)
+            return CGSize(width: width, height: 56 + 12 + 12 + 120) // 8 40 8 , 12,
         }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {

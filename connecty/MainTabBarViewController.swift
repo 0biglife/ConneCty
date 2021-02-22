@@ -24,7 +24,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     // MARK: - Helpers
     
     func configure(){
-        tabBar.barTintColor = .systemBackground
+        tabBar.barTintColor = UIColor(named: "white_black")
+        tabBar.unselectedItemTintColor = UIColor(named: "gray_white")
+        tabBar.tintColor = .orange //icon select 시 컬러 지정
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -38,17 +40,13 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
         
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
-        
-        tabBar.tintColor = .orange //icon select 시 컬러 지정
-        
-        
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController)->UINavigationController{
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
         nav.tabBarItem.selectedImage = selectedImage
-        nav.navigationBar.tintColor = UIColor(named: "oppositeColor")
+        nav.navigationBar.tintColor = UIColor(named: "black_white")
         return nav
     }
 }

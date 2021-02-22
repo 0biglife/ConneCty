@@ -25,7 +25,7 @@ class PostCell: UICollectionViewCell{
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.layer.borderWidth = 3
-        iv.layer.borderColor = UIColor.lightGray.cgColor
+        iv.layer.borderColor = UIColor(named: "gray_white")?.cgColor
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.image = #imageLiteral(resourceName: "giriboi")
@@ -34,9 +34,9 @@ class PostCell: UICollectionViewCell{
     
     private lazy var userNameButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.setTitle("nameLabel", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
         button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
     }()
@@ -124,7 +124,7 @@ class PostCell: UICollectionViewCell{
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
     func configure(){
-        backgroundColor = .white
+        backgroundColor = UIColor(named: "white_black")
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
@@ -132,7 +132,7 @@ class PostCell: UICollectionViewCell{
         profileImageView.layer.cornerRadius = 40/2
         
         addSubview(userNameButton)
-        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 8)
+        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 12)
         
         addSubview(matchingButton)
         matchingButton.anchor(right: rightAnchor,paddingRight: 12)
@@ -141,6 +141,7 @@ class PostCell: UICollectionViewCell{
         addSubview(matchingLabel)
         matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
         matchingLabel.centerY(inView: profileImageView)
+
         
         addSubview(postImageView)
         postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
@@ -152,10 +153,10 @@ class PostCell: UICollectionViewCell{
         likesLabel.anchor(top:likeButton.bottomAnchor, left: leftAnchor,paddingTop: -4, paddingLeft: 10)
         
         addSubview(captionLabel)
-        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 6, paddingLeft: 10)
+        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 9, paddingLeft: 10)
         
         addSubview(postTimeLabel)
-        postTimeLabel.anchor(left: leftAnchor, bottom: bottomAnchor, paddingLeft: 8, paddingBottom: 4)
+        postTimeLabel.anchor(top: captionLabel.bottomAnchor,left: leftAnchor, bottom: bottomAnchor, paddingTop: 9, paddingLeft: 10, paddingBottom: 4)
     }
     
     // MARK: - Actions

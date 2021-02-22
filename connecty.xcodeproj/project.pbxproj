@@ -195,9 +195,9 @@
 		325FCD8425CCCD480068DE6C /* HomeCellView */ = {
 			isa = PBXGroup;
 			children = (
-				325FCD8125CCCD350068DE6C /* HomeHeader.swift */,
 				325FCD7D25CCC9D90068DE6C /* PostCell.swift */,
 				320A5CBC25D6526400748296 /* TrackCell.swift */,
+				325FCD8125CCCD350068DE6C /* HomeHeader.swift */,
 			);
 			path = HomeCellView;
 			sourceTree = "<group>";
