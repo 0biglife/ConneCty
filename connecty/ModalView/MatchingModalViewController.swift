@@ -1,17 +1,17 @@
 //
-//  uploadPopoverViewController.swift
+//  MatchingModalViewController.swift
 //  connecty
 //
-//  Created by 공대생 on 2021/02/22.
+//  Created by 공대생 on 2021/02/23.
 //
 
 import UIKit
 
-class UploadViewController: UIViewController{
+class MatchingModalViewController: UIViewController{
     
     private let titleText: UILabel = {
         let label = UILabel()
-        label.text = "File Upload"
+        label.text = "매칭 신청하시겠습니까?"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
@@ -21,7 +21,14 @@ class UploadViewController: UIViewController{
         configure()
     }
     
-    private func configure() {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        let touch = touches.first
+        if touch?.view != self {
+            self.dismiss(animated: true , completion: nil)
+        }
+    }
+    
+    func configure() {
 
         let xCoord = self.view.bounds.width / 2 - 135
         let yCoord = self.view.bounds.height / 2 - 200
@@ -35,12 +42,8 @@ class UploadViewController: UIViewController{
         view.addSubview(titleText)
         titleText.anchor(top: centerView.topAnchor, paddingTop: 20)
         titleText.centerX(inView: centerView)
+        
+        
     }
     
-    override func touchesBegan(_ touches: Set, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        if let touch = touches.first , touch.view == self.view {
-            self.dismiss(animated: true, completion: nil)
-        }
-    }
 }

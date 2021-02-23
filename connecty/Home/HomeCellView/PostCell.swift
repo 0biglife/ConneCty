@@ -170,7 +170,10 @@ class PostCell: UICollectionViewCell{
     }
     
     @objc func handleMatchIcon(){
-        
+        let vc = MatchingModalViewController()
+        vc.modalPresentationStyle = .formSheet
+        vc.modalTransitionStyle = .crossDissolve
+//        present(vc, animated: true, completion: nil)
     }
     
     // MARK: - Helpers ( Helper Function )

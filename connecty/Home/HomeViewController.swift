@@ -101,8 +101,8 @@ class HomeViewController: UICollectionViewController {
     @objc func goToUpload(){
         let vc = UploadViewController()
         vc.modalPresentationStyle = .formSheet
+        vc.accessibilityViewIsModal = true 
         vc.modalTransitionStyle = .crossDissolve
-        
         present(vc, animated: true, completion: nil)
     }
     
@@ -136,6 +136,7 @@ extension HomeViewController{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
         let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
+        
         if (indexPath.row % 2) == 0 {
             return postCell
         }else{

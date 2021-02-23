@@ -38,6 +38,7 @@
 		32E3712E25DCF6A500A742E6 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3712D25DCF6A500A742E6 /* CommentController.swift */; };
 		32E3713225DCF86C00A742E6 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3713125DCF86C00A742E6 /* CommentCell.swift */; };
 		32E7864525E3C6AC00C6045A /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864425E3C6AC00C6045A /* UploadViewController.swift */; };
+		32E7864825E4B9E200C6045A /* MatchingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		32E3712D25DCF6A500A742E6 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
 		32E3713125DCF86C00A742E6 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		32E7864425E3C6AC00C6045A /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
+		32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingModalViewController.swift; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
 				325FCDAA25CCDCEE0068DE6C /* Login */,
+				32E7864625E4B9BC00C6045A /* ModalView */,
 				325FCD7125CCC1F40068DE6C /* Home */,
 				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
@@ -189,7 +192,6 @@
 				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
 				32E3713125DCF86C00A742E6 /* CommentCell.swift */,
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
-				32E7864425E3C6AC00C6045A /* UploadViewController.swift */,
 				325FCD8425CCCD480068DE6C /* HomeCellView */,
 			);
 			path = Home;
@@ -233,6 +235,15 @@
 				32819BBA25DA453D0005FF66 /* ProfileHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		32E7864625E4B9BC00C6045A /* ModalView */ = {
+			isa = PBXGroup;
+			children = (
+				32E7864425E3C6AC00C6045A /* UploadViewController.swift */,
+				32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */,
+			);
+			path = ModalView;
 			sourceTree = "<group>";
 		};
 		F05A424287BA628AD6C22AEB /* Frameworks */ = {
@@ -386,6 +397,7 @@
 				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,
 				32480C8025C6D54400D03EED /* SceneDelegate.swift in Sources */,
 				325FCD0F25CBC0640068DE6C /* HomeViewController.swift in Sources */,
+				32E7864825E4B9E200C6045A /* MatchingModalViewController.swift in Sources */,
 				325FCD0A25CBADE30068DE6C /* MainTabBarViewController.swift in Sources */,
 				32E7864525E3C6AC00C6045A /* UploadViewController.swift in Sources */,
 				320A5CBD25D6526400748296 /* TrackCell.swift in Sources */,
