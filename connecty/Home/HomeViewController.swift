@@ -101,7 +101,7 @@ class HomeViewController: UICollectionViewController {
     @objc func goToUpload(){
         let vc = UploadViewController()
         vc.modalPresentationStyle = .formSheet
-        vc.accessibilityViewIsModal = true 
+        vc.accessibilityViewIsModal = true
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
     }
@@ -110,7 +110,6 @@ class HomeViewController: UICollectionViewController {
         let messageVC = homeSettingViewController()
         self.navigationController?.pushViewController(messageVC, animated: true)
     }
-    
 }
 
 // MARK: - UICollectionView DataSource
