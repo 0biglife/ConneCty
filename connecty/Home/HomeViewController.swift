@@ -14,7 +14,46 @@ import UIKit
 //    func didLike(for cell: HomePostCell)
 //}
 
-class HomeViewController: UICollectionViewController {
+class HomeViewController: UICollectionViewController, HomePostCellDelegate{
+    
+    // MARK: - Delegate Function
+    
+    func didTapUser() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapMatch() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didLike() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapComment() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapShare() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func didTapPlay() {
+        let vc = UploadViewController()
+//        commentsController.post = post
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)

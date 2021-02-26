@@ -21,6 +21,7 @@ class PostCell: UICollectionViewCell{
     static let identifier = "HomePostCellID"
     
     var delegate: HomePostCellDelegate?
+    
 //    var viewModel: PostViewModel{
 //        didSet{
 //            configure()
@@ -131,6 +132,7 @@ class PostCell: UICollectionViewCell{
     
     func configure(){
         backgroundColor = UIColor(named: "white_black")
+        //delegate = self
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
@@ -148,7 +150,6 @@ class PostCell: UICollectionViewCell{
         matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
         matchingLabel.centerY(inView: profileImageView)
 
-        
         addSubview(postImageView)
         postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
         postImageView.setHeight(270)
@@ -168,14 +169,16 @@ class PostCell: UICollectionViewCell{
     // MARK: - Actions
     
     @objc func didTapUserName(){
+        delegate?.didTapUser()
         print("tapped complete")
     }
     
     @objc func didTapComment(){
-        
+        delegate?.didTapComment()
     }
     
     @objc func handleMatchIcon(){
+        delegate?.didTapMatch()
         let vc = MatchingModalViewController()
         vc.modalPresentationStyle = .formSheet
         vc.modalTransitionStyle = .crossDissolve
@@ -187,8 +190,6 @@ class PostCell: UICollectionViewCell{
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
-        
-        
         addSubview(stackView)
         stackView.anchor(top: postImageView.bottomAnchor, width: 114, height: 40)
     }
