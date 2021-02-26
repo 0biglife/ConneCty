@@ -7,14 +7,20 @@
 
 import UIKit
 
-//protocol PostCellDelegate: class {
-//    func cell(_ cell: PostCell, wantsToShowCommentsFor post: Post)
-//}
+protocol HomePostCellDelegate: class {
+    func didTapUser()
+    func didTapMatch()
+    func didLike()
+    func didTapComment()
+    func didTapShare()
+    func didTapPlay()
+}
 
 class PostCell: UICollectionViewCell{
     
     static let identifier = "HomePostCellID"
     
+    var delegate: HomePostCellDelegate?
 //    var viewModel: PostViewModel{
 //        didSet{
 //            configure()
