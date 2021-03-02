@@ -39,6 +39,8 @@
 		32E3713225DCF86C00A742E6 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3713125DCF86C00A742E6 /* CommentCell.swift */; };
 		32E7864525E3C6AC00C6045A /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864425E3C6AC00C6045A /* UploadViewController.swift */; };
 		32E7864825E4B9E200C6045A /* MatchingModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */; };
+		32E7864A25ECBFEF00C6045A /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864925ECBFEF00C6045A /* Post.swift */; };
+		32E7864C25ECC01200C6045A /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E7864B25ECC01200C6045A /* User.swift */; };
 		B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		32E3713125DCF86C00A742E6 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		32E7864425E3C6AC00C6045A /* UploadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchingModalViewController.swift; sourceTree = "<group>"; };
+		32E7864925ECBFEF00C6045A /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		32E7864B25ECC01200C6045A /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		34E954D4787E875C5287AA1D /* Pods-connecty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.release.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.release.xcconfig"; sourceTree = "<group>"; };
 		C66E35BAD24B0D479F06A4DA /* Pods-connecty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-connecty.debug.xcconfig"; path = "Target Support Files/Pods-connecty/Pods-connecty.debug.xcconfig"; sourceTree = "<group>"; };
 		ED864C0B3DB2F53571B8632E /* Pods_connecty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_connecty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				320A5CCD25D7934C00748296 /* AuthenticationViewModel.swift */,
+				32E7864925ECBFEF00C6045A /* Post.swift */,
+				32E7864B25ECC01200C6045A /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,7 +159,7 @@
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
 				325FCDAA25CCDCEE0068DE6C /* Login */,
-				32E7864625E4B9BC00C6045A /* ModalView */,
+				32E7864625E4B9BC00C6045A /* Modal */,
 				325FCD7125CCC1F40068DE6C /* Home */,
 				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
@@ -192,19 +198,19 @@
 				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
 				32E3713125DCF86C00A742E6 /* CommentCell.swift */,
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
-				325FCD8425CCCD480068DE6C /* HomeCellView */,
+				325FCD8425CCCD480068DE6C /* Cells */,
 			);
 			path = Home;
 			sourceTree = "<group>";
 		};
-		325FCD8425CCCD480068DE6C /* HomeCellView */ = {
+		325FCD8425CCCD480068DE6C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				325FCD7D25CCC9D90068DE6C /* PostCell.swift */,
 				320A5CBC25D6526400748296 /* TrackCell.swift */,
 				325FCD8125CCCD350068DE6C /* HomeHeader.swift */,
 			);
-			path = HomeCellView;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		325FCDAA25CCDCEE0068DE6C /* Login */ = {
@@ -237,13 +243,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		32E7864625E4B9BC00C6045A /* ModalView */ = {
+		32E7864625E4B9BC00C6045A /* Modal */ = {
 			isa = PBXGroup;
 			children = (
 				32E7864425E3C6AC00C6045A /* UploadViewController.swift */,
 				32E7864725E4B9E200C6045A /* MatchingModalViewController.swift */,
 			);
-			path = ModalView;
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		F05A424287BA628AD6C22AEB /* Frameworks */ = {
@@ -377,11 +383,13 @@
 				32480C8825C6D54400D03EED /* connecty.xcdatamodeld in Sources */,
 				325FCD5725CC08260068DE6C /* SearchViewController.swift in Sources */,
 				32E3712E25DCF6A500A742E6 /* CommentController.swift in Sources */,
+				32E7864C25ECC01200C6045A /* User.swift in Sources */,
 				327CD3A625E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift in Sources */,
 				32480C8225C6D54400D03EED /* LoginViewController.swift in Sources */,
 				320A5CCE25D7934C00748296 /* AuthenticationViewModel.swift in Sources */,
 				320A5CC125D66F4D00748296 /* CustomTextField.swift in Sources */,
 				325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */,
+				32E7864A25ECBFEF00C6045A /* Post.swift in Sources */,
 				32480C7E25C6D54400D03EED /* AppDelegate.swift in Sources */,
 				32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */,
 				32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */,

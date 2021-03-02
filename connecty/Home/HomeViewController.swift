@@ -16,42 +16,50 @@ import UIKit
 
 class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
+    var posts = [Post]()
+    
     // MARK: - Delegate Function
     
     func didTapUser() {
-        let vc = UploadViewController()
-//        commentsController.post = post
+        //uid 같을 시, 내 프로필 이동의 경우 If로 나눠서 구현.
+        let vc = profileViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapMatch() {
-        let vc = UploadViewController()
-//        commentsController.post = post
-        navigationController?.pushViewController(vc, animated: true)
+        let alert = UIAlertController(title: "매칭 요청하기", message: "상대방에게 매칭을 요청하시겠습니까?", preferredStyle: .alert)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false)
     }
     
-    func didLike() {
-        let vc = UploadViewController()
-//        commentsController.post = post
-        navigationController?.pushViewController(vc, animated: true)
-    }
+    func didLike() {    }
     
     func didTapComment() {
-        let vc = UploadViewController()
-//        commentsController.post = post
+        let vc = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func didTapShare() {
-        let vc = UploadViewController()
-//        commentsController.post = post
-        navigationController?.pushViewController(vc, animated: true)
+        let alert = UIAlertController(title: "Share sheet Test", message: "text zone", preferredStyle: .actionSheet)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false)
     }
     
     func didTapPlay() {
-        let vc = UploadViewController()
-//        commentsController.post = post
-        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     
@@ -109,9 +117,6 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     // MARK: - Helpers
     
     func configureCollectionView(){
-        
-//        collectionView.backgroundColor = .
-        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
@@ -176,8 +181,10 @@ extension HomeViewController{
         let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
         
         if (indexPath.row % 2) == 0 {
+            postCell.delegate = self
             return postCell
         }else{
+            trackCell.delegate = self
             return trackCell
         }
     }
