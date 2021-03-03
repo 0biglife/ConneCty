@@ -33,6 +33,8 @@
 		327CD3A625E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */; };
 		32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BB625DA45350005FF66 /* ProfileCell.swift */; };
 		32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BBA25DA453D0005FF66 /* ProfileHeader.swift */; };
+		328A56B925EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */; };
+		328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A56C325EFB3EE00436BF8 /* Tracks.swift */; };
 		32D88F1225D90F7900959948 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32D88F1125D90F7900959948 /* GoogleService-Info.plist */; };
 		32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3712925DBF29300A742E6 /* profileSettingViewController.swift */; };
 		32E3712E25DCF6A500A742E6 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3712D25DCF6A500A742E6 /* CommentController.swift */; };
@@ -86,6 +88,8 @@
 		327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderFlowLayout.swift; sourceTree = "<group>"; };
 		32819BB625DA45350005FF66 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		32819BBA25DA453D0005FF66 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
+		328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "memories (listen on spotify from 3am ep).mp3"; sourceTree = "<group>"; };
+		328A56C325EFB3EE00436BF8 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
 		32D88F1125D90F7900959948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32E3712925DBF29300A742E6 /* profileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileSettingViewController.swift; sourceTree = "<group>"; };
 		32E3712D25DCF6A500A742E6 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				320A5CCD25D7934C00748296 /* AuthenticationViewModel.swift */,
 				32E7864925ECBFEF00C6045A /* Post.swift */,
 				32E7864B25ECC01200C6045A /* User.swift */,
+				328A56C325EFB3EE00436BF8 /* Tracks.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				325FCDAA25CCDCEE0068DE6C /* Login */,
 				32E7864625E4B9BC00C6045A /* Modal */,
 				325FCD7125CCC1F40068DE6C /* Home */,
+				325FCD5625CC08260068DE6C /* SearchViewController.swift */,
 				325FCD6825CCBD950068DE6C /* matchViewController.swift */,
 				325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */,
 				32819BB425DA451A0005FF66 /* Profile */,
@@ -173,6 +179,7 @@
 		32480C9625C6D56500D03EED /* resource */ = {
 			isa = PBXGroup;
 			children = (
+				328A56B725EFB01100436BF8 /* tracks */,
 				32480C8925C6D54500D03EED /* Assets.xcassets */,
 				32480C8B25C6D54500D03EED /* LaunchScreen.storyboard */,
 				32480C8625C6D54400D03EED /* connecty.xcdatamodeld */,
@@ -192,12 +199,10 @@
 		325FCD7125CCC1F40068DE6C /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				325FCD5625CC08260068DE6C /* SearchViewController.swift */,
+				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
 				325FCDF925CE7B400068DE6C /* MessageViewController.swift */,
 				325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */,
 				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
-				32E3713125DCF86C00A742E6 /* CommentCell.swift */,
-				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
 				325FCD8425CCCD480068DE6C /* Cells */,
 			);
 			path = Home;
@@ -206,6 +211,7 @@
 		325FCD8425CCCD480068DE6C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				32E3713125DCF86C00A742E6 /* CommentCell.swift */,
 				325FCD7D25CCC9D90068DE6C /* PostCell.swift */,
 				320A5CBC25D6526400748296 /* TrackCell.swift */,
 				325FCD8125CCCD350068DE6C /* HomeHeader.swift */,
@@ -216,8 +222,8 @@
 		325FCDAA25CCDCEE0068DE6C /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				325FCE0025CE89050068DE6C /* SignUpViewController.swift */,
 				32480C8125C6D54400D03EED /* LoginViewController.swift */,
+				325FCE0025CE89050068DE6C /* SignUpViewController.swift */,
 				320A5CC525D6987900748296 /* RegistrationController.swift */,
 			);
 			path = Login;
@@ -241,6 +247,14 @@
 				32819BBA25DA453D0005FF66 /* ProfileHeader.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		328A56B725EFB01100436BF8 /* tracks */ = {
+			isa = PBXGroup;
+			children = (
+				328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */,
+			);
+			path = tracks;
 			sourceTree = "<group>";
 		};
 		32E7864625E4B9BC00C6045A /* Modal */ = {
@@ -324,6 +338,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				328A56B925EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 in Resources */,
 				32480C8D25C6D54500D03EED /* LaunchScreen.storyboard in Resources */,
 				32480C8A25C6D54500D03EED /* Assets.xcassets in Resources */,
 				32D88F1225D90F7900959948 /* GoogleService-Info.plist in Resources */,
@@ -394,6 +409,7 @@
 				32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */,
 				32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */,
 				320A5CC625D6987900748296 /* RegistrationController.swift in Sources */,
+				328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
 				325FCDD025CCDF3E0068DE6C /* ApiServerController.swift in Sources */,
 				32E3713225DCF86C00A742E6 /* CommentCell.swift in Sources */,

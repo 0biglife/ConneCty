@@ -12,9 +12,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.windowScene = windowScene
         //window?.rootViewController = UINavigationController(rootViewController: LoginViewController())
-        window?.rootViewController = MainTabBarController()
+//        window?.rootViewController = LoginViewController()
         //window?.rootViewController = CollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-//        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
     }
 

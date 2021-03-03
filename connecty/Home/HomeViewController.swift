@@ -62,7 +62,6 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         
     }
     
-    
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("인기 아티스트", for: .normal)

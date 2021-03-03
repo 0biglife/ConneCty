@@ -9,7 +9,8 @@ class LoginViewController: UIViewController {
     private var viewModel = LoginViewModel()
     
     private let iconImage: UIImageView = {
-        let iv = UIImageView(image: #imageLiteral(resourceName: "1p"))
+        let iv = UIImageView(image: #imageLiteral(resourceName: "co_img_connecty_logo_noslogan"))
+        iv.contentMode = .scaleAspectFit
         return iv
     }()
     
@@ -111,7 +112,7 @@ class LoginViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         navigationController?.navigationBar.barStyle = .black
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.black.cgColor, UIColor.systemPink.cgColor]
+        gradient.colors = [UIColor.white.cgColor, UIColor.systemPink.cgColor]
         gradient.locations = [0,1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame

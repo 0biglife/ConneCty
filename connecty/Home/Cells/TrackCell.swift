@@ -1,5 +1,6 @@
 
 import UIKit
+import AVFoundation
 
 //extension NSMutableAttributedString{
 //    func appendImage(_ image: UIImage){
@@ -11,14 +12,14 @@ import UIKit
 //}
 
 extension HomePostCellDelegate {
-    func didTapPlay(){
-        
-    }
+    func didTapPlay(){    }
 }
 
 class TrackCell: UICollectionViewCell{
     
     static let identifier = "TrackCellID"
+    
+    var player: AVAudioPlayer?
     
     var delegate: HomePostCellDelegate?
     
@@ -261,6 +262,35 @@ class TrackCell: UICollectionViewCell{
     
     @objc func handlePlay(){
         delegate?.didTapPlay()
+        if let player = player, player.isPlaying{
+            //stop playback
+            playButton.setImage(UIImage(systemName: "play"), for: .normal)
+            player.stop()
+        }else{
+            //setup player, and play
+            playButton.setImage(UIImage(systemName: "pause"), for: .normal)
+            let urlString = Bundle.main.path(forResource: "memories (listen on spotify from 3am ep)", ofType: "mp3")
+            
+            do{
+                try AVAudioSession.sharedInstance().setMode(.default)
+                try AVAudioSession.sharedInstance().setActive(true, options: .notifyOthersOnDeactivation)
+                
+                guard let urlString = urlString else{
+                    return
+                }
+                
+                player = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: urlString))
+                
+                guard let player = player else{
+                    return
+                }
+                
+                player.play()
+            }
+            catch{
+                print("something went wrong")
+            }
+        }
     }
     
     @objc func didTapLike(){
