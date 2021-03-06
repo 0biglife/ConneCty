@@ -13,10 +13,12 @@ class ProfileCell: UICollectionViewListCell{
     
     private var postImageView : UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "postTest")
+        iv.image = #imageLiteral(resourceName: "frankOceanAlbum")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         return iv
+        
+        
     }()
     
     // MARK: LifeCycle

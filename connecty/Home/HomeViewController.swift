@@ -43,6 +43,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     func didTapComment() {
         let vc = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -62,6 +63,12 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         
     }
     
+    private let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .red
+        return view
+    }()
+    
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("인기 아티스트", for: .normal)
@@ -80,12 +87,6 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         return button
     }()
     
-    private let topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -97,8 +98,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     func configureTopStackView(){
         view.addSubview(topView)
-        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: collectionView.topAnchor, right: view.rightAnchor)
-        topView.setHeight(100)
+        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 50)
     }
     
     func configureNavigationBar(){

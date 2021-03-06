@@ -30,7 +30,12 @@ class profileViewController: UICollectionViewController{
         navigationController?.navigationBar.prefersLargeTitles = false
         self.navigationItem.title = "userName"
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = UIColor(named: "white_black")
+        
+        let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToUpload))
+        let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
+        
+        navigationItem.rightBarButtonItems = [alarmButton,uplaodButton]
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -41,14 +46,26 @@ class profileViewController: UICollectionViewController{
         
         collectionView.register(ProfileCell.self, forCellWithReuseIdentifier: cellIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "setting") , style: .plain, target: self, action: #selector(handleSetting))
-        navigationItem.rightBarButtonItem?.tintColor = UIColor(named: "oppositeColor")
     }
     
     @objc func handleSetting(){
         let vc = profileSettingViewController()
+        navigationItem.backButtonTitle = ""
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func goToAlarm(){
+        let messageVC = homeSettingViewController()
+        navigationItem.backButtonTitle = ""
+        self.navigationController?.pushViewController(messageVC, animated: true)
+    }
+    
+    @objc func goToUpload(){
+        let vc = UploadViewController()
+        vc.modalPresentationStyle = .formSheet
+        vc.accessibilityViewIsModal = true
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true, completion: nil)
     }
 }
 
@@ -56,7 +73,7 @@ class profileViewController: UICollectionViewController{
 
 extension profileViewController{
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return 4
     }
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as! ProfileCell
@@ -90,6 +107,6 @@ extension profileViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: width, height: width)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width, height: 291)
+        return CGSize(width: collectionView.frame.size.width, height: 265)
     }
 }

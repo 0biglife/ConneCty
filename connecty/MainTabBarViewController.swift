@@ -5,8 +5,15 @@
 //  Created by 공대생 on 2021/02/04.
 //
 import UIKit
+import LNPopupController
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
+    
+    private let topView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
     
     // MARK: - Liftcycle
     
@@ -40,6 +47,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         let profileVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_profile_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_profile_sel"), rootViewController: profileViewController(collectionViewLayout : profileLayout))
         
         viewControllers = [homeVC,searchVC,matchVC,practiceVC,profileVC]
+        
     }
     
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController)->UINavigationController{

@@ -13,15 +13,25 @@ class ProfileHeader: UICollectionReusableView{
     
     private var topBGImage: UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "bgtest")
+        iv.image = #imageLiteral(resourceName: "profileBackGroundTest")
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.type = .axial
+        gradientLayer.frame = iv.bounds
+        gradientLayer.colors = [UIColor.white.cgColor,UIColor.black
+                                    .cgColor]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
+        iv.layer.addSublayer(gradientLayer)
+        
         return iv
     }()
     
     private var profileImageView : UIImageView = {
         let iv = UIImageView()
-        iv.image = #imageLiteral(resourceName: "1p")
+        iv.image = #imageLiteral(resourceName: "selfieTest")
         iv.contentMode = .scaleAspectFill
         
         iv.clipsToBounds = true
@@ -37,24 +47,36 @@ class ProfileHeader: UICollectionReusableView{
     
     private lazy var firstButton :UIButton = {
         let button = UIButton()
-        button.setTitle("Insight", for: .normal)
+        button.setTitle("팔로우", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.addTarget(self, action: #selector(handleFirstButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var secondButton:UIButton = {
         let button = UIButton()
-        button.setTitle("Edit Profile", for: .normal)
+        button.setTitle("메세지", for: .normal)
         button.layer.cornerRadius = 3
         button.layer.borderColor = UIColor.lightGray.cgColor
         button.layer.borderWidth = 0.5
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 13)
-        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
+        button.addTarget(self, action: #selector(handleSecondButton), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var thirdButton:UIButton = {
+        let button = UIButton()
+        button.setTitle("매칭요청", for: .normal)
+        button.layer.cornerRadius = 3
+        button.layer.borderColor = UIColor.lightGray.cgColor
+        button.layer.borderWidth = 0.5
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.addTarget(self, action: #selector(handleSecondButton), for: .touchUpInside)
         return button
     }()
@@ -79,24 +101,24 @@ class ProfileHeader: UICollectionReusableView{
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
-        label.attributedText = attributedStatText(value: 4, label: "Posts")
+        label.attributedText = attributedStatText(value: 30, label: "매칭 수")
         return label
     }()
     
     let trackGridButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Track", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Tracks", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.addTarget(self, action: #selector(handleTrackButton), for: .touchUpInside)
         return button
     }()
     
     let infoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Myinfo", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Info", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.addTarget(self, action: #selector(handleInfoButton), for: .touchUpInside)
         return button
     }()
@@ -104,8 +126,8 @@ class ProfileHeader: UICollectionReusableView{
     let postGridButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Posts", for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
+        button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.addTarget(self, action: #selector(handlePostButton), for: .touchUpInside)
         return button
     }()
@@ -115,30 +137,34 @@ class ProfileHeader: UICollectionReusableView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        backgroundColor = #colorLiteral(red: 0.09815724939, green: 0.09785347432, blue: 0.1108924821, alpha: 1)
+        backgroundColor = UIColor(named: "white_black")
         
         addSubview(topBGImage)
-        topBGImage.anchor(top: topAnchor,left: leftAnchor,right: rightAnchor,height: 138)
+        topBGImage.anchor(top: topAnchor,left: leftAnchor,right: rightAnchor,height: 148)
         
         let bottomOfImage = UIView()
-        bottomOfImage.backgroundColor = #colorLiteral(red: 0.9985190034, green: 0.5495392084, blue: 0, alpha: 1)
+        bottomOfImage.backgroundColor = UIColor(named: "connectyOrange")
         
         addSubview(bottomOfImage)
-        bottomOfImage.anchor(top:topBGImage.bottomAnchor, left: leftAnchor,right: rightAnchor, height: 3)
+        bottomOfImage.anchor(top:topBGImage.bottomAnchor, left: leftAnchor,right: rightAnchor, height: 1)
         
         addSubview(profileImageView)
         profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 78, paddingLeft: 20)
-        profileImageView.layer.borderWidth = 5
-        profileImageView.layer.borderColor = UIColor.white.cgColor
-        profileImageView.setDimensions(height: 105, width: 105)
-        profileImageView.layer.cornerRadius = 105/2
+        profileImageView.layer.borderWidth = 3
+        profileImageView.layer.borderColor = UIColor(named: "connectyOrange")?.cgColor
+        profileImageView.setDimensions(height: 104, width: 104)
+        profileImageView.layer.cornerRadius = 104/2
         
         addSubview(firstButton)
-        firstButton.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,paddingTop: 20, paddingLeft: 24, width: 145, height: 26)
+        firstButton.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,paddingTop: 20, paddingLeft: 21, width: 101, height: 25)
         
         addSubview(secondButton)
-        secondButton.anchor(left: firstButton.rightAnchor, right: rightAnchor, paddingLeft: 24, paddingRight: 24, width: 145, height: 26)
+        secondButton.anchor(left: firstButton.rightAnchor ,paddingLeft: 15, width: 101, height: 25)
         secondButton.centerY(inView: firstButton)
+        
+        addSubview(thirdButton)
+        thirdButton.anchor(left: secondButton.rightAnchor, right: rightAnchor, paddingLeft: 15, paddingRight: 21, width: 101, height: 25)
+        thirdButton.centerY(inView: firstButton)
         
         let stack = UIStackView(arrangedSubviews:  [followingLabel,followersLabel,postsLabel])
         stack.distribution = .fillEqually
@@ -159,9 +185,9 @@ class ProfileHeader: UICollectionReusableView{
         addSubview(topDivider)
         addSubview(bottomDivider)
         
-        buttonStack.anchor(left: leftAnchor, bottom: bottomAnchor, right: rightAnchor, height: 50)
-        topDivider.anchor(top: buttonStack.topAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
-        bottomDivider.anchor(top: buttonStack.bottomAnchor, left: leftAnchor, right: rightAnchor, height: 0.5)
+        topDivider.anchor(top: firstButton.bottomAnchor, left: leftAnchor, right: rightAnchor,paddingTop: 12, height: 0.5)
+        buttonStack.anchor(top: topDivider.bottomAnchor, left: leftAnchor,right: rightAnchor,paddingTop: 7, height: 11)
+        bottomDivider.anchor(top: buttonStack.bottomAnchor, left: leftAnchor, right: rightAnchor,paddingTop: 7, height: 0.5)
         
     }
     required init?(coder: NSCoder) {
@@ -193,8 +219,9 @@ class ProfileHeader: UICollectionReusableView{
     // MARK: Helpers
     
     func attributedStatText(value: Int, label: String) -> NSAttributedString{
-        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 18)])
-        attributedText.append(NSAttributedString(string: label,attributes: [.font: UIFont.systemFont(ofSize: 14), .foregroundColor : UIColor.lightGray]))
+        let attributedText = NSMutableAttributedString(string: "\(value)\n", attributes: [.font: UIFont.boldSystemFont(ofSize: 15)])
+        attributedText.append(NSAttributedString(string: label,attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor : UIColor.black]))
+//        attributedText.append(NSAttributedString(string: label,attributes: [.font: UIFont.systemFont(ofSize: 12), .foregroundColor : UIColor.lightGray]))
         return attributedText
     }
 }

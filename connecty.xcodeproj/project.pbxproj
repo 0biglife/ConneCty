@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,6 +35,9 @@
 		32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BBA25DA453D0005FF66 /* ProfileHeader.swift */; };
 		328A56B925EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */; };
 		328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A56C325EFB3EE00436BF8 /* Tracks.swift */; };
+		328A56C725EFC10100436BF8 /* LNPopupController in Frameworks */ = {isa = PBXBuildFile; productRef = 328A56C625EFC10100436BF8 /* LNPopupController */; };
+		328A56C825EFC10100436BF8 /* LNPopupController in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 328A56C625EFC10100436BF8 /* LNPopupController */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		328A56CD25F0B7BE00436BF8 /* MiniPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */; };
 		32D88F1225D90F7900959948 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32D88F1125D90F7900959948 /* GoogleService-Info.plist */; };
 		32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3712925DBF29300A742E6 /* profileSettingViewController.swift */; };
 		32E3712E25DCF6A500A742E6 /* CommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3712D25DCF6A500A742E6 /* CommentController.swift */; };
@@ -53,6 +56,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				328A56C825EFC10100436BF8 /* LNPopupController in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -90,6 +94,7 @@
 		32819BBA25DA453D0005FF66 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "memories (listen on spotify from 3am ep).mp3"; sourceTree = "<group>"; };
 		328A56C325EFB3EE00436BF8 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
+		328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerController.swift; sourceTree = "<group>"; };
 		32D88F1125D90F7900959948 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		32E3712925DBF29300A742E6 /* profileSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileSettingViewController.swift; sourceTree = "<group>"; };
 		32E3712D25DCF6A500A742E6 /* CommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentController.swift; sourceTree = "<group>"; };
@@ -109,6 +114,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B04CCE227208161E03C8C606 /* Pods_connecty.framework in Frameworks */,
+				328A56C725EFC10100436BF8 /* LNPopupController in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +169,7 @@
 				32480C7F25C6D54400D03EED /* SceneDelegate.swift */,
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
+				328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */,
 				325FCDAA25CCDCEE0068DE6C /* Login */,
 				32E7864625E4B9BC00C6045A /* Modal */,
 				325FCD7125CCC1F40068DE6C /* Home */,
@@ -294,6 +301,7 @@
 			);
 			name = connecty;
 			packageProductDependencies = (
+				328A56C625EFC10100436BF8 /* LNPopupController */,
 			);
 			productName = connecty;
 			productReference = 32480C7A25C6D54400D03EED /* connecty.app */;
@@ -323,6 +331,7 @@
 			);
 			mainGroup = 32480C7125C6D54400D03EED;
 			packageReferences = (
+				328A56C525EFC10100436BF8 /* XCRemoteSwiftPackageReference "LNPopupController" */,
 			);
 			productRefGroup = 32480C7B25C6D54400D03EED /* Products */;
 			projectDirPath = "";
@@ -416,6 +425,7 @@
 				32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */,
 				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
 				325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */,
+				328A56CD25F0B7BE00436BF8 /* MiniPlayerController.swift in Sources */,
 				325FCD8225CCCD350068DE6C /* HomeHeader.swift in Sources */,
 				325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */,
 				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,
@@ -621,6 +631,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		328A56C525EFC10100436BF8 /* XCRemoteSwiftPackageReference "LNPopupController" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LeoNatan/LNPopupController";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.10.27;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		328A56C625EFC10100436BF8 /* LNPopupController */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 328A56C525EFC10100436BF8 /* XCRemoteSwiftPackageReference "LNPopupController" */;
+			productName = LNPopupController;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		32480C8625C6D54400D03EED /* connecty.xcdatamodeld */ = {
