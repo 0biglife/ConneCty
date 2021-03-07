@@ -48,6 +48,7 @@ class profileViewController: UICollectionViewController{
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
     }
     
+    
     @objc func handleSetting(){
         let vc = profileSettingViewController()
         navigationItem.backButtonTitle = ""
@@ -87,7 +88,7 @@ extension profileViewController{
     }
 }
 
-// MARK: Delegate
+// MARK: Section
 
 extension profileViewController{
     
