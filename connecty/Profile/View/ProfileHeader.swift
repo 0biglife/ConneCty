@@ -39,7 +39,7 @@ class ProfileHeader: UICollectionReusableView{
     private lazy var introductionLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 11)
-        label.textColor = UIColor(named: "black_white")
+        label.textColor = UIColor(named: "white_black")
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
         label.numberOfLines = 2
         label.text = "안녕하세요. 아티스트입니다.가나다라마바사아자차카타파하"
@@ -147,9 +147,8 @@ class ProfileHeader: UICollectionReusableView{
         gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
         gradientLayer.locations = [0.0,1.0]
         gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
-//        gradientLayer.frame = CGRect(x : 0, y: 0, width: topBGImage.frame.width, height: topBGImage.frame.height)
-        gradientLayer.frame = topBGImage.bounds
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.7)
+        gradientLayer.frame = bounds  // 저는 빡대가리에요 이거 땜에 한 시간반을 썼어요,,
         topBGImage.layer.addSublayer(gradientLayer)
         
         let bottomOfImage = UIView()
