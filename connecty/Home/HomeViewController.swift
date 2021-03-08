@@ -63,12 +63,6 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         
     }
     
-    private let topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .red
-        return view
-    }()
-    
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("인기 아티스트", for: .normal)
@@ -91,14 +85,31 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureTopStackView()
+        configureSegmentControl()
         configureNavigationBar()
         configureCollectionView()
     }
     
-    func configureTopStackView(){
-        view.addSubview(topView)
-        topView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: 50)
+    func configureSegmentControl(){
+        let segmentItems = ["팔로잉", "인기 아티스트","게시판"]
+        let control = UISegmentedControl(items: segmentItems)
+        control.frame = CGRect(x: 0, y: 100 , width: self.view.frame.width, height: 47)
+        control.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
+        control.selectedSegmentIndex = 0
+        view.addSubview(control)
+    }
+    
+    @objc func segmentControl(_ segmentedControl: UISegmentedControl) {
+       switch (segmentedControl.selectedSegmentIndex) {
+          case 0:
+             // First segment tapped
+          break
+          case 1:
+             // Second segment tapped
+          break
+          default:
+          break
+       }
     }
     
     func configureNavigationBar(){
@@ -109,7 +120,10 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToUpload))
         let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
         
+//        let fixedSpace:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+//        fixedSpace.width = -10
         navigationItem.rightBarButtonItems = [alarmButton,uplaodButton]
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_message") ,style: .plain , target: self, action: #selector(goToAlarm))
     }
     
@@ -119,9 +133,10 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 47, left: 0, bottom: 0, right: 0)
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 50, width: view.frame.width, height: view.frame.height ), collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
+//        collectionView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
 //        collectionView.contentInset.top = 47
         
         guard let collectionView = collectionView else {return}

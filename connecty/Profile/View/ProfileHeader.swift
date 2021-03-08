@@ -17,15 +17,6 @@ class ProfileHeader: UICollectionReusableView{
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
         
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.type = .axial
-        gradientLayer.frame = iv.bounds
-        gradientLayer.colors = [UIColor.white.cgColor,UIColor.black
-                                    .cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
-        gradientLayer.endPoint = CGPoint(x: 1.0, y: 1.0)
-        iv.layer.addSublayer(gradientLayer)
-        
         return iv
     }()
     
@@ -42,6 +33,16 @@ class ProfileHeader: UICollectionReusableView{
         let label = UILabel()
         label.text = "Artist_Name"
         label.font = UIFont.boldSystemFont(ofSize: 13)
+        return label
+    }()
+    
+    private lazy var introductionLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 11)
+        label.textColor = UIColor(named: "black_white")
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.numberOfLines = 2
+        label.text = "안녕하세요. 아티스트입니다.가나다라마바사아자차카타파하"
         return label
     }()
     
@@ -142,6 +143,15 @@ class ProfileHeader: UICollectionReusableView{
         addSubview(topBGImage)
         topBGImage.anchor(top: topAnchor,left: leftAnchor,right: rightAnchor,height: 148)
         
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradientLayer.locations = [0.0,1.0]
+        gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.0)
+        gradientLayer.endPoint = CGPoint(x: 0.0, y: 1.0)
+//        gradientLayer.frame = CGRect(x : 0, y: 0, width: topBGImage.frame.width, height: topBGImage.frame.height)
+        gradientLayer.frame = topBGImage.bounds
+        topBGImage.layer.addSublayer(gradientLayer)
+        
         let bottomOfImage = UIView()
         bottomOfImage.backgroundColor = UIColor(named: "connectyOrange")
         
@@ -154,6 +164,9 @@ class ProfileHeader: UICollectionReusableView{
         profileImageView.layer.borderColor = UIColor(named: "connectyOrange")?.cgColor
         profileImageView.setDimensions(height: 104, width: 104)
         profileImageView.layer.cornerRadius = 104/2
+        
+        addSubview(introductionLabel)
+        introductionLabel.anchor(left: profileImageView.rightAnchor, bottom: bottomOfImage.topAnchor,paddingLeft: 18, paddingBottom: 12, width: 152, height: 27)
         
         addSubview(firstButton)
         firstButton.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,paddingTop: 20, paddingLeft: 21, width: 101, height: 25)
