@@ -20,7 +20,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-        configure()
+        setupUI()
 //        if Auth.auth().currentUser == nil {
 //            presentLoginController()
 //        } else {
@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
     
     // MARK: - Helpers
     
-    func configure(){
+    func setupUI(){
         tabBar.barTintColor = UIColor(named: "white_black")
         tabBar.unselectedItemTintColor = UIColor(named: "gray_white")
         tabBar.tintColor = .orange //icon select 시 컬러 지정

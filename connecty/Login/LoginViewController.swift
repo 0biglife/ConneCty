@@ -1,6 +1,5 @@
 import UIKit
 import SnapKit
-//import Then
 
 class LoginViewController: UIViewController {
     
@@ -68,7 +67,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureViewComponent()
+        setupUI()
         configureNotificationObservers()
         
         moveViewWithKeyboard()
@@ -106,7 +105,7 @@ class LoginViewController: UIViewController {
         updateForm()
     }
     
-    func configureViewComponent(){
+    func setupUI(){
         self.view.backgroundColor = .systemBackground
         
         navigationController?.navigationBar.isHidden = true
@@ -118,9 +117,19 @@ class LoginViewController: UIViewController {
         gradient.frame = view.frame
         
         view.addSubview(iconImage)
-        iconImage.centerX(inView: view)
-        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
-        iconImage.setDimensions(height: 65, width: 278)
+        iconImage.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(self.topLayoutGuide.snp.bottom)
+            $0.size.width.equalTo(65)
+            $0.size.height.equalTo(278)
+//            $0.width.equalTo(65)
+//            $0.height.equalTo(278)
+            
+        }
+        
+//        iconImage.centerX(inView: view)
+//        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
+//        iconImage.setDimensions(height: 65, width: 278)
         
         let forgotStack = UIStackView(arrangedSubviews: [forgotAccountButton, forgotPasswordButton])
         forgotStack.axis = .horizontal
@@ -131,16 +140,17 @@ class LoginViewController: UIViewController {
         stack.spacing = 25
         
         view.addSubview(stack)
+        view.addSubview(signupButton)
+        view.addSubview(forgotStack)
+        view.addSubview(loginButton)
+        
         stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
         
-        view.addSubview(signupButton)
         signupButton.anchor(top: stack.bottomAnchor,left: stack.leftAnchor, right: stack.rightAnchor, paddingTop: 20)
         
-        view.addSubview(forgotStack)
         forgotStack.anchor(top: signupButton.bottomAnchor, paddingTop: 5)
         forgotStack.centerX(inView: view)
         
-        view.addSubview(loginButton)
         loginButton.anchor(top: forgotStack.bottomAnchor,left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
         loginButton.centerX(inView: view)
     }
@@ -148,7 +158,6 @@ class LoginViewController: UIViewController {
     func configureNotificationObservers(){
         emailTF.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTF.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        
     }
 }
 
@@ -161,6 +170,7 @@ extension LoginViewController: FormViewModel{
         loginButton.isEnabled = viewModel.formIsValid
     }
 }
+
 
 /*
 //then 적용

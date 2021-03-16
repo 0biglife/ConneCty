@@ -56,11 +56,11 @@ class PostCell: UICollectionViewCell{
         return button
     }()
     
-    private lazy var matchingButton: UIButton = {
+    lazy var matchingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
@@ -127,7 +127,7 @@ class PostCell: UICollectionViewCell{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        setupUI()
     }
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
@@ -140,7 +140,7 @@ class PostCell: UICollectionViewCell{
 //        setupAttributedCaption()
     }
     
-    func configure(){
+    func setupUI(){
         backgroundColor = UIColor(named: "white_black")
         //delegate = self
         

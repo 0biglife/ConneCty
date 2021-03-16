@@ -85,12 +85,12 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSegmentControl()
-        configureNavigationBar()
-        configureCollectionView()
+        setupNavigationBar()
+        setupCollectionView()
+        setupSegmentControl()
     }
     
-    func configureSegmentControl(){
+    func setupSegmentControl(){
         let segmentItems = ["팔로잉", "인기 아티스트","게시판"]
         let control = UISegmentedControl(items: segmentItems)
         control.frame = CGRect(x: 0, y: 100 , width: self.view.frame.width, height: 47)
@@ -112,7 +112,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
        }
     }
     
-    func configureNavigationBar(){
+    func setupNavigationBar(){
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
         UINavigationBar.appearance().isTranslucent = false
@@ -129,15 +129,13 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     // MARK: - Helpers
     
-    func configureCollectionView(){
+    func setupCollectionView(){
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 0
         layout.sectionInset = UIEdgeInsets(top: 47, left: 0, bottom: 0, right: 0)
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
-//        collectionView.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 0, right: 0)
-//        collectionView.contentInset.top = 47
         
         guard let collectionView = collectionView else {return}
         
@@ -145,10 +143,8 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         collectionView.delegate = self
         collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
         collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
-//        collectionView.register(HomeHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier)
         
         view.addSubview(collectionView)
-//        collectionView.frame = view.bounds
     }
     
     @objc func goToAlarm(){
@@ -158,7 +154,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     @objc func goToUpload(){
         let vc = UploadViewController()
-        vc.modalPresentationStyle = .formSheet
+        vc.modalPresentationStyle = .overCurrentContext
         vc.accessibilityViewIsModal = true
         vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true, completion: nil)
@@ -192,6 +188,8 @@ extension HomeViewController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
+//        postCell.matchingButton.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+        
         let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
         
         if (indexPath.row % 2) == 0 {

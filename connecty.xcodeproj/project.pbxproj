@@ -209,8 +209,8 @@
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
 				325FCDF925CE7B400068DE6C /* MessageViewController.swift */,
 				325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */,
-				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
 				325FCD8425CCCD480068DE6C /* Cells */,
+				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

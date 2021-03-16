@@ -36,7 +36,9 @@ class UploadViewController: UIViewController{
     }
     
     func configure() {
-
+        view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        //autoLayout으로.(!!)
+        
         let xCoord = self.view.bounds.width / 2 - 135
         let yCoord = self.view.bounds.height / 2 - 200
         let centerView = UIView(frame: CGRect(x: xCoord, y: yCoord, width: 270, height: 258))
