@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol HomePostCellDelegate: class {
     func didTapUser()
@@ -34,6 +35,7 @@ class PostCell: UICollectionViewCell{
         iv.layer.borderColor = UIColor(named: "gray_white")?.cgColor
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
+        iv.layer.cornerRadius = 40/2
         iv.image = #imageLiteral(resourceName: "giriboi")
         return iv
     }()
@@ -128,6 +130,7 @@ class PostCell: UICollectionViewCell{
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
+        setupConstraints()
     }
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
@@ -145,10 +148,6 @@ class PostCell: UICollectionViewCell{
         //delegate = self
         
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
-        profileImageView.setDimensions(height: 40, width: 40)
-        profileImageView.layer.cornerRadius = 40/2
-        
         addSubview(userNameButton)
         userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 12)
         
@@ -174,6 +173,15 @@ class PostCell: UICollectionViewCell{
         
         addSubview(postTimeLabel)
         postTimeLabel.anchor(top: captionLabel.bottomAnchor,left: leftAnchor, bottom: bottomAnchor, paddingTop: 9, paddingLeft: 10, paddingBottom: 4)
+    }
+    
+    func setupConstraints(){
+        
+        profileImageView.snp.makeConstraints {
+            $0.top.left.equalToSuperview().offset(8)
+            $0.size.width.height.equalTo(40)
+        }
+        
     }
     
     // MARK: - Actions

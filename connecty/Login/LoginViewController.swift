@@ -62,12 +62,29 @@ class LoginViewController: UIViewController {
         button.addTarget(self, action: #selector(handlePasswordButton), for: .touchUpInside)
         return button
     }()
+   
+    private let typingStack : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 25
+        return stack
+    }()
+    
+    private let forgotStack : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 20
+        return stack
+    }()
+
     
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupConstraints()
+        
         configureNotificationObservers()
         
         moveViewWithKeyboard()
@@ -116,43 +133,52 @@ class LoginViewController: UIViewController {
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
         
+        forgotStack.addArrangedSubview(forgotPasswordButton)
+        forgotStack.addArrangedSubview(forgotAccountButton)
+        typingStack.addArrangedSubview(passwordTF)
+        typingStack.addArrangedSubview(emailTF)
+                                       
         view.addSubview(iconImage)
-        iconImage.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(self.topLayoutGuide.snp.bottom)
-            $0.size.width.equalTo(65)
-            $0.size.height.equalTo(278)
-//            $0.width.equalTo(65)
-//            $0.height.equalTo(278)
-            
-        }
-        
-//        iconImage.centerX(inView: view)
-//        iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 50)
-//        iconImage.setDimensions(height: 65, width: 278)
-        
-        let forgotStack = UIStackView(arrangedSubviews: [forgotAccountButton, forgotPasswordButton])
-        forgotStack.axis = .horizontal
-        forgotStack.spacing = 20
-        
-        let stack = UIStackView(arrangedSubviews: [emailTF, passwordTF])
-        stack.axis = .vertical
-        stack.spacing = 25
-        
-        view.addSubview(stack)
+        view.addSubview(typingStack)
         view.addSubview(signupButton)
         view.addSubview(forgotStack)
         view.addSubview(loginButton)
         
-        stack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
+    }
+    
+    func setupConstraints(){
         
-        signupButton.anchor(top: stack.bottomAnchor,left: stack.leftAnchor, right: stack.rightAnchor, paddingTop: 20)
+        iconImage.snp.makeConstraints {
+            $0.centerX.equalTo(view)
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.width.equalTo(65)
+            $0.height.equalTo(278)
+        }
         
-        forgotStack.anchor(top: signupButton.bottomAnchor, paddingTop: 5)
-        forgotStack.centerX(inView: view)
+        typingStack.snp.makeConstraints {
+            $0.top.equalTo(iconImage.snp.bottom).offset(100)
+            $0.left.equalTo(view.snp.left).offset(32)
+            $0.right.equalTo(view.snp.right).offset(-32)
+        }
         
-        loginButton.anchor(top: forgotStack.bottomAnchor,left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
-        loginButton.centerX(inView: view)
+        signupButton.snp.makeConstraints {
+            $0.top.equalTo(typingStack.snp.bottom).offset(20)
+            $0.left.equalTo(typingStack.snp.left)
+            $0.right.equalTo(typingStack.snp.right)
+        }
+        
+        forgotStack.snp.makeConstraints {
+            $0.top.equalTo(signupButton.snp.bottom).offset(5)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
+        
+        loginButton.snp.makeConstraints {
+            $0.top.equalTo(forgotStack.snp.bottom).offset(100)
+            $0.left.equalTo(view).offset(32)
+            $0.right.equalTo(view).offset(-32)
+            $0.centerX.equalToSuperview()
+        }
+        
     }
     
     func configureNotificationObservers(){
@@ -170,7 +196,21 @@ extension LoginViewController: FormViewModel{
         loginButton.isEnabled = viewModel.formIsValid
     }
 }
-
+/*
+ //SnapKit 적용 전 Layout
+ 
+ typingStack.anchor(top: iconImage.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
+ 
+ signupButton.anchor(top: typingStack.bottomAnchor,left: typingStack.leftAnchor, right: typingStack.rightAnchor, paddingTop: 20)
+ 
+ forgotStack.anchor(top: signupButton.bottomAnchor, paddingTop: 5)
+ forgotStack.centerX(inView: view)
+ 
+ loginButton.anchor(top: forgotStack.bottomAnchor,left: view.leftAnchor, right: view.rightAnchor, paddingTop: 100, paddingLeft: 32, paddingRight: 32)
+ loginButton.centerX(inView: view)
+ 
+ 
+ */
 
 /*
 //then 적용
