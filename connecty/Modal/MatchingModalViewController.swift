@@ -42,8 +42,6 @@ class MatchingModalViewController: UIViewController{
         view.addSubview(titleText)
         titleText.anchor(top: centerView.topAnchor, paddingTop: 20)
         titleText.centerX(inView: centerView)
-        
-        
     }
     
 }

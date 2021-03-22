@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PagingKit
 
 //protocol HomePostCellDelegate {
 //    func didTapComment(post: Post)
@@ -20,23 +21,25 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     // MARK: - Delegate Function
     
+    lazy var menuView: PagingMenuView = {
+        let menuView = PagingMenuView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 47))
+//        menuView.dataSource = self
+//        menuView.menuDelegate = self
+        menuView.cellAlignment = .center
+        
+//        menuView.register(type: MenuCell.self, with: MenuCell.identifier)
+        menuView.registerFocusView(view: UnderlineFocusView())
+        return menuView
+    }()
+    
+//    var menuVC = PagingMenuViewController()
+    var contentVC = PagingContentViewController()
+    
     func didTapUser() {
         //uid 같을 시, 내 프로필 이동의 경우 If로 나눠서 구현.
         let vc = profileViewController(collectionViewLayout: UICollectionViewFlowLayout())
         navigationItem.backButtonTitle = ""
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func didTapMatch() {
-        let alert = UIAlertController(title: "매칭 요청하기", message: "상대방에게 매칭을 요청하시겠습니까?", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-                
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: false)
     }
     
     func didLike() {    }
@@ -59,9 +62,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         self.present(alert, animated: false)
     }
     
-    func didTapPlay() {
-        
-    }
+    func didTapPlay() {    }
     
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
@@ -85,31 +86,10 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        menuView.reloadData()
+//        contentVC.reloadData()
         setupNavigationBar()
         setupCollectionView()
-        setupSegmentControl()
-    }
-    
-    func setupSegmentControl(){
-        let segmentItems = ["팔로잉", "인기 아티스트","게시판"]
-        let control = UISegmentedControl(items: segmentItems)
-        control.frame = CGRect(x: 0, y: 100 , width: self.view.frame.width, height: 47)
-        control.addTarget(self, action: #selector(segmentControl(_:)), for: .valueChanged)
-        control.selectedSegmentIndex = 0
-        view.addSubview(control)
-    }
-    
-    @objc func segmentControl(_ segmentedControl: UISegmentedControl) {
-       switch (segmentedControl.selectedSegmentIndex) {
-          case 0:
-             // First segment tapped
-          break
-          case 1:
-             // Second segment tapped
-          break
-          default:
-          break
-       }
     }
     
     func setupNavigationBar(){
@@ -164,22 +144,22 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         let messageVC = homeSettingViewController()
         self.navigationController?.pushViewController(messageVC, animated: true)
     }
+    
+    @objc func diidTapMatch(){
+        let alert = UIAlertController(title: "매칭 요청하기", message: "상대방에게 매칭을 요청하시겠습니까?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+                
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false)
+    }
 }
 
 // MARK: - UICollectionView DataSource
 
 extension HomeViewController{
-    /*
-    // MARK: - Header
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: HomeHeader.identifier, for: indexPath) as! HomeHeader
-        header.configure()
-        return header
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 83)
-    }*/
     
     // MARK: - PostCell
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -188,7 +168,8 @@ extension HomeViewController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
-//        postCell.matchingButton.addTarget(self, action: #selector(btnTapped), for: .touchUpInside)
+        postCell.matchingButton.addTarget(self, action: #selector(diidTapMatch), for: .touchUpInside)
+        
         
         let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
         

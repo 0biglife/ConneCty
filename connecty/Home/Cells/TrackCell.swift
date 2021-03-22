@@ -54,7 +54,7 @@ class TrackCell: UICollectionViewCell{
         button.setTitleColor(.lightGray, for: .normal)
         button.setTitle("매칭 요청하기", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
@@ -62,7 +62,7 @@ class TrackCell: UICollectionViewCell{
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
+//        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
@@ -256,9 +256,9 @@ class TrackCell: UICollectionViewCell{
         print("protocol test")
     }
     
-    @objc func handleMatchIcon(){
-        delegate?.didTapMatch()
-    }
+//    @objc func handleMatchIcon(){
+//        delegate?.didTapMatch()
+//    }
     
     @objc func handlePlay(){
         delegate?.didTapPlay()

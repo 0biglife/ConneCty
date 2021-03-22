@@ -59,7 +59,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         moveViewWithKeyboard()
         hideKeyboardWhenTappedAround()
         
-        configure()
+        setupUI()
+        setupConstraints()
 //        signupButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
 //        cancelButton.addTarget(self, action: #selector(cancelEvent), for: .touchUpInside)
     }
@@ -78,7 +79,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
     
     // MARK: - Helpers
     
-    func configure(){
+    func setupUI(){
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemRed.cgColor]
         gradient.locations = [0,1]
@@ -97,6 +98,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
 //        loginButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
     }
     
+    func setupConstraints(){
+        
+    }
+
     @objc func signupEvent(){
         let tabBarVC = MainTabBarController()
         tabBarVC.modalPresentationStyle = .fullScreen
