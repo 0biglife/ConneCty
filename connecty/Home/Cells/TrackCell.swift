@@ -11,9 +11,6 @@ import AVFoundation
 //    }
 //}
 
-extension HomePostCellDelegate {
-    func didTapPlay(){    }
-}
 
 class TrackCell: UICollectionViewCell{
     
@@ -21,15 +18,13 @@ class TrackCell: UICollectionViewCell{
     
     var player: AVAudioPlayer?
     
-    var delegate: HomePostCellDelegate?
-    
     var post: Post?{
         didSet{
             configurePost()
         }
     }
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.layer.borderWidth = 3
@@ -40,40 +35,37 @@ class TrackCell: UICollectionViewCell{
         return iv
     }()
     
-    private lazy var userNameButton: UIButton = {
+    lazy var userNameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.setTitle("nameLabel", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
     }()
     
-    private lazy var matchingLabel: UIButton = {
+    lazy var matchingLabel: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(.lightGray, for: .normal)
         button.setTitle("매칭 요청하기", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 12)
-//        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
-    private lazy var matchingButton: UIButton = {
+    lazy var matchingButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_match_nor"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-//        button.addTarget(self, action: #selector(handleMatchIcon), for: .touchUpInside)
         return button
     }()
     
     
-    private let trackCellView: UIView = {
+    let trackCellView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         return view
     }()
     
-    private let trackImage: UIImageView = {
+    let trackImage: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
@@ -82,7 +74,7 @@ class TrackCell: UICollectionViewCell{
         return iv
     }()
     
-    private lazy var playButton: UIButton = {
+    lazy var playButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = UIColor.white.withAlphaComponent(0.7)
         button.setImage(UIImage(systemName: "play"), for: .normal)
@@ -90,27 +82,24 @@ class TrackCell: UICollectionViewCell{
         return button
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     
-    private lazy var commentButton: UIButton = {
+    lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         return button
     }()
     
-    private lazy var shareButton: UIButton = {
+    lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
         return button
     }()
     
@@ -251,17 +240,7 @@ class TrackCell: UICollectionViewCell{
     
     // MARK: - Actions
     
-    @objc func didTapUserName(){
-        delegate?.didTapUser()
-        print("protocol test")
-    }
-    
-//    @objc func handleMatchIcon(){
-//        delegate?.didTapMatch()
-//    }
-    
     @objc func handlePlay(){
-        delegate?.didTapPlay()
         if let player = player, player.isPlaying{
             //stop playback
             playButton.setImage(UIImage(systemName: "play"), for: .normal)
@@ -293,19 +272,8 @@ class TrackCell: UICollectionViewCell{
         }
     }
     
-    @objc func didTapLike(){
-        delegate?.didLike()
-    }
-    
-    @objc func didTapComment(){
-        delegate?.didTapComment()
-    }
-    
-    @objc func didTapShare(){
-        delegate?.didTapShare()
-    }
-    
     // MARK: - Helpers ( Helper Function )
+    
     func configureActionButtons(){
         stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
         stackView.axis = .horizontal

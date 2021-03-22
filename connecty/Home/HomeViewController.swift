@@ -7,15 +7,9 @@
 
 import UIKit
 import PagingKit
+import AVFoundation
 
-//protocol HomePostCellDelegate {
-//    func didTapComment(post: Post)
-//    func didTapUser(user: User)
-//    func didTapOptions(post: Post)
-//    func didLike(for cell: HomePostCell)
-//}
-
-class HomeViewController: UICollectionViewController, HomePostCellDelegate{
+class HomeViewController: UICollectionViewController{
     
     var posts = [Post]()
     
@@ -34,35 +28,6 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
 //    var menuVC = PagingMenuViewController()
     var contentVC = PagingContentViewController()
-    
-    func didTapUser() {
-        //uid 같을 시, 내 프로필 이동의 경우 If로 나눠서 구현.
-        let vc = profileViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationItem.backButtonTitle = ""
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func didLike() {    }
-    
-    func didTapComment() {
-        let vc = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
-        navigationItem.backButtonTitle = ""
-        navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    func didTapShare() {
-        let alert = UIAlertController(title: "Share sheet Test", message: "text zone", preferredStyle: .actionSheet)
-        
-        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
-                
-        alert.addAction(cancelAction)
-        alert.addAction(okAction)
-        
-        self.present(alert, animated: false)
-    }
-    
-    func didTapPlay() {    }
     
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
@@ -86,6 +51,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         menuView.reloadData()
 //        contentVC.reloadData()
         setupNavigationBar()
@@ -145,8 +111,33 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         self.navigationController?.pushViewController(messageVC, animated: true)
     }
     
-    @objc func diidTapMatch(){
+    @objc func didTapMatch(){
         let alert = UIAlertController(title: "매칭 요청하기", message: "상대방에게 매칭을 요청하시겠습니까?", preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        
+        self.present(alert, animated: false)
+    }
+    
+    @objc func didTapUser() {
+        //uid 같을 시, 내 프로필 이동의 경우 If로 나눠서 구현.
+        let vc = profileViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func didTapComment() {
+        let vc = CommentController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationItem.backButtonTitle = ""
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func didTapShare() {
+        let alert = UIAlertController(title: "Share sheet Test", message: "text zone", preferredStyle: .actionSheet)
+        
         let cancelAction = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
                 
@@ -155,6 +146,7 @@ class HomeViewController: UICollectionViewController, HomePostCellDelegate{
         
         self.present(alert, animated: false)
     }
+    
 }
 
 // MARK: - UICollectionView DataSource
@@ -168,16 +160,22 @@ extension HomeViewController{
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let postCell = collectionView.dequeueReusableCell(withReuseIdentifier: PostCell.identifier, for: indexPath) as! PostCell
-        postCell.matchingButton.addTarget(self, action: #selector(diidTapMatch), for: .touchUpInside)
-        
-        
         let trackCell = collectionView.dequeueReusableCell(withReuseIdentifier: TrackCell.identifier, for: indexPath) as! TrackCell
         
+        postCell.matchingButton.addTarget(self, action: #selector(didTapMatch), for: .touchUpInside)
+        postCell.matchingLabel.addTarget(self, action: #selector(didTapMatch), for: .touchUpInside)
+        postCell.userNameButton.addTarget(self, action: #selector(didTapUser), for: .touchUpInside)
+        postCell.commentButton.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
+        postCell.shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
+        trackCell.matchingButton.addTarget(self, action: #selector(didTapMatch), for: .touchUpInside)
+        trackCell.matchingLabel.addTarget(self, action: #selector(didTapMatch), for: .touchUpInside)
+        trackCell.userNameButton.addTarget(self, action: #selector(didTapUser), for: .touchUpInside)
+        trackCell.commentButton.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
+        trackCell.shareButton.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
+        
         if (indexPath.row % 2) == 0 {
-            postCell.delegate = self
             return postCell
         }else{
-            trackCell.delegate = self
             return trackCell
         }
     }

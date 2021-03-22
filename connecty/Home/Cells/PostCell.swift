@@ -8,18 +8,9 @@
 import UIKit
 import SnapKit
 
-protocol HomePostCellDelegate: class {
-    func didTapUser()
-    func didLike()
-    func didTapComment()
-    func didTapShare()
-}
-
 class PostCell: UICollectionViewCell{
     
     static let identifier = "HomePostCellID"
-    
-    var delegate: HomePostCellDelegate?
     
     var post: Post?{
         didSet{
@@ -27,7 +18,7 @@ class PostCell: UICollectionViewCell{
         }
     }
     
-    private let profileImageView: UIImageView = {
+    let profileImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.layer.borderWidth = 3
@@ -39,12 +30,11 @@ class PostCell: UICollectionViewCell{
         return iv
     }()
     
-    private lazy var userNameButton: UIButton = {
+    lazy var userNameButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitleColor(UIColor(named: "black_white"), for: .normal)
         button.setTitle("nameLabel", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 16)
-        button.addTarget(self, action: #selector(didTapUserName), for: .touchUpInside)
         return button
     }()
     
@@ -63,7 +53,7 @@ class PostCell: UICollectionViewCell{
         return button
     }()
     
-    private let postImageView: UIImageView = {
+    lazy var postImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
@@ -72,31 +62,28 @@ class PostCell: UICollectionViewCell{
         return iv
     }()
     
-    private lazy var likeButton: UIButton = {
+    lazy var likeButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapLike), for: .touchUpInside)
         return button
     }()
     
-    private lazy var commentButton: UIButton = {
+    lazy var commentButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_comment"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapComment), for: .touchUpInside)
         return button
     }()
     
-    private lazy var shareButton: UIButton = {
+    lazy var shareButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
         button.tintColor = UIColor(named: "gray_white")
-        button.addTarget(self, action: #selector(didTapShare), for: .touchUpInside)
         return button
     }()
     
-    private let likesLabel: UILabel = {
+    let likesLabel: UILabel = {
         let label = UILabel()
         label.text = "1 like"
         label.textColor = .black
@@ -104,7 +91,7 @@ class PostCell: UICollectionViewCell{
         return label
     }()
     
-    private let captionLabel: UILabel = {
+    let captionLabel: UILabel = {
         let label = UILabel()
         label.text = "test-captionx for now  .. . .  ."
         label.textColor = .black
@@ -112,7 +99,7 @@ class PostCell: UICollectionViewCell{
         return label
     }()
     
-    private let postTimeLabel: UILabel = {
+    let postTimeLabel: UILabel = {
         let label = UILabel()
         label.text = "2 days ago"
         label.font = UIFont.systemFont(ofSize: 12)
@@ -179,25 +166,6 @@ class PostCell: UICollectionViewCell{
             $0.size.width.height.equalTo(40)
         }
         
-    }
-    
-    // MARK: - Actions
-    
-    @objc func didTapUserName(){
-        delegate?.didTapUser()
-        print("tapped complete")
-    }
-    
-    @objc func didTapLike(){
-        delegate?.didLike()
-    }
-    
-    @objc func didTapComment(){
-        delegate?.didTapComment()
-    }
-    
-    @objc func didTapShare(){
-        delegate?.didTapShare()
     }
     
     // MARK: - Helpers ( Helper Function )
