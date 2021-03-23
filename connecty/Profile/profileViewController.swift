@@ -15,7 +15,6 @@ class profileViewController: UICollectionViewController{
     
     static let identifier = "profileViewControllerID"
     
-    
     // MARK: LifeCycle
     
     override func viewDidLoad() {

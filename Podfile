@@ -10,6 +10,8 @@ target 'connecty' do
 
   pod "PagingKit"
 
+  pod 'PBPopupController'
+
   pod "TextFieldEffects"
   pod 'Alamofire', '~> 5.2'
 

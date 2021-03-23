@@ -5,6 +5,7 @@
 //  Created by 공대생 on 2021/02/12.
 //
 import UIKit
+import SnapKit
 
 class RegistrationController: UIViewController{
     
@@ -60,11 +61,20 @@ class RegistrationController: UIViewController{
         return button
     }()
     
+    private let buttonStack : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 15
+        return stack
+    }()
+    
     // MARK: Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        setupUI()
+        setupConstraints()
+        
         configureNotificationObservers()
         
         moveViewWithKeyboard()
@@ -106,28 +116,43 @@ class RegistrationController: UIViewController{
     }
     // MARK: Helpers
     
-    func configure(){
+    func setupUI(){
         let gradient = CAGradientLayer()
         gradient.colors = [UIColor.systemOrange.cgColor, UIColor.systemGreen.cgColor]
         gradient.locations = [0,1]
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
         
+        buttonStack.addArrangedSubview(emailTF)
+        buttonStack.addArrangedSubview(passwordTF)
+        buttonStack.addArrangedSubview(passwordAgainTF)
+        buttonStack.addArrangedSubview(nameTF)
+        buttonStack.addArrangedSubview(userNameTF)
+        buttonStack.addArrangedSubview(signUpButton)
+        
         view.addSubview(plusPhotoButton)
-        plusPhotoButton.centerX(inView: view)
-        plusPhotoButton.setDimensions(height: 140, width: 140)
-        plusPhotoButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
-        
-        let stack = UIStackView(arrangedSubviews: [emailTF,passwordTF,passwordAgainTF,nameTF,userNameTF,signUpButton])
-        stack.axis = .vertical
-        stack.spacing = 15
-        
-        view.addSubview(stack)
-        stack.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 32, paddingLeft: 32, paddingRight: 32)
-        
+        view.addSubview(buttonStack)
         view.addSubview(alreadyHaveAccount)
-        alreadyHaveAccount.centerX(inView: view)
-        alreadyHaveAccount.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor)
+    }
+    
+    func setupConstraints(){
+        
+        plusPhotoButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(32)
+            $0.size.width.height.equalTo(140)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
+        
+        buttonStack.snp.makeConstraints {
+            $0.top.equalTo(plusPhotoButton.snp.bottom).offset(32)
+            $0.left.equalTo(view.snp.left).offset(32)
+            $0.right.equalTo(view.snp.right).offset(-32)
+        }
+        
+        alreadyHaveAccount.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.centerX.equalTo(view.snp.centerX)
+        }
     }
     
     func configureNotificationObservers(){

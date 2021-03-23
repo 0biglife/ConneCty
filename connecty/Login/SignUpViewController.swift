@@ -51,6 +51,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         return button
     }()
     
+    private let buttonStack : UIStackView = {
+        var stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = 20
+        return stack
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -86,26 +93,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         view.layer.addSublayer(gradient)
         gradient.frame = view.frame
         
-        let stack = UIStackView(arrangedSubviews: [emailTF, passwordTF,forgotPasswordButton,loginButton])
-        stack.axis = .vertical
-        stack.spacing = 20
+        buttonStack.addArrangedSubview(passwordTF)
+        buttonStack.addArrangedSubview(emailTF)
+        buttonStack.addArrangedSubview(loginButton)
+        buttonStack.addArrangedSubview(forgotPasswordButton)
         
-        view.addSubview(stack)
-        stack.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 500, paddingLeft: 32, paddingRight: 32)
-        
-//        view.addSubview(loginButton)
-//        loginButton.anchor(top: view.safeAreaLayoutGuide.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: -80 ,paddingLeft: 32, paddingRight: 32)
-//        loginButton.addTarget(self, action: #selector(signupEvent), for: .touchUpInside)
+        view.addSubview(buttonStack)
     }
     
     func setupConstraints(){
-        
+        buttonStack.snp.makeConstraints {
+            $0.top.equalTo(view.snp.top).offset(500)
+            $0.left.equalTo(view.snp.left).offset(32)
+            $0.right.equalTo(view.snp.right).offset(-32)
+        }
     }
 
     @objc func signupEvent(){
         let tabBarVC = MainTabBarController()
         tabBarVC.modalPresentationStyle = .fullScreen
         self.present(tabBarVC, animated: true, completion: nil)
-        
     }
 }

@@ -5,15 +5,11 @@
 //  Created by 공대생 on 2021/02/04.
 //
 import UIKit
-import LNPopupController
+import PBPopupController
 
-class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
+class MainTabBarController: UITabBarController, UITabBarControllerDelegate, PBPopupControllerDelegate, PBPopupBarDataSource{
     
-    private let topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
+    
     
     // MARK: - Liftcycle
     
@@ -21,6 +17,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         super.viewDidLoad()
         delegate = self
         setupUI()
+        setMiniPlayer()
 //        if Auth.auth().currentUser == nil {
 //            presentLoginController()
 //        } else {
@@ -50,6 +47,32 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         
     }
     
+    func setMiniPlayer(){
+        self.tabBarController?.popupController.delegate = self
+        
+        if (self.tabBarController?.popupBar) != nil{
+            popupBar.dataSource = self
+            
+            popupBar.image = #imageLiteral(resourceName: "testTrackImage")
+            popupBar.title = "Title"
+            popupBar.subtitle = "Subtitle"
+            popupBar.accessibilityLabel = "Testing ...."
+            
+            let popupPlayButtonItem = UIBarButtonItem(image: UIImage(systemName: "play"), style: .plain, target: self, action: #selector(TrackCell.handlePlay))
+//            let popupNextButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "next-small"), style: .plain, target: self, action: #selector(nextAction(_:)))
+            popupPlayButtonItem.accessibilityLabel = NSLocalizedString("Play", comment: "")
+            
+            popupBar.rightBarButtonItems = [popupPlayButtonItem]
+            
+            let popupContentVC = self.storyboard?.instantiateViewController(withIdentifier: "PopupContentViewController") as? PopupContentViewController
+            self.tabBarController?.presentPopupBar(withPopupContentViewController: popupContentVC, animated: true, completion: {
+                print("Presented")
+            })
+//            button.setImage(UIImage(systemName: "play"), for: .normal)
+//            button.addTarget(self, action: #selector(handlePlay), for: .touchUpInside)
+        }
+    }
+    
     func templateNavigationController(unselectedImage: UIImage, selectedImage: UIImage, rootViewController: UIViewController)->UINavigationController{
         let nav = UINavigationController(rootViewController: rootViewController)
         nav.tabBarItem.image = unselectedImage
@@ -57,4 +80,6 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate{
         nav.navigationBar.tintColor = UIColor(named: "black_white")
         return nav
     }
+    
+    
 }

@@ -25,19 +25,18 @@
 		325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */; };
 		325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */; };
 		325FCD7E25CCC9D90068DE6C /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD7D25CCC9D90068DE6C /* PostCell.swift */; };
-		325FCD8225CCCD350068DE6C /* HomeHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCD8125CCCD350068DE6C /* HomeHeader.swift */; };
 		325FCDD025CCDF3E0068DE6C /* ApiServerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */; };
 		325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDF925CE7B400068DE6C /* MessageViewController.swift */; };
 		325FCDFD25CE7FD60068DE6C /* HomeSetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */; };
 		325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCE0025CE89050068DE6C /* SignUpViewController.swift */; };
 		327CD3A625E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */; };
+		327F659A260A0ECE00D52996 /* PopupContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F6599260A0ECE00D52996 /* PopupContentViewController.swift */; };
 		32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BB625DA45350005FF66 /* ProfileCell.swift */; };
 		32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BBA25DA453D0005FF66 /* ProfileHeader.swift */; };
 		328A56B925EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */; };
 		328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A56C325EFB3EE00436BF8 /* Tracks.swift */; };
 		328A56C725EFC10100436BF8 /* LNPopupController in Frameworks */ = {isa = PBXBuildFile; productRef = 328A56C625EFC10100436BF8 /* LNPopupController */; };
 		328A56C825EFC10100436BF8 /* LNPopupController in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 328A56C625EFC10100436BF8 /* LNPopupController */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		328A56CD25F0B7BE00436BF8 /* MiniPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */; };
 		32D424F4260222C6002A8F94 /* PagingContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D424F3260222C6002A8F94 /* PagingContentViewController.swift */; };
 		32D424F626037621002A8F94 /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D424F526037621002A8F94 /* MenuCell.swift */; };
 		32D424F826037B8A002A8F94 /* PagingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D424F726037B8A002A8F94 /* PagingMenuViewController.swift */; };
@@ -87,17 +86,16 @@
 		325FCD6B25CCBDBA0068DE6C /* practiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = practiceViewController.swift; sourceTree = "<group>"; };
 		325FCD6E25CCBDDB0068DE6C /* profileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = profileViewController.swift; sourceTree = "<group>"; };
 		325FCD7D25CCC9D90068DE6C /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		325FCD8125CCCD350068DE6C /* HomeHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeader.swift; sourceTree = "<group>"; };
 		325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServerController.swift; sourceTree = "<group>"; };
 		325FCDF925CE7B400068DE6C /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSetingViewController.swift; sourceTree = "<group>"; };
 		325FCE0025CE89050068DE6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderFlowLayout.swift; sourceTree = "<group>"; };
+		327F6599260A0ECE00D52996 /* PopupContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContentViewController.swift; sourceTree = "<group>"; };
 		32819BB625DA45350005FF66 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		32819BBA25DA453D0005FF66 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "memories (listen on spotify from 3am ep).mp3"; sourceTree = "<group>"; };
 		328A56C325EFB3EE00436BF8 /* Tracks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracks.swift; sourceTree = "<group>"; };
-		328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiniPlayerController.swift; sourceTree = "<group>"; };
 		32D424F3260222C6002A8F94 /* PagingContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingContentViewController.swift; sourceTree = "<group>"; };
 		32D424F526037621002A8F94 /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		32D424F726037B8A002A8F94 /* PagingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingMenuViewController.swift; sourceTree = "<group>"; };
@@ -175,7 +173,7 @@
 				32480C7F25C6D54400D03EED /* SceneDelegate.swift */,
 				325FCDCF25CCDF3E0068DE6C /* ApiServerController.swift */,
 				325FCD0925CBADE30068DE6C /* MainTabBarViewController.swift */,
-				328A56CC25F0B7BE00436BF8 /* MiniPlayerController.swift */,
+				327F6599260A0ECE00D52996 /* PopupContentViewController.swift */,
 				325FCDAA25CCDCEE0068DE6C /* Login */,
 				32E7864625E4B9BC00C6045A /* Modal */,
 				325FCD7125CCC1F40068DE6C /* Home */,
@@ -230,7 +228,6 @@
 				32E3713125DCF86C00A742E6 /* CommentCell.swift */,
 				325FCD7D25CCC9D90068DE6C /* PostCell.swift */,
 				320A5CBC25D6526400748296 /* TrackCell.swift */,
-				325FCD8125CCCD350068DE6C /* HomeHeader.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -430,14 +427,13 @@
 				32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */,
 				320A5CC625D6987900748296 /* RegistrationController.swift in Sources */,
 				328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */,
+				327F659A260A0ECE00D52996 /* PopupContentViewController.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,
 				325FCDD025CCDF3E0068DE6C /* ApiServerController.swift in Sources */,
 				32E3713225DCF86C00A742E6 /* CommentCell.swift in Sources */,
 				32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */,
 				325FCD6F25CCBDDB0068DE6C /* profileViewController.swift in Sources */,
 				325FCDFA25CE7B400068DE6C /* MessageViewController.swift in Sources */,
-				328A56CD25F0B7BE00436BF8 /* MiniPlayerController.swift in Sources */,
-				325FCD8225CCCD350068DE6C /* HomeHeader.swift in Sources */,
 				325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */,
 				325FCD6925CCBD950068DE6C /* matchViewController.swift in Sources */,
 				32480C8025C6D54400D03EED /* SceneDelegate.swift in Sources */,
