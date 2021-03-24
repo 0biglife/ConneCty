@@ -32,6 +32,7 @@ class TrackCell: UICollectionViewCell{
         iv.clipsToBounds = true
         iv.isUserInteractionEnabled = true
         iv.image = #imageLiteral(resourceName: "giriboi2")
+        iv.layer.cornerRadius = 40 / 2
         return iv
     }()
     
@@ -159,11 +160,32 @@ class TrackCell: UICollectionViewCell{
         return label
     }()
     
+    let topLine : UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        return view
+    }()
+    
+    let bottomLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        return view
+    }()
+    
+    var iconStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.spacing = 20
+        stack.distribution = .fillEqually
+        return stack
+    }()
+    
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        setupUI()
+        setupConstraints()
     }
     required init?(coder: NSCoder){fatalError("init(coder:) has not been implemented")}
     
@@ -176,66 +198,124 @@ class TrackCell: UICollectionViewCell{
 //        setupAttributedCaption()
     }
     
-    func configure(){
+    func setupUI(){
         backgroundColor = UIColor(named: "white_black")
         
+        iconStack.addArrangedSubview(likeButton)
+        iconStack.addArrangedSubview(commentButton)
+        iconStack.addArrangedSubview(shareButton)
+        
         addSubview(profileImageView)
-        profileImageView.anchor(top: topAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8)
-        profileImageView.setDimensions(height: 40, width: 40)
-        profileImageView.layer.cornerRadius = 40/2
-        
         addSubview(userNameButton)
-        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 12)
-        
         addSubview(matchingButton)
-        matchingButton.anchor(right: rightAnchor,paddingRight: 12)
-        matchingButton.centerY(inView: profileImageView)
-        
         addSubview(matchingLabel)
-        matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
-        matchingLabel.centerY(inView: profileImageView)
-        
-        let topLine = UIView()
-        topLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-        addSubview(topLine)
-        topLine.anchor(top: profileImageView.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
-        
         addSubview(trackImage)
-        trackImage.anchor(top: topLine.bottomAnchor, left: leftAnchor, paddingTop: 8, paddingLeft: 8, height: 120)
-        trackImage.heightAnchor.constraint(equalTo: trackImage.widthAnchor, multiplier: 1.0).isActive = true
-        
+        addSubview(topLine)
         addSubview(playButton)
-        playButton.anchor(top: trackImage.topAnchor, left: trackImage.leftAnchor)
-        playButton.centerX(inView: trackImage)
-        playButton.centerY(inView: trackImage)
-        
         addSubview(trackUserName)
-        trackUserName.anchor(top: topLine.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 18, paddingLeft: 21)
-        
         addSubview(trackTitle)
-        trackTitle.anchor(top: trackUserName.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 14, paddingLeft: 21)
         
         addSubview(trackInfoPlayIcon)
         addSubview(trackInfoPlayCount)
         addSubview(trackInfoLikeIcon)
         addSubview(trackInfoLikeCount)
-        trackInfoPlayIcon.anchor(top: trackTitle.bottomAnchor, left: trackImage.rightAnchor, paddingTop: 14, paddingLeft: 21)
-        trackInfoPlayCount.centerY(inView: trackInfoPlayIcon)
-        trackInfoLikeCount.centerY(inView: trackInfoPlayIcon)
-        trackInfoLikeIcon.centerY(inView: trackInfoPlayIcon)
-        trackInfoPlayCount.anchor(left: trackInfoPlayIcon.rightAnchor, paddingLeft: 6)
-        trackInfoLikeIcon.anchor(left: trackInfoPlayCount.rightAnchor, paddingLeft: 17)
-        trackInfoLikeCount.anchor(left: trackInfoLikeIcon.rightAnchor, paddingLeft: 6)
         
-        configureActionButtons()
+        addSubview(iconStack)
         
-        let bottomLine = UIView()
-        bottomLine.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         addSubview(bottomLine)
-        bottomLine.anchor(top: trackImage.bottomAnchor, left: leftAnchor,right: rightAnchor, paddingTop: 8, height: 0.5)
-        
         addSubview(postTimeLabel)
-        postTimeLabel.anchor(top: bottomLine.bottomAnchor, left: leftAnchor, paddingTop: 4, paddingLeft: 8)
+    }
+    
+    func setupConstraints(){
+        
+        profileImageView.snp.makeConstraints {
+            $0.top.left.equalToSuperview().offset(8)
+            $0.size.width.height.equalTo(40)
+        }
+        
+        userNameButton.snp.makeConstraints {
+            $0.left.equalTo(profileImageView.snp.right).offset(12)
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+        }
+        
+        matchingButton.snp.makeConstraints {
+            $0.right.equalToSuperview().offset(-12)
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+        }
+        
+        matchingLabel.snp.makeConstraints {
+            $0.right.equalTo(matchingButton.snp.left).offset(-8)
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+        }
+        
+        topLine.snp.makeConstraints {
+            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.5)
+        }
+        
+        trackImage.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(8)
+            $0.left.equalToSuperview().offset(8)
+            $0.width.equalTo(120)
+            $0.height.equalTo(120)
+        }
+//        trackImage.heightAnchor.constraint(equalTo: trackImage.widthAnchor, multiplier: 1.0).isActive = true
+        
+        playButton.snp.makeConstraints {
+            $0.top.left.equalTo(trackImage)
+            $0.centerX.centerY.equalTo(trackImage)
+        }
+        
+        trackUserName.snp.makeConstraints {
+            $0.top.equalTo(topLine.snp.bottom).offset(18)
+            $0.left.equalTo(trackImage.snp.right).offset(21)
+        }
+        
+        trackTitle.snp.makeConstraints {
+            $0.top.equalTo(trackUserName.snp.bottom).offset(14)
+            $0.left.equalTo(trackImage.snp.right).offset(21)
+        }
+        
+        trackInfoPlayIcon.snp.makeConstraints {
+            $0.top.equalTo(trackTitle.snp.bottom).offset(14)
+            $0.left.equalTo(trackImage.snp.right).offset(21)
+        }
+        
+        trackInfoPlayCount.snp.makeConstraints {
+            $0.centerY.equalTo(trackInfoPlayIcon)
+        }
+        
+        trackInfoPlayCount.snp.makeConstraints {
+            $0.left.equalTo(trackInfoPlayIcon.snp.right).offset(6)
+            $0.centerY.equalTo(trackInfoPlayIcon)
+        }
+        
+        trackInfoLikeIcon.snp.makeConstraints {
+            $0.left.equalTo(trackInfoPlayCount.snp.right).offset(14)
+            $0.centerY.equalTo(trackInfoPlayIcon)
+        }
+        
+        trackInfoLikeCount.snp.makeConstraints {
+            $0.left.equalTo(trackInfoLikeIcon.snp.right).offset(6)
+            $0.centerY.equalTo(trackInfoPlayIcon)
+        }
+        
+        iconStack.snp.makeConstraints {
+            $0.top.equalTo(trackInfoPlayIcon.snp.bottom).offset(10)
+            $0.left.equalTo(trackImage.snp.right).offset(20)
+        }
+        
+        bottomLine.snp.makeConstraints {
+            $0.top.equalTo(trackImage.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.5)
+        }
+        
+        postTimeLabel.snp.makeConstraints {
+            $0.top.equalTo(bottomLine.snp.bottom).offset(4)
+            $0.left.equalToSuperview().offset(8)
+        }
     }
     
     // MARK: - Actions
@@ -270,17 +350,5 @@ class TrackCell: UICollectionViewCell{
                 print("something went wrong")
             }
         }
-    }
-    
-    // MARK: - Helpers ( Helper Function )
-    
-    func configureActionButtons(){
-        stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
-        stackView.axis = .horizontal
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 20
-        
-        addSubview(stackView)
-        stackView.anchor(top: trackInfoPlayIcon.bottomAnchor, left: trackImage.rightAnchor,paddingTop:12, paddingLeft: 21)
     }
 }

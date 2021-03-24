@@ -107,8 +107,12 @@ class PostCell: UICollectionViewCell{
         return label
     }()
     
-    private var stackView = UIStackView()
-    
+    let iconStack: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .horizontal
+        stack.distribution = .fillEqually
+        return stack
+    }()
     // MARK: - Lifecycle
     
     override init(frame: CGRect) {
@@ -131,32 +135,19 @@ class PostCell: UICollectionViewCell{
         backgroundColor = UIColor(named: "white_black")
         //delegate = self
         
+        iconStack.addArrangedSubview(likeButton)
+        iconStack.addArrangedSubview(commentButton)
+        iconStack.addArrangedSubview(shareButton)
+        
         addSubview(profileImageView)
         addSubview(userNameButton)
-        userNameButton.centerY(inView: profileImageView, leftAnchor: profileImageView.rightAnchor, paddingLeft: 12)
-        
         addSubview(matchingButton)
-        matchingButton.anchor(right: rightAnchor,paddingRight: 12)
-        matchingButton.centerY(inView: profileImageView)
-        
         addSubview(matchingLabel)
-        matchingLabel.anchor(right: matchingButton.leftAnchor, paddingRight: 8)
-        matchingLabel.centerY(inView: profileImageView)
-
         addSubview(postImageView)
-        postImageView.anchor(top: profileImageView.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 8)
-        postImageView.setHeight(270)
-        
-        configureActionButtons()
-        
+        addSubview(iconStack)
         addSubview(likesLabel)
-        likesLabel.anchor(top:likeButton.bottomAnchor, left: leftAnchor,paddingTop: -4, paddingLeft: 10)
-        
         addSubview(captionLabel)
-        captionLabel.anchor(top: likesLabel.bottomAnchor, left: leftAnchor, paddingTop: 9, paddingLeft: 10)
-        
         addSubview(postTimeLabel)
-        postTimeLabel.anchor(top: captionLabel.bottomAnchor,left: leftAnchor, bottom: bottomAnchor, paddingTop: 9, paddingLeft: 10, paddingBottom: 4)
     }
     
     func setupConstraints(){
@@ -166,15 +157,48 @@ class PostCell: UICollectionViewCell{
             $0.size.width.height.equalTo(40)
         }
         
-    }
-    
-    // MARK: - Helpers ( Helper Function )
-    func configureActionButtons(){
-        stackView = UIStackView(arrangedSubviews: [likeButton, commentButton, shareButton])
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        addSubview(stackView)
-        stackView.anchor(top: postImageView.bottomAnchor, width: 114, height: 40)
+        userNameButton.snp.makeConstraints {
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+            $0.left.equalTo(profileImageView.snp.right).offset(12)
+        }
+        
+        matchingButton.snp.makeConstraints {
+            $0.right.equalToSuperview().offset(-12)
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+        }
+        
+        matchingLabel.snp.makeConstraints {
+            $0.right.equalTo(matchingButton.snp.left).offset(-8)
+            $0.centerY.equalTo(profileImageView.snp.centerY)
+        }
+        
+        postImageView.snp.makeConstraints {
+            $0.top.equalTo(profileImageView.snp.bottom).offset(8)
+            $0.left.right.equalToSuperview()
+            $0.size.height.equalTo(270)
+        }
+        
+        iconStack.snp.makeConstraints {
+            $0.top.equalTo(postImageView.snp.bottom)
+            $0.width.equalTo(114)
+            $0.height.equalTo(40)
+        }
+        
+        likesLabel.snp.makeConstraints {
+            $0.top.equalTo(likeButton.snp.bottom).offset(-4)
+            $0.left.equalToSuperview().offset(10)
+        }
+        
+        captionLabel.snp.makeConstraints {
+            $0.top.equalTo(likesLabel.snp.bottom).offset(9)
+            $0.left.equalToSuperview().offset(10)
+        }
+        
+        postTimeLabel.snp.makeConstraints {
+            $0.top.equalTo(captionLabel.snp.bottom).offset(9)
+            $0.left.equalToSuperview().offset(10)
+            $0.bottom.equalToSuperview().offset(-4)
+        }
     }
 }
 
