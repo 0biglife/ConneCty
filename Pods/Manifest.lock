@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (5.4.1)
+  - PageMenuKitSwift (1.1.2)
   - PagingKit (1.15.0)
   - PBPopupController (3.4.2)
   - SnapKit (5.0.1)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - PageMenuKitSwift
   - PagingKit
   - PBPopupController
   - SnapKit (~> 5.0.0)
@@ -17,6 +19,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - PageMenuKitSwift
     - PagingKit
     - PBPopupController
     - SnapKit
@@ -25,12 +28,13 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  PageMenuKitSwift: 4fb413c0ae16e629659bd5c6aa24df1d08fdad4b
   PagingKit: 4bd58b65d71a82ab98486b6927e870c7fbc6c6eb
   PBPopupController: 0f89d55adfeabe306c8b9885b2c736f3371ae649
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   TextFieldEffects: 529b8aff706fb40f82c41c780c0777941a893796
   Then: acfe0be7e98221c6204e12f8161459606d5d822d
 
-PODFILE CHECKSUM: 516682ab94d36f6dc203c0a2e14213635d453c5d
+PODFILE CHECKSUM: 60ab5f5d3a579cbb5638108ea45825cbd7c7fb1f
 
 COCOAPODS: 1.10.1

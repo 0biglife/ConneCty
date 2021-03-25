@@ -35,7 +35,7 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, PBPo
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = 6
-        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_home_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_home_sel"), rootViewController: HomeViewController(collectionViewLayout : layout))
+        let homeVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_home_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_home_sel"), rootViewController: HomeViewController(collectionViewLayout: layout))
         let searchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_search_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_search_sel"), rootViewController: SearchViewController())
         let matchVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "cell_match_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_match_sel"), rootViewController: matchViewController())
         let practiceVC = templateNavigationController(unselectedImage: #imageLiteral(resourceName: "co_tabBar_practice_nor"), selectedImage: #imageLiteral(resourceName: "co_tabBar_practice_sel"), rootViewController: practiceViewController())

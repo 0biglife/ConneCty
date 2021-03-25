@@ -6,28 +6,26 @@
 //
 
 import UIKit
-import PagingKit
+import PageMenuKitSwift
 import AVFoundation
 
 class HomeViewController: UICollectionViewController{
     
+    lazy var segmentedButtonsView:SegmentedButtonsView = {
+        
+       let segmentedButtonsView = SegmentedButtonsView()
+        
+        segmentedButtonsView.setLabelsTitles(titles: ["팔로잉","인기 아티스트","게시판"])
+        segmentedButtonsView.translatesAutoresizingMaskIntoConstraints = false
+        segmentedButtonsView.backgroundColor = UIColor(named: "white_black")
+        segmentedButtonsView.layer.borderWidth = 0
+        
+        return segmentedButtonsView
+    }()
+    
     var posts = [Post]()
     
     // MARK: - Delegate Function
-    
-    lazy var menuView: PagingMenuView = {
-        let menuView = PagingMenuView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 47))
-//        menuView.dataSource = self
-//        menuView.menuDelegate = self
-        menuView.cellAlignment = .center
-        
-//        menuView.register(type: MenuCell.self, with: MenuCell.identifier)
-        menuView.registerFocusView(view: UnderlineFocusView())
-        return menuView
-    }()
-    
-//    var menuVC = PagingMenuViewController()
-    var contentVC = PagingContentViewController()
     
     private let popularUser: UIButton = {
         let button = UIButton(type: .system)
@@ -52,8 +50,6 @@ class HomeViewController: UICollectionViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        menuView.reloadData()
-//        contentVC.reloadData()
         setupNavigationBar()
         setupCollectionView()
     }
@@ -85,12 +81,20 @@ class HomeViewController: UICollectionViewController{
         
         guard let collectionView = collectionView else {return}
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
         collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
         collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
         
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        
         view.addSubview(collectionView)
+        view.addSubview(segmentedButtonsView)
+        
+        segmentedButtonsView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(47)
+        }
     }
     
     @objc func goToAlarm(){
@@ -148,6 +152,7 @@ class HomeViewController: UICollectionViewController{
     }
     
 }
+
 
 // MARK: - UICollectionView DataSource
 

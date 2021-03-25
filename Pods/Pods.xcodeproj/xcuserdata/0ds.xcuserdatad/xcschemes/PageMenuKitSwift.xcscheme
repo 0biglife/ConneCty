@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "D09BAB8A20917611A8AD17E2E0EE8271"
-               BuildableName = "TextFieldEffects.framework"
-               BlueprintName = "TextFieldEffects"
+               BlueprintIdentifier = "30882B65C2212E425B363AA75AEA24DD"
+               BuildableName = "PageMenuKitSwift.framework"
+               BlueprintName = "PageMenuKitSwift"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
