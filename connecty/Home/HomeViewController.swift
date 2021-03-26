@@ -18,11 +18,13 @@ class HomeViewController: UICollectionViewController{
         segmentedButtonsView.setLabelsTitles(titles: ["팔로잉","인기 아티스트","게시판"])
         segmentedButtonsView.translatesAutoresizingMaskIntoConstraints = false
         segmentedButtonsView.backgroundColor = UIColor(named: "white_black")
-        segmentedButtonsView.layer.borderWidth = 0
+        segmentedButtonsView.layer.
         
         return segmentedButtonsView
     }()
-    
+
+    weak var delegate: CollectionViewDidScrollDelegate?
+
     var posts = [Post]()
     
     // MARK: - Delegate Function
@@ -57,7 +59,7 @@ class HomeViewController: UICollectionViewController{
     func setupNavigationBar(){
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Home"
-        UINavigationBar.appearance().isTranslucent = false
+        self.navigationController?.navigationBar.isTranslucent = false
         
         let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToUpload))
         let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
@@ -189,6 +191,18 @@ extension HomeViewController{
 // MARK: - Size of each Cell
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        delegate = segmentedButtonsView
+        delegate?.collectionViewDidScroll(for: scrollView.contentOffset.x / 2)
+    }
+    
+    func scrollToFrame(scrollOffset : CGFloat) {
+                guard scrollOffset <= collectionView.contentSize.width - collectionView.bounds.size.width else { return }
+                guard scrollOffset >= 0 else { return }
+        collectionView.setContentOffset(CGPoint(x: scrollOffset, y: collectionView.contentOffset.y), animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = view.frame.width

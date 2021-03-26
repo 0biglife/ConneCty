@@ -21,8 +21,6 @@ class SegmentedButtonsView:UIView, CollectionViewDidScrollDelegate{
     //MARK: - properties
     
     lazy var selectorView1 = UIView()
-    lazy var selectorView2 = UIView()
-    lazy var selectorView3 = UIView()
     lazy var labels = [UILabel]()
     private var titles: [String]!
     var textColor = UIColor(named: "black_white")
@@ -41,6 +39,12 @@ class SegmentedButtonsView:UIView, CollectionViewDidScrollDelegate{
         return view
     }()
     
+    let bottomLine: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     weak var segmentedControlDelegate: SegmentedControlDelegate?
     
     convenience init(frame: CGRect, titles: [String]) {
@@ -48,27 +52,10 @@ class SegmentedButtonsView:UIView, CollectionViewDidScrollDelegate{
         self.titles = titles
     }
     
-
-    //MARK: - config selected Tap
-    
-    private func configSelectedTap(){
-//        let segmentsCount = CGFloat(titles.count)
-        let selectorWidth = [68,177,211]
-        selectorView1 = UIView(frame: CGRect(x: 0, y: self.frame.height - 0.8, width: CGFloat(selectorWidth[0]), height: 0.5))
-        selectorView2 = UIView(frame: CGRect(x: 0, y: self.frame.height - 0.8, width: CGFloat(selectorWidth[1]), height: 0.5))
-        selectorView3 = UIView(frame: CGRect(x: 0, y: self.frame.height - 0.8, width: CGFloat(selectorWidth[2]), height: 0.5))
-        addSubview(selectorView1)
-        addSubview(selectorView2)
-        addSubview(selectorView3)
-//        selectorView.backgroundColor = .black
-//        addSubview(selectorView)
-    }
-    
     //MARK: - updateView
     
     private func updateView(){
         createLabels()
-        configSelectedTap()
         setupConstraints()
     }
     
@@ -82,11 +69,9 @@ class SegmentedButtonsView:UIView, CollectionViewDidScrollDelegate{
     //MARK: - create labels
     
     private func createLabels(){
-        
         labels.removeAll()
         subviews.forEach({$0.removeFromSuperview()})
         for labelTitle in titles{
-            
             let label = UILabel()
             label.font = UIFont.systemFont(ofSize: 13)
             label.text = labelTitle
@@ -157,14 +142,25 @@ class SegmentedButtonsView:UIView, CollectionViewDidScrollDelegate{
     @objc private func labelActionHandler(sender:UITapGestureRecognizer){
         for (labelIndex, lbl) in labels.enumerated() {
             if lbl == sender.view{
-                let selectorPosition1 = 177
-                let selectorPosition2 = 211
+                let selectorPosition = frame.width/CGFloat(titles.count) * CGFloat(labelIndex)
                 selectedIndex = labelIndex
                 //todo set delegate
                 segmentedControlDelegate?.didIndexChanged(at: selectedIndex)
                 UIView.animate(withDuration: 0.1) {
-                    self.selectorView2.frame.origin.x = CGFloat(selectorPosition1)
-                    self.selectorView3.frame.origin.x = CGFloat(selectorPosition2)
+                    self.selectorView1.frame.origin.x = CGFloat(selectorPosition)
+                    if labelIndex == 0 {
+                        self.labels[0].textColor = UIColor(named: "connectyOrange")
+                        self.labels[1].textColor = .black
+                        self.labels[2].textColor = .black
+                    }else if labelIndex == 1{
+                        self.labels[0].textColor = .black
+                        self.labels[1].textColor = UIColor(named: "connectyOrange")
+                        self.labels[2].textColor = .black
+                    }else if labelIndex == 2{
+                        self.labels[0].textColor = .black
+                        self.labels[1].textColor = .black
+                        self.labels[2].textColor = UIColor(named: "connectyOrange")
+                    }
                 }
             }
         }
@@ -175,7 +171,7 @@ extension SegmentedButtonsView{
     func collectionViewDidScroll(for x: CGFloat) {
 
         UIView.animate(withDuration: 0.1) { [self] in
-            self.selectorView2.frame.origin.x = x
+            self.selectorView1.frame.origin.x = x
             for (_,view)in subviews.enumerated(){
                 if view is UIStackView{
                     guard let stack = view as? UIStackView else { return }
@@ -184,7 +180,7 @@ extension SegmentedButtonsView{
                             print("Error ")
                             return
                         }
-                        if  (label.frame.width / 2  >= self.selectorView2.frame.origin.x && titles[0] == label.text! || label.frame.width / 2  <= self.selectorView3.frame.origin.x && titles[1] == label.text! ) {
+                        if  (label.frame.width / 2  >= self.selectorView1.frame.origin.x && titles[0] == label.text! || label.frame.width / 2  <= self.selectorView1.frame.origin.x && titles[1] == label.text! ) {
                             label.textColor = selectorTextColor
                         }else{
                             label.textColor = textColor
