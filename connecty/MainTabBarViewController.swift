@@ -9,8 +9,6 @@ import PBPopupController
 
 class MainTabBarController: UITabBarController, UITabBarControllerDelegate, PBPopupControllerDelegate, PBPopupBarDataSource{
     
-    
-    
     // MARK: - Liftcycle
     
     override func viewDidLoad() {
@@ -28,6 +26,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate, PBPo
     // MARK: - Helpers
     
     func setupUI(){
+        view.backgroundColor = UIColor(named: "white_black")
+        
         tabBar.barTintColor = UIColor(named: "white_black")
         tabBar.unselectedItemTintColor = UIColor(named: "gray_white")
         tabBar.tintColor = .orange //icon select 시 컬러 지정

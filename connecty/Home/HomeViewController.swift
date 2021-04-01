@@ -11,41 +11,33 @@ import AVFoundation
 
 class HomeViewController: UICollectionViewController{
     
-    lazy var segmentedButtonsView:SegmentedButtonsView = {
-        
-       let segmentedButtonsView = SegmentedButtonsView()
-        
-        segmentedButtonsView.setLabelsTitles(titles: ["팔로잉","인기 아티스트","게시판"])
-        segmentedButtonsView.translatesAutoresizingMaskIntoConstraints = false
-        segmentedButtonsView.backgroundColor = UIColor(named: "white_black")
-        segmentedButtonsView.layer.
-        
-        return segmentedButtonsView
-    }()
+//    lazy var segmentedButtonsView:SegmentedButtonsView = {
+//
+//       let segmentedButtonsView = SegmentedButtonsView()
+//
+//        segmentedButtonsView.setLabelsTitles(titles: ["팔로잉","인기 아티스트","게시판"])
+//        segmentedButtonsView.translatesAutoresizingMaskIntoConstraints = false
+//        segmentedButtonsView.backgroundColor = UIColor(named: "white_black")
+////        segmentedButtonsView.layer.
+//        segmentedButtonsView.selectorView1.addTarget(self, action: #selector(segmentViewChange(sender: segmentedButtonsView.selectedIndex)), for: .valueChanged)
+//        return segmentedButtonsView
+//    }()
+//
+//    @objc func segmentViewChange( sender: Segmented ){
+//        switch segmentedButtonsView.selectedIndex{
+//        case 0:
+//            view.backgroundColor = .red
+//        case 1:
+//            view.backgroundColor = .blue
+//        default:
+//            view.backgroundColor = .green
+//        }
+//    }
+    
+    //weak var delegate: CollectionViewDidScrollDelegate?
 
-    weak var delegate: CollectionViewDidScrollDelegate?
-
+    
     var posts = [Post]()
-    
-    // MARK: - Delegate Function
-    
-    private let popularUser: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("인기 아티스트", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.tintColor = .red
-        return button
-    }()
-    
-    private let bulletinBoard: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("게시판", for: .normal)
-        button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 14)
-        button.tintColor = .red
-        return button
-    }()
     
     // MARK: - Lifecycle
     
@@ -63,7 +55,6 @@ class HomeViewController: UICollectionViewController{
         
         let uplaodButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_upload") ,style: .plain , target: self, action: #selector(goToUpload))
         let alarmButton = UIBarButtonItem(image: #imageLiteral(resourceName: "home_navigation_bell") ,style: .plain , target: self, action: #selector(goToAlarm))
-        
 //        let fixedSpace:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
 //        fixedSpace.width = -10
         navigationItem.rightBarButtonItems = [alarmButton,uplaodButton]
@@ -90,13 +81,7 @@ class HomeViewController: UICollectionViewController{
         collectionView.delegate = self
         
         view.addSubview(collectionView)
-        view.addSubview(segmentedButtonsView)
         
-        segmentedButtonsView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(47)
-        }
     }
     
     @objc func goToAlarm(){
@@ -193,8 +178,8 @@ extension HomeViewController{
 extension HomeViewController: UICollectionViewDelegateFlowLayout{
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        delegate = segmentedButtonsView
-        delegate?.collectionViewDidScroll(for: scrollView.contentOffset.x / 2)
+//        delegate = segmentedButtonsView
+//        delegate?.collectionViewDidScroll(for: scrollView.contentOffset.x / 2)
     }
     
     func scrollToFrame(scrollOffset : CGFloat) {
