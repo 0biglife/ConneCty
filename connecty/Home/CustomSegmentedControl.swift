@@ -4,10 +4,11 @@
 //
 //  Created by Mdo on 17/02/2021.
 //
+
 import UIKit
 
-protocol SegmentedControlDelegate:class{
-    func didIndexChanged(to index: Int)
+protocol CustomSegmentedControlDelegate:class{
+    func change(to index: Int)
 }
 
 class CustomSegmentedControl: UIView{
@@ -19,26 +20,26 @@ class CustomSegmentedControl: UIView{
     private var selectorView: UIView!
     
     var textColor: UIColor = UIColor(named: "black_white")!
-    var selectorViewColor:UIColor = UIColor(named: "white_black")!
+//    var selectorViewColor:UIColor = UIColor(named: "connectyOrange")!
     var selectorTextColor:UIColor = UIColor(named: "connectyOrange")!
     
-    weak var delegate: SegmentedControlDelegate?
+    weak var delegate: CustomSegmentedControlDelegate?
     
     public private(set) var selectedIndex: Int = 0
-
-    let firstLine: UIView = {
+    
+    let stackLine1 : UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
         return view
     }()
     
-    let secondLine: UIView = {
+    let stackLine2 : UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
         return view
     }()
     
-    let bottomLine: UIView = {
+    let bottomLine : UIView = {
         let view = UIView()
         view.backgroundColor = .lightGray
         return view
@@ -53,7 +54,7 @@ class CustomSegmentedControl: UIView{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        self.backgroundColor = UIColor(named: "white_black")
+        self.backgroundColor = UIColor.systemBackground
         updateView()
     }
     
@@ -77,12 +78,12 @@ class CustomSegmentedControl: UIView{
         for (buttonIndex, btn) in buttons.enumerated() {
             btn.setTitleColor(textColor, for: .normal)
             if btn == sender {
-                let selectorPosition = frame.width/CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
+//                let selectorPosition = frame.width/CGFloat(buttonTitles.count) * CGFloat(buttonIndex)
                 selectedIndex = buttonIndex
-                delegate?.didIndexChanged(to: selectedIndex)
-                UIView.animate(withDuration: 0.3) {
-                    self.selectorView.frame.origin.x = selectorPosition
-                }
+                delegate?.change(to: selectedIndex)
+//                UIView.animate(withDuration: 0.3) {
+//                    self.selectorView.frame.origin.x = selectorPosition
+//                }
                 btn.setTitleColor(selectorTextColor, for: .normal)
             }
             
@@ -94,29 +95,54 @@ class CustomSegmentedControl: UIView{
 extension CustomSegmentedControl {
     private func updateView() {
         createButton()
-        configSelectorView()
-        configStackView()
+//        configSelectorView()
+        setupStackView()
     }
     
-    private func configStackView() {
+    private func setupStackView() {
         let stack = UIStackView(arrangedSubviews: buttons)
         stack.axis = .horizontal
         stack.alignment = .fill
         stack.distribution = .fillEqually
+        
+        addSubview(stackLine1)
+        addSubview(stackLine2)
+        addSubview(bottomLine)
         addSubview(stack)
-        stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        stack.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        stack.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        stack.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        
+        stackLine1.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(18)
+            $0.left.equalToSuperview().offset(74)
+            $0.width.equalTo(0.2)
+            $0.height.equalTo(12)
+        }
+        
+        stackLine2.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(17)
+            $0.left.equalToSuperview().offset(174)
+            $0.width.equalTo(0.2)
+            $0.height.equalTo(12)
+        }
+        
+        bottomLine.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(0.2)
+        }
+        
+        stack.snp.makeConstraints {
+            $0.top.bottom.left.equalToSuperview()
+            $0.width.equalTo(245)
+        }
+        
     }
     
-    private func configSelectorView() {
-        let selectorWidth = frame.width / CGFloat(self.buttonTitles.count)
-        selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 2))
-        selectorView.backgroundColor = selectorViewColor
-        addSubview(selectorView)
-    }
+//    private func configSelectorView() {
+//        let selectorWidth = frame.width / CGFloat(self.buttonTitles.count)
+//        selectorView = UIView(frame: CGRect(x: 0, y: self.frame.height, width: selectorWidth, height: 2))
+//        selectorView.backgroundColor = selectorViewColor
+//        addSubview(selectorView)
+//    }
     
     private func createButton() {
         buttons = [UIButton]()
@@ -125,12 +151,11 @@ extension CustomSegmentedControl {
         for buttonTitle in buttonTitles {
             let button = UIButton(type: .system)
             button.setTitle(buttonTitle, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
             button.addTarget(self, action:#selector(CustomSegmentedControl.buttonAction(sender:)), for: .touchUpInside)
             button.setTitleColor(textColor, for: .normal)
             buttons.append(button)
         }
         buttons[0].setTitleColor(selectorTextColor, for: .normal)
     }
-    
-    
 }

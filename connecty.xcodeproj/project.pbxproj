@@ -31,7 +31,7 @@
 		325FCE0125CE89050068DE6C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325FCE0025CE89050068DE6C /* SignUpViewController.swift */; };
 		327CD3A625E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */; };
 		327F659A260A0ECE00D52996 /* PopupContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F6599260A0ECE00D52996 /* PopupContentViewController.swift */; };
-		327F65B9260CABD800D52996 /* SegmentedButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F65B8260CABD800D52996 /* SegmentedButtonsView.swift */; };
+		327F65B9260CABD800D52996 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 327F65B8260CABD800D52996 /* CustomSegmentedControl.swift */; };
 		32819BB725DA45350005FF66 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BB625DA45350005FF66 /* ProfileCell.swift */; };
 		32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32819BBA25DA453D0005FF66 /* ProfileHeader.swift */; };
 		328A56B925EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */; };
@@ -90,7 +90,7 @@
 		325FCE0025CE89050068DE6C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		327CD3A525E29F9F0038A8F1 /* ProfileHeaderFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderFlowLayout.swift; sourceTree = "<group>"; };
 		327F6599260A0ECE00D52996 /* PopupContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupContentViewController.swift; sourceTree = "<group>"; };
-		327F65B8260CABD800D52996 /* SegmentedButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedButtonsView.swift; sourceTree = "<group>"; };
+		327F65B8260CABD800D52996 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		32819BB625DA45350005FF66 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		32819BBA25DA453D0005FF66 /* ProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeader.swift; sourceTree = "<group>"; };
 		328A56B825EFB03C00436BF8 /* memories (listen on spotify from 3am ep).mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "memories (listen on spotify from 3am ep).mp3"; sourceTree = "<group>"; };
@@ -207,11 +207,11 @@
 			isa = PBXGroup;
 			children = (
 				325FCD0E25CBC0640068DE6C /* HomeViewController.swift */,
-				327F65B8260CABD800D52996 /* SegmentedButtonsView.swift */,
+				327F65B8260CABD800D52996 /* CustomSegmentedControl.swift */,
 				325FCDF925CE7B400068DE6C /* MessageViewController.swift */,
 				325FCDFC25CE7FD60068DE6C /* HomeSetingViewController.swift */,
-				325FCD8425CCCD480068DE6C /* Cells */,
 				32E3712D25DCF6A500A742E6 /* CommentController.swift */,
+				325FCD8425CCCD480068DE6C /* Cells */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -418,7 +418,7 @@
 				32819BBB25DA453D0005FF66 /* ProfileHeader.swift in Sources */,
 				32E3712A25DBF29300A742E6 /* profileSettingViewController.swift in Sources */,
 				320A5CC625D6987900748296 /* RegistrationController.swift in Sources */,
-				327F65B9260CABD800D52996 /* SegmentedButtonsView.swift in Sources */,
+				327F65B9260CABD800D52996 /* CustomSegmentedControl.swift in Sources */,
 				328A56C425EFB3EE00436BF8 /* Tracks.swift in Sources */,
 				327F659A260A0ECE00D52996 /* PopupContentViewController.swift in Sources */,
 				325FCD6C25CCBDBA0068DE6C /* practiceViewController.swift in Sources */,

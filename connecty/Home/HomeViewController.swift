@@ -6,36 +6,18 @@
 //
 
 import UIKit
-import PageMenuKitSwift
 import AVFoundation
 
 class HomeViewController: UICollectionViewController{
     
-//    lazy var segmentedButtonsView:SegmentedButtonsView = {
-//
-//       let segmentedButtonsView = SegmentedButtonsView()
-//
-//        segmentedButtonsView.setLabelsTitles(titles: ["팔로잉","인기 아티스트","게시판"])
-//        segmentedButtonsView.translatesAutoresizingMaskIntoConstraints = false
-//        segmentedButtonsView.backgroundColor = UIColor(named: "white_black")
-////        segmentedButtonsView.layer.
-//        segmentedButtonsView.selectorView1.addTarget(self, action: #selector(segmentViewChange(sender: segmentedButtonsView.selectedIndex)), for: .valueChanged)
-//        return segmentedButtonsView
-//    }()
-//
-//    @objc func segmentViewChange( sender: Segmented ){
-//        switch segmentedButtonsView.selectedIndex{
-//        case 0:
-//            view.backgroundColor = .red
-//        case 1:
-//            view.backgroundColor = .blue
-//        default:
-//            view.backgroundColor = .green
-//        }
-//    }
-    
-    //weak var delegate: CollectionViewDidScrollDelegate?
-
+    var customSC: CustomSegmentedControl! = {
+        let customSC = CustomSegmentedControl()
+        customSC.setButtonTitles(buttonTitles: ["팔로잉","인기 아티스트","게시판"])
+        customSC.backgroundColor = UIColor(named: "white_black")
+//        customSC.selectorViewColor = UIColor(named: "connectyOrange")!
+        customSC.selectorTextColor = UIColor(named: "connectyOrange")!
+        return customSC
+    }()
     
     var posts = [Post]()
     
@@ -43,9 +25,18 @@ class HomeViewController: UICollectionViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupNavigationBar()
         setupCollectionView()
+        setupSegmentedControl()
+    }
+    
+    func setupSegmentedControl(){
+        view.addSubview(customSC)
+        customSC.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.left.right.equalToSuperview()
+            $0.size.height.equalTo(47)
+        }
     }
     
     func setupNavigationBar(){
@@ -72,16 +63,15 @@ class HomeViewController: UICollectionViewController{
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 100, width: view.frame.width, height: view.frame.height), collectionViewLayout: layout)
         
-        guard let collectionView = collectionView else {return}
+//        guard let collectionView = collectionView else {return}
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
         
         collectionView.register(PostCell.self, forCellWithReuseIdentifier: PostCell.identifier)
         collectionView.register(TrackCell.self, forCellWithReuseIdentifier: TrackCell.identifier)
         
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        
         view.addSubview(collectionView)
-        
     }
     
     @objc func goToAlarm(){
