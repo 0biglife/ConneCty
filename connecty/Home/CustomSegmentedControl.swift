@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol CustomSegmentedControlDelegate:class{
+protocol CustomSegmentedControlDelegate: UIViewController{
     func change(to index: Int)
 }
 
@@ -23,9 +23,9 @@ class CustomSegmentedControl: UIView{
 //    var selectorViewColor:UIColor = UIColor(named: "connectyOrange")!
     var selectorTextColor:UIColor = UIColor(named: "connectyOrange")!
     
-    weak var delegate: CustomSegmentedControlDelegate?
+    var delegate: CustomSegmentedControlDelegate?
     
-    public private(set) var selectedIndex: Int = 0
+    var selectedIndex: Int = 0
     
     let stackLine1 : UIView = {
         let view = UIView()
@@ -134,7 +134,6 @@ extension CustomSegmentedControl {
             $0.top.bottom.left.equalToSuperview()
             $0.width.equalTo(245)
         }
-        
     }
     
 //    private func configSelectorView() {

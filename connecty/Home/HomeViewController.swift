@@ -8,7 +8,12 @@
 import UIKit
 import AVFoundation
 
-class HomeViewController: UICollectionViewController{
+class HomeViewController: UICollectionViewController, CustomSegmentedControlDelegate{
+    
+    func change(to index: Int) {
+        print("segmentedControl index changed to \(index)")
+        
+    }
     
     var customSC: CustomSegmentedControl! = {
         let customSC = CustomSegmentedControl()
@@ -21,13 +26,100 @@ class HomeViewController: UICollectionViewController{
     
     var posts = [Post]()
     
+    var miniPlayer : UIView = {
+        let vi = UIView()
+        vi.backgroundColor = #colorLiteral(red: 0.2705612183, green: 0.2706055045, blue: 0.2705515325, alpha: 1)
+        vi.clipsToBounds = true
+        vi.layer.cornerRadius = 15
+        vi.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        return vi
+    }()
+    
+    var mP_playButton : UIButton = {
+        let button = UIButton(type: .system)
+        button.tintColor = UIColor.white
+        button.setImage(UIImage(systemName: "play.fill"), for: .normal)
+        return button
+    }()
+    
+    var mP_userName: UILabel = {
+        let label = UILabel()
+        label.text = "Pizza boy"
+        label.textColor = UIColor.white
+        label.font = UIFont.systemFont(ofSize: 10)
+        return label
+    }()
+    
+    var mP_title : UILabel = {
+        let label = UILabel()
+        label.text = "02.Life is Piazza(Feat.Chicken&Beer"
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 10)
+        return label
+    }()
+    
+    var mP_likeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cell_like"), for: .normal)
+        button.tintColor = UIColor.white
+        return button
+    }()
+    
+    var mP_shareButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.setImage(#imageLiteral(resourceName: "cell_share"), for: .normal)
+        button.tintColor = UIColor.white
+        return button
+    }()
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        customSC.delegate = self
         setupNavigationBar()
         setupCollectionView()
         setupSegmentedControl()
+        setupMiniPlayer()
+    }
+    
+    func setupMiniPlayer(){
+        view.addSubview(miniPlayer)
+        miniPlayer.addSubview(mP_playButton)
+        miniPlayer.addSubview(mP_userName)
+        miniPlayer.addSubview(mP_title)
+        miniPlayer.addSubview(mP_shareButton)
+        miniPlayer.addSubview(mP_likeButton)
+        
+        miniPlayer.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(56)
+        }
+        
+        mP_playButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.left.equalToSuperview().offset(20)
+        }
+        
+        mP_userName.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(12)
+            $0.left.equalTo(mP_playButton.snp.right).offset(14)
+        }
+        
+        mP_title.snp.makeConstraints {
+            $0.top.equalTo(mP_userName.snp.bottom).offset(8)
+            $0.left.equalTo(mP_userName.snp.left)
+        }
+        
+        mP_shareButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.right.equalToSuperview().offset(-24)
+        }
+        
+        mP_likeButton.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.right.equalTo(mP_shareButton.snp.left).offset(-14)
+        }
     }
     
     func setupSegmentedControl(){
@@ -37,6 +129,11 @@ class HomeViewController: UICollectionViewController{
             $0.left.right.equalToSuperview()
             $0.size.height.equalTo(47)
         }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
     
     func setupNavigationBar(){
@@ -136,8 +233,12 @@ class HomeViewController: UICollectionViewController{
 extension HomeViewController{
     
     // MARK: - PostCell
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 8
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
